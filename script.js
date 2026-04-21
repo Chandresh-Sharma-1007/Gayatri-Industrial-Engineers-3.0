@@ -186,7 +186,7 @@ const clientData = [
   { name: "Creative Dyeing & Printing Mills Pvt. Ltd.", logo: "Client Logo/Creative.png", color: "#1B5BC0" },
   { name: "Chiripal Group", logo: "Client Logo/Chiripal.png", color: "#0F3D8A" },
   { name: "Bhaskar Denim", logo: "Client Logo/Bhaskar_Denim.png", color: "#2D6FD4" },
-  { name: "ANV Non Wovens Pvt. Ltd.", logo: "Client Logo/ANV.png", color: "#1B5BC0" },
+  { name: "ANV Non Wovens Pvt. Ltd.", logo: "Client logo/ANV.png", color: "#1B5BC0" },
   { name: "Vijayeswari Textiles Limited", logo: "Client Logo/VTX.png", color: "#0F3D8A" },
   { name: "Supreme Nonwoven Industries Pvt. Ltd.", logo: "Client Logo/Supreme.png", color: "#2D6FD4" },
   { name: "Sutlej Textiles and Industries Limited", logo: "Client Logo/Sutlej.png", color: "#1B5BC0" },
