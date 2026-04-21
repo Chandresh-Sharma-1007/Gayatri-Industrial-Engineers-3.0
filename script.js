@@ -171,7 +171,7 @@ document
      CLIENTS GRID — build + staggered reveal
   ────────────────────────────────────── */
 const clientData = [
-  { name: "Premier Mills Pvt. Ltd.", logo: "client Logo/Premier.png", color: "#1B5BC0" },
+  { name: "Premier Mills Pvt. Ltd.", logo: "Premier.png", color: "#1B5BC0" },
   { name: "Pratibha Syntex Pvt. Ltd.", logo: "client Logo/pratibha.png", color: "#0F3D8A" },
   { name: "Mafatlal Industries Limited", logo: "client Logo/Mafatlal.png", color: "#2D6FD4" },
   { name: " Shri Lakshmi Cotsyn Limited", logo: "client Logo/lakshmi.png", color: "#1B5BC0" },
