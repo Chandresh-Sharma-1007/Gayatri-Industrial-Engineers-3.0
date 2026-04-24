@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayatri Industrial Engineers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  :root {
+    --blue-950: #020c1b;
+    --blue-900: #0a192f;
+    --blue-800: #0d2444;
+    --blue-700: #0f3460;
+    --blue-600: #1a4f8a;
+    --blue-500: #1e6abf;
+    --blue-400: #2d8cff;
+    --blue-300: #64abff;
+    --blue-200: #a8d1ff;
+    --blue-100: #dbeeff;
+    --blue-50:  #f0f7ff;
+    --white: #ffffff;
+    --text-dark: #0a192f;
+    --text-light: #5a7fa8;
+  }
+
+  /* ── Section ── */
+  #gayatri-products {
+    position: relative;
+    background: linear-gradient(160deg, var(--blue-950) 0%, var(--blue-900) 45%, var(--blue-800) 100%);
+    padding: 120px 0 140px;
+    overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Blueprint grid */
+  #gayatri-products::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(45,140,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45,140,255,.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Radial spotlight */
+  #gayatri-products::after {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(113, 173, 248, 0.354) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .gp-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── Header ── */
+  .gp-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 80px;
+    align-items: end;
+    margin-bottom: 72px;
+  }
+
+  .gp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blue-300);
+    margin-bottom: 20px;
+  }
+
+  .gp-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--blue-400);
+  }
+
+  .gp-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 7vw, 96px);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin: 0 0 0 -4px;
+  }
+
+  .gp-title span {
+    display: block;
+    background: linear-gradient(135deg, var(--blue-400), var(--blue-200));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gp-rule {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue-400), transparent);
+    margin-top: 28px;
+    border: none;
+  }
+
+  .gp-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(168,209,255,.7);
+    font-weight: 300;
+    font-style: italic;
+    max-width: 520px;
+    padding-bottom: 16px;
+  }
+
+  /* ── Stats strip ── */
+  .gp-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 72px;
+    padding: 28px 36px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(45,140,255,.15);
+    border-radius: 2px;
+    backdrop-filter: blur(12px);
+  }
+
+  .gp-stat { display: flex; flex-direction: column; gap: 4px; }
+
+  .gp-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--blue-300);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .gp-stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(168,209,255,.45);
+    font-weight: 500;
+  }
+
+  .gp-stat-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    align-self: stretch;
+    margin: 0 4px;
+  }
+
+  /* ── Grid ── */
+  .gp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  /* ── Card ── */
+  .gp-card {
+    position: relative;
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s ease;
+    box-shadow: 0 4px 24px rgba(0,0,0,.35);
+  }
+
+  .gp-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(45,140,255,.3);
+  }
+
+  .gp-card--featured { grid-column: span 2; }
+
+  /* Image */
+  .gp-card-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .gp-card--featured .gp-card-image { height: 320px; }
+
+  .gp-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(.22,1,.36,1), filter 0.4s ease;
+    filter: saturate(0.8);
+  }
+
+  .gp-card:hover .gp-card-image img {
+    transform: scale(1.08);
+    filter: saturate(1.1);
+  }
+
+  .gp-card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,25,47,.1) 0%,
+      rgba(15,52,96,.3) 55%,
+      rgba(10,25,47,.72) 100%
+    );
+    transition: opacity 0.4s ease;
+  }
+
+  .gp-card:hover .gp-card-image::after { opacity: 0.65; }
+
+  .gp-card-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--blue-700);
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  .gp-card-index {
+    position: absolute;
+    bottom: 14px;
+    right: 18px;
+    z-index: 2;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    line-height: 1;
+    color: rgba(255,255,255,.16);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+
+  .gp-card:hover .gp-card-index { color: rgba(45,140,255,.32); }
+
+  /* Body */
+  .gp-card-body {
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .gp-card-category {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue-500);
+    margin-bottom: 10px;
+  }
+
+  .gp-card-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin: 0 0 12px;
+  }
+
+  .gp-card--featured .gp-card-name { font-size: 28px; }
+
+  .gp-card-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-light);
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+
+  /* CTA Button */
+  .gp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+    background: var(--blue-700);
+    padding: 13px 24px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: gap 0.3s ease;
+  }
+
+  .gp-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gp-btn:hover { gap: 16px; }
+  .gp-btn:hover::before { opacity: 1; }
+
+  .gp-btn-text { position: relative; z-index: 1; }
+
+  .gp-btn-arrow {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .gp-btn:hover .gp-btn-arrow { transform: translateX(3px); }
+
+  /* Grid visual divider */
+  .gp-grid-divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(45,140,255,.25), transparent);
+    margin: 2px 0;
+  }
+
+  /* ── Footer line ── */
+  .gp-footer-line {
+    margin-top: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 32px;
+    border-top: 1px solid rgba(45,140,255,.12);
+  }
+
+  .gp-footer-text {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(168,209,255,.35);
+    font-weight: 500;
+  }
+
+  .gp-footer-dots { display: flex; gap: 8px; }
+
+  .gp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(45,140,255,.3);
+  }
+
+  .gp-dot:first-child {
+    background: var(--blue-400);
+    box-shadow: 0 0 8px var(--blue-400);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .gp-grid { grid-template-columns: repeat(2, 1fr); }
+    .gp-card--featured { grid-column: 1 / -1; }
+    .gp-header { grid-template-columns: 1fr; gap: 24px; }
+    .gp-stats { flex-wrap: wrap; gap: 24px; }
+  }
+
+  @media (max-width: 640px) {
+    #gayatri-products { padding: 80px 0 100px; }
+    .gp-container { padding: 0 20px; }
+    .gp-grid { grid-template-columns: 1fr; }
+    .gp-card--featured { grid-column: 1; }
+    .gp-card--featured .gp-card-image { height: 240px; }
+    .gp-footer-line { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .gp-stat-divider { display: none; }
+    .gp-stats { padding: 20px 24px; }
+  }
+</style>
+
+
+</head>
+<body>
+
+  <!-- ─ Custom cursor ─ -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ═══════════════════════════════════════
+       SMART NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+
+<div class="nav-logo">
+    <div class="nav-logo-icon">
+        <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
+    </div>
+    <div class="nav-logo-text">
+        Gayatri<br><span>Industrial Engineers</span>
+    </div>
+</div>
+        <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="product-section.html">Products</a></li>
+
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blogs</a></li>
+    </ul>
+
+
+    <div class="nav-cta-wrap">
+      <a href="#footer" class="nav-cta">Get In Touch</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="product-section.html">Products</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="#">Blogs</a>
+    <a href="#footer" class="mobile-cta">Get In Touch</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       Products section
+  ═══════════════════════════════════════ -->
+  
+
+<section id="gayatri-products">
+  <div class="gp-container">
+
+    <!-- Header -->
+    <a href="d"><div class="gp-header">
+      <div>
+        <div class="gp-eyebrow">Advanced Solutions</div>
+        <h2 class="gp-title">Our<span>Products</span></h2>
+        <hr class="gp-rule">
+      </div>
+      <div>
+        <p class="gp-description">
+          Smart solutions are at the core of all that we do at Gayatri Industrial Engineers. Our main goal is finding smart ways of using technology that will help build a better tomorrow for everyone, everywhere. Gayatri Industrial Engineers is a name synonymous with quality since 1977. For the last three decades, we have been catering to the needs of various industries such as textiles, chemicals, and block-making machinery units by providing cost-effective solutions.
+        </p>
+      </div>
+    </div></a>
+
+    <!-- Stats -->
+    <div class="gp-stats">
+      <div class="gp-stat">
+        <span class="gp-stat-num">1977</span>
+        <span class="gp-stat-label">Established</span>
+      </div>
+      <div class="gp-stat-divider"></div>
+      <div class="gp-stat">
+        <span class="gp-stat-num">45+</span>
+        <span class="gp-stat-label">Years of Excellence</span>
+      </div>
+      <!-- <div class="gp-stat-divider"></div>
+      <div class="gp-stat">
+        <span class="gp-stat-num">3</span>
+        <span class="gp-stat-label">Core Industries</span>
+      </div> -->
+      <div class="gp-stat-divider"></div>
+      <div class="gp-stat">
+        <span class="gp-stat-num">5+</span>
+        <span class="gp-stat-label">Flagship Machines</span>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="gp-grid">
+
+      <!-- 01 · Featured -->
+      <div class="gp-card gp-card--featured">
+        <div class="gp-card-image">
+          <img src="Decatising Machine/deca_machine.jpeg" alt="Decatising Machine" loading="lazy">
+          <!-- <span class="gp-card-tag">Textile Finishing</span> -->
+          <span class="gp-card-index">01</span>
+        </div>
+        <div class="gp-card-body">
+          
+          <h3 class="gp-card-name">Decatising Machine</h3>
+          <p class="gp-card-desc">Our high-performance Decatising Machines deliver superior fabric finishing through precise steam and pressure application. Engineered for consistency, they enhance fabric lustre, dimensional stability, and handle—setting the benchmark for premium textile processing across woven and knitted fabrics.</p>
+          <a href="decatising-machine.html" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="gp-card">
+        <div class="gp-card-image">
+          <img src="Home-page-product-img/Gas Singeing Machine.png" alt="Gas Singeing Machine" loading="lazy">
+          
+          <span class="gp-card-index">02</span>
+        </div>
+        <div class="gp-card-body">
+          <span class="gp-card-category">Textile Machinery</span>
+          <h3 class="gp-card-name">Gas Singeing Machine</h3>
+          <p class="gp-card-desc">Precision gas singeing eliminates surface fibres with controlled flame technology, delivering uniform treatment and smooth, print-ready cloth at high throughput speeds.</p>
+          <a href="gas-singeing-machine.html" class="gp-btn"><span class="gp-btn-text">More Details</span><span class="gp-btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="gp-grid-divider"></div>
+
+      <!-- 03 -->
+      <div class="gp-card">
+        <div class="gp-card-image">
+          <img src="Automatic Dyeing Jigger Machine/06.jpg" alt="Automatic Dyeing Jigger Machine" loading="lazy">
+          
+          <span class="gp-card-index">03</span>
+        </div>
+        <div class="gp-card-body">
+          <span class="gp-card-category">Dyeing Machinery</span>
+          <h3 class="gp-card-name">Automatic Dyeing Jigger Machine</h3>
+          <p class="gp-card-desc">Fully automated dyeing with microprocessor-controlled parameters. Ensures reproducible colour fastness, reduced water consumption, and consistent depth of shade across all fabric types.</p>
+          <a href="#" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="gp-card">
+        <div class="gp-card-image">
+          <img src="Home-page-product-img/Calander Machine.png" alt="Calander Machine" loading="lazy">
+          
+          <span class="gp-card-index">04</span>
+        </div>
+        <div class="gp-card-body">
+          <span class="gp-card-category">Finishing Machinery</span>
+          <h3 class="gp-card-name">Calander Machine</h3>
+          <p class="gp-card-desc">Heavy-duty calendering with variable roll pressure and temperature control. Achieves exceptional fabric smoothness, sheen, and compactness—ideal for high-end textile finishing lines.</p>
+          <a href="#" class="gp-btn"><span class="gp-btn-text">More Details</span><span class="gp-btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="gp-card">
+        <div class="gp-card-image">
+          <img src="Hyrdaulic Jigger/Hyd-Final.jpg" alt="Hydraulic Jigger" loading="lazy">
+          
+          <span class="gp-card-index">05</span>
+        </div>
+        <div class="gp-card-body">
+          <span class="gp-card-category">Dyeing Machinery</span>
+          <h3 class="gp-card-name">Hydraulic Jigger</h3>
+          <p class="gp-card-desc">Robust hydraulic drive for smooth, tension-controlled fabric passage. Built for heavy woven fabrics—delivers even dyeing and treatment with low liquor ratio for every production run.</p>
+          <a href="#" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+
+
+  </div>
+</section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
+          <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
+        </div>
+        <p>Manufacturing precision textile processing machinery for decades. Trusted by 500+ mills across India.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="mailto:info@gayatriengineers.com" class="social-btn" title="Email" aria-label="Email">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="decatising-machine.html">Decatising Machine</a></li>
+          <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
+          <li><a href="#products-strip">Automatic Dyeing Jigger Machine</a></li>
+          <li><a href="#products-strip">Calander Machine</a></li>
+          <li><a href="#products-strip">Hyrdaulic Jigger</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
+</a></li>
+          <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
+          <li><a href="mailto:info@gayatriengineers.com">✉️ gayatri0022@rediffmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
+      <div class="footer-badge">Precision Built in <span>India&nbsp;🇮🇳</span></div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ═══════════════════════════════════════ -->
+  <a href="https://wa.me/918511343477"
+     id="whatsapp-btn"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <!-- Official WhatsApp path -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script src="script.js"></script>
+</body>
+</html>

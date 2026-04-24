@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayatri Industrial Engineers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --royal: #1a3a8f;
+    --electric: #2251cc;
+    --royal-dark: #0f2460;
+    --royal-mid: #1e4ab5;
+    --royal-light: #3a6de8;
+    --royal-pale: #dce8ff;
+    --white: #ffffff;
+    --off-white: #f4f7ff;
+    --text-on-blue: #ffffff;
+    --text-on-white: #0f2460;
+    --shadow-blue: rgba(26,58,143,0.18);
+    --transition: 0.38s cubic-bezier(.4,0,.2,1);
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--text-on-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── SECTION HEADER ── */
+  .gallery-header {
+    background: var(--royal);
+    padding: 5rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 48px,
+        rgba(255,255,255,0.03) 48px,
+        rgba(255,255,255,0.03) 50px
+      );
+    pointer-events: none;
+  }
+  .gallery-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 48px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .header-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.7s ease both;
+  }
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 0.7s 0.1s ease both;
+  }
+  .header-title em {
+    font-style: italic;
+    font-weight: 600;
+  }
+  .header-rule {
+    width: 3rem;
+    height: 2px;
+    background: rgba(255,255,255,0.4);
+    margin: 1.5rem auto 0;
+    position: relative;
+    z-index: 1;
+    animation: scaleIn 0.6s 0.3s ease both;
+  }
+
+  /* ── GRID ── */
+  .gallery-section {
+    background: var(--white);
+    padding: 3rem 1.5rem 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  /* ── CARD ── */
+  .award-card {
+    background: var(--white);
+    border: 1.5px solid var(--royal-pale);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    animation: cardReveal 0.6s both;
+    box-shadow: 0 4px 24px var(--shadow-blue);
+  }
+  .award-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 16px 48px rgba(26,58,143,0.22);
+    border-color: var(--royal-light);
+  }
+
+  /* Blue top strip (50% blue) */
+  .card-img-wrap {
+    background: linear-gradient(160deg, var(--royal) 0%, var(--electric) 100%);
+    position: relative;
+    aspect-ratio: 4/3; /* Keeps all cards the same size */
+    overflow: hidden;
+    /* Removed flex properties to let the image fill the space */
+}
+  .card-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        transparent,
+        transparent 22px,
+        rgba(255,255,255,0.04) 22px,
+        rgba(255,255,255,0.04) 24px
+      );
+    pointer-events: none;
+  }
+  /* Update your line 137 */
+
+
+/* Update your line 161 */
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces the photo to fill the 4/3 box */
+    object-position: center; /* Centers the trophy/certificate */
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.55s cubic-bezier(.4, 0, .2, 1), opacity 0.4s;
+    opacity: 1; /* Changed from 0.88 to 1 for better visibility */
+}
+  .award-card:hover .card-img-wrap img {
+    transform: scale(1.07);
+    opacity: 1;
+  }
+
+  /* Zoom icon */
+  .zoom-icon {
+    position: absolute;
+    bottom: 12px; right: 14px;
+    z-index: 2;
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.3s, transform 0.3s;
+    backdrop-filter: blur(4px);
+  }
+  .zoom-icon svg { width: 16px; height: 16px; stroke: white; fill: none; }
+  .award-card:hover .zoom-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* White bottom (50% white) */
+  .card-body {
+    background: var(--white);
+    padding: 1.1rem 1.25rem 1.25rem;
+    border-top: 2px solid var(--electric);
+  }
+  .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--royal);
+    color: var(--white);
+    font-size: 0.38rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 99px;
+    margin-bottom: 0.55rem;
+    object-fit: contain ;
+  }
+  .award-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .award-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--royal-dark);
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+  }
+  .award-year {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--electric);
+    letter-spacing: 0.08em;
+  }
+
+  /* Card stagger animation delays */
+  .award-card:nth-child(1)  { animation-delay: 0.05s; }
+  .award-card:nth-child(2)  { animation-delay: 0.10s; }
+  .award-card:nth-child(3)  { animation-delay: 0.15s; }
+  .award-card:nth-child(4)  { animation-delay: 0.20s; }
+  .award-card:nth-child(5)  { animation-delay: 0.25s; }
+  .award-card:nth-child(6)  { animation-delay: 0.30s; }
+  .award-card:nth-child(7)  { animation-delay: 0.35s; }
+  .award-card:nth-child(8)  { animation-delay: 0.40s; }
+  .award-card:nth-child(9)  { animation-delay: 0.45s; }
+  .award-card:nth-child(10) { animation-delay: 0.50s; }
+  .award-card:nth-child(11) { animation-delay: 0.55s; }
+  .award-card:nth-child(12) { animation-delay: 0.60s; }
+  .award-card:nth-child(13) { animation-delay: 0.65s; }
+
+  /* ── LIGHTBOX ── */
+  .lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,20,60,0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    backdrop-filter: blur(6px);
+  }
+  .lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .lightbox-inner {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    background: var(--white);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,20,0.6);
+    transform: scale(0.88) translateY(24px);
+    transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+  }
+  .lightbox-overlay.active .lightbox-inner {
+    transform: scale(1) translateY(0);
+  }
+  .lightbox-img-wrap {
+    background: linear-gradient(150deg, var(--royal) 0%, var(--electric) 100%);
+    position: relative;
+    width: 100%;
+    max-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .lightbox-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    max-height: 65vh;
+  }
+  .lightbox-footer {
+    background: var(--white);
+    border-top: 3px solid var(--electric);
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  /* .lightbox-title-block {
+
+  } */
+  .lightbox-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 0.25rem;
+  }
+  .lightbox-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--royal-dark);
+    line-height: 1.2;
+  }
+  .lightbox-year {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.2rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .lightbox-close {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--royal);
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    position: absolute;
+    top: 14px; right: 14px;
+    z-index: 10;
+  }
+  .lightbox-close:hover { background: var(--royal-dark); transform: scale(1.1) rotate(90deg); }
+  .lightbox-close svg { width: 18px; height: 18px; stroke: white; stroke-width: 2.5; fill: none; }
+
+  /* Nav arrows */
+  .lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 5;
+    backdrop-filter: blur(4px);
+  }
+  .lb-nav:hover { background: rgba(255,255,255,0.25); }
+  .lb-nav svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; }
+  .lb-prev { left: 12px; }
+  .lb-next { right: 12px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scaleX(0); }
+    to   { opacity: 1; transform: scaleX(1); }
+  }
+  @keyframes cardReveal {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.4rem; }
+  }
+  @media (max-width: 560px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .gallery-section { padding: 2rem 1rem 3.5rem; }
+    .gallery-header { padding: 3.5rem 1.25rem 3rem; }
+    .lightbox-footer { flex-direction: column; align-items: flex-start; }
+    .lightbox-name { font-size: 1.2rem; }
+    .lb-nav { display: none; }
+  }
+  @media (max-width: 360px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ─ Custom cursor ─ -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ═══════════════════════════════════════
+       SMART NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+
+<div class="nav-logo">
+    <div class="nav-logo-icon">
+        <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
+    </div>
+    <div class="nav-logo-text">
+        Gayatri<br><span>Industrial Engineers</span>
+    </div>
+</div>
+        <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="product-section.html">Products</a></li>
+
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blogs</a></li>
+    </ul>
+
+
+    <div class="nav-cta-wrap">
+      <a href="#footer" class="nav-cta">Get In Touch</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="product-section.html">Products</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blog.html">Blogs</a>
+    <a href="#footer" class="mobile-cta">Get In Touch</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       Gallery Section
+  ═══════════════════════════════════════ -->
+
+<!-- HEADER -->
+<header class="gallery-header">
+  <p class="header-eyebrow">Recognition &amp; Excellence</p>
+  <h1 class="gallery-title header-title">Our <em>Awards</em><br>&amp; Accolades</h1>
+  <div class="header-rule"></div>
+</header>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Award detail">
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap">
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <img id="lbImg" src="" alt="">
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <button class="lightbox-close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="lightbox-footer">
+      <div class="lightbox-title-block">
+        <p class="lightbox-label">Award of Excellence</p>
+        <p class="lightbox-name" id="lbName">—</p>
+        <p class="lightbox-year" id="lbYear">—</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ──────────────────────────────────────
+   CUSTOM CURSOR (Renamed to avoid conflicts)
+────────────────────────────────────── */
+const mainCursor = document.getElementById("cursor");
+const mainCursorDot = document.getElementById("cursor-dot");
+
+if (mainCursor && mainCursorDot) {
+    document.addEventListener("mousemove", (e) => {
+        mainCursor.style.left = e.clientX + "px";
+        mainCursor.style.top = e.clientY + "px";
+        mainCursorDot.style.left = e.clientX + "px";
+        mainCursorDot.style.top = e.clientY + "px";
+    });
+
+    document.querySelectorAll("a, button, .dot, .award-card, .product-card").forEach((el) => {
+        el.addEventListener("mouseenter", () => mainCursor.classList.add("hover"));
+        el.addEventListener("mouseleave", () => mainCursor.classList.remove("hover"));
+    });
+}
+
+/* ──────────────────────────────────────
+   NAVBAR SCROLL
+────────────────────────────────────── */
+const stickyNav = document.getElementById("navbar");
+let lastScrollPosition = 0;
+let isNavTicking = false;
+
+window.addEventListener("scroll", () => {
+    if (!isNavTicking) {
+        requestAnimationFrame(() => {
+            const currentY = window.scrollY;
+            if (currentY > lastScrollPosition && currentY > 120) {
+                stickyNav.classList.add("nav-hidden");
+            } else {
+                stickyNav.classList.remove("nav-hidden");
+            }
+            stickyNav.classList.toggle("nav-scrolled", currentY > 60);
+            lastScrollPosition = currentY;
+            isNavTicking = false;
+        });
+        isNavTicking = true;
+    }
+});
+
+/* ──────────────────────────────────────
+   GALLERY & LIGHTBOX LOGIC
+────────────────────────────────────── */
+const awardsData = [
+    { name: "9th India International Textile Machinery Exhibition.", year: "2012", category: "Certificate of Participation", img: "Gallary/DSC_0023.JPG" },
+    { name: "Life Time Achievement Award presented by the National & International Compendium.", year: " August 1st, 2002", category: "Certificate Of Achievement", 
+    img: "Gallary/DSC_0027.JPG.jpeg" },
+    { name: "Mother Indra Udyog Pratibha Award-2005", year: "2005", category: "Award",
+     img: "Gallary/DSC_0030.JPG.jpeg" },
+    { name: " National Industrial Excellence Award", year: "", category: "Award", 
+    img: "Gallary/DSC_0032.JPG.jpeg" },
+    { name: "Life Time Achievement Gold Medal Award ", year: "July 10, 2003", category: "Certificate Of Achievement", 
+    img: "Gallary/DSC_0033.JPG.jpeg" },
+    { name: "New Delhi National Industrial Excellence Award  ", year: "May 5, 1997", category: "Certificate Of Achievement", img: "Gallary/DSC_0035.JPG.jpeg" },
+    { name: " Mother India Udyog Pratibha Award-2005 ", year: "2005", category: "Certificate Of Achievement", img: "Gallary/DSC_0036.JPG.jpeg" },
+    { name: "BHARTIYA UDYOG RATAN AWARD", year: "2022", category: "Community", img: "Gallary/DSC_0037.JPG.jpeg" },
+    { name: "Singeing Machine", year: "", category: "Product", img: "Gallary/DSC_0038.JPG.jpeg" },
+    { name: "Award Ceremony", year: "", category: "Award", img: "Gallary/DSC_0039.JPG.jpeg" },
+    { name: "Award Ceremony", year: "", category: "Award", img: "Gallary/DSC_0040.JPG.jpeg" },
+    { name: "Bhartiya Udyog Ratan Award", year: "", category: "Award", img: "Gallary/DSC_0041.JPG.jpeg  " },
+    
+];
+
+const galleryGrid = document.getElementById('galleryGrid');
+const awardLightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbName = document.getElementById('lbName');
+const lbYear = document.getElementById('lbYear');
+let currentAwardIdx = 0;
+
+// Create Cards
+if (galleryGrid) {
+    awardsData.forEach((a, i) => {
+        const card = document.createElement('article');
+        card.className = 'award-card';
+        card.innerHTML = `
+            <div class="card-img-wrap">
+                <img src="${a.img}" alt="${a.name}" loading="lazy">
+                <div class="zoom-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="2" fill="none"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+                </div>
+            </div>
+            <div class="card-body">
+                <span class="award-badge">${a.category}</span>
+                <p class="award-name">${a.name}</p>
+                <p class="award-year">${a.year}</p>
+            </div>`;
+        card.addEventListener('click', () => handleOpenLightbox(i));
+        galleryGrid.appendChild(card);
+    });
+}
+
+function handleOpenLightbox(idx) {
+    currentAwardIdx = idx;
+    const data = awardsData[currentAwardIdx];
+    lbImg.src = data.img;
+    lbName.textContent = data.name;
+    lbYear.textContent = `${data.category} · ${data.year}`;
+    
+    awardLightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function handleCloseLightbox() {
+    awardLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Event Listeners for Lightbox
+document.getElementById('lbClose').addEventListener('click', handleCloseLightbox);
+
+document.getElementById('lbNext').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentAwardIdx = (currentAwardIdx + 1) % awardsData.length;
+    handleOpenLightbox(currentAwardIdx);
+});
+
+document.getElementById('lbPrev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentAwardIdx = (currentAwardIdx - 1 + awardsData.length) % awardsData.length;
+    handleOpenLightbox(currentAwardIdx);
+});
+
+awardLightbox.addEventListener('click', (e) => {
+    if (e.target === awardLightbox) handleCloseLightbox();
+});
+</script>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
+          <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
+        </div>
+        <p>Manufacturing precision textile processing machinery for decades. Trusted by 500+ mills across India.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="mailto:info@gayatriengineers.com" class="social-btn" title="Email" aria-label="Email">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="decatising-machine.html">Decatising Machine</a></li>
+          <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
+          <li><a href="#products-strip">Automatic Dyeing Jigger Machine</a></li>
+          <li><a href="#products-strip">Calander Machine</a></li>
+          <li><a href="#products-strip">Hyrdaulic Jigger</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
+</a></li>
+          <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
+          <li><a href="mailto:info@gayatriengineers.com">✉️ gayatri0022@rediffmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
+      <div class="footer-badge">Precision Built in <span>India&nbsp;🇮🇳</span></div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ═══════════════════════════════════════ -->
+  <a href="https://wa.me/918511343477"
+     id="whatsapp-btn"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Chat on WhatsApp">
+    <!-- Official WhatsApp path -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script src="script.js"></script>
+</body>
+</html>
