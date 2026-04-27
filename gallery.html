@@ -405,6 +405,15 @@
   @media (max-width: 360px) {
     .gallery-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── CUSTOM CURSOR — must sit above lightbox (z-index: 9999) ── */
+  #cursor,
+  #cursor-dot {
+    position: fixed;
+    pointer-events: none;   /* never blocks clicks on anything beneath */
+    z-index: 10000;         /* above the lightbox overlay at 9999 */
+    transform: translate(-50%, -50%);
+  }
 </style>
 </head>
 <body>
@@ -418,14 +427,15 @@
   ═══════════════════════════════════════ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
 
-<div class="nav-logo">
-    <div class="nav-logo-icon">
+    <div class="nav-logo">
+     <a href="index.html"><div class="nav-logo-icon">
         <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
-    </div>
-    <div class="nav-logo-text">
+      </div></a> 
+      <a href="index.html"><div class="nav-logo-text">
         Gayatri<br><span>Industrial Engineers</span>
+      </div></a>
     </div>
-</div>
+    
         <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
@@ -505,7 +515,7 @@ const mainCursor = document.getElementById("cursor");
 const mainCursorDot = document.getElementById("cursor-dot");
 
 if (mainCursor && mainCursorDot) {
-    document.addEventListener("mousemove", (e) => {
+    window.addEventListener("mousemove", (e) => {
         mainCursor.style.left = e.clientX + "px";
         mainCursor.style.top = e.clientY + "px";
         mainCursorDot.style.left = e.clientX + "px";
@@ -686,7 +696,7 @@ awardLightbox.addEventListener('click', (e) => {
     </div>
     <div class="footer-bottom">
       <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
-      <div class="footer-badge">Precision Built in <span>India&nbsp;🇮🇳</span></div>
+    <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
     </div>
   </footer>
 
