@@ -78,10 +78,10 @@
     .nav-logo { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
     .nav-logo-icon {
       width: 44px; height: 44px;
-      background: var(--electric); border-radius: 10px;
+      /* background: var(--electric); border-radius: 10px; */
       display: flex; align-items: center; justify-content: center;
       font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #fff;
-      box-shadow: 0 0 18px rgba(0,86,179,.6); flex-shrink: 0;
+      /* box-shadow: 0 0 18px rgba(0,86,179,.6); flex-shrink: 0; */
     }
     .nav-logo-text {
       font-size: 13px; font-weight: 700; letter-spacing: .07em;
@@ -541,6 +541,7 @@
       border-radius: 16px;
       overflow: hidden;
       transition: transform 0.3s, border-color 0.3s;
+      border: 1.5px ridge  var(--electric-h);
     }
     .product-card:hover { transform: translateY(-6px); border-color: rgba(27,91,192,0.5); }
     .product-img-placeholder {
