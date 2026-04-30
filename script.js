@@ -225,3 +225,16 @@ new IntersectionObserver(
 
 
 // animation for parallax window
+
+const heroVideo = document.getElementById('hero-video');
+
+window.addEventListener('scroll', () => {
+    // If the user scrolls more than 50px down, mute the video
+    if (window.scrollY > 100) {
+        heroVideo.muted = true;
+    } 
+    // Optional: Unmute when they scroll back to the very top
+    else {
+       heroVideo.muted = false;
+    }
+});
