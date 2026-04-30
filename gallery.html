@@ -3,486 +3,807 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gayatri Industrial Engineers</title>
+  <title>Gayatri Industrial Engineers — Gallery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ══════════════════════════════════════════
+   RESET & VARIABLES
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --royal: #1a3a8f;
-    --electric: #2251cc;
-    --royal-dark: #0f2460;
-    --royal-mid: #1e4ab5;
-    --royal-light: #3a6de8;
-    --royal-pale: #dce8ff;
-    --white: #ffffff;
-    --off-white: #f4f7ff;
-    --text-on-blue: #ffffff;
-    --text-on-white: #0f2460;
-    --shadow-blue: rgba(26,58,143,0.18);
-    --transition: 0.38s cubic-bezier(.4,0,.2,1);
-  }
+:root {
+  /* Brand blues */
+  --royal:        #1a3a8f;
+  --electric:     #2251cc;
+  --royal-dark:   #0f2460;
+  --royal-light:  #3a6de8;
+  --royal-pale:   #dce8ff;
 
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--white);
-    color: var(--text-on-white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  /* Gold palette */
+  --gold:         #c9a84c;
+  --gold-light:   #e8c96a;
+  --gold-pale:    #f5e9c8;
+  --gold-dark:    #8b6914;
+  --gold-glow:    rgba(201,168,76,0.35);
 
-  /* ── SECTION HEADER ── */
-  .gallery-header {
-    background: var(--royal);
-    padding: 5rem 2rem 3.5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .gallery-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 48px,
-        rgba(255,255,255,0.03) 48px,
-        rgba(255,255,255,0.03) 50px
-      );
-    pointer-events: none;
-  }
-  .gallery-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 48px;
-    background: var(--white);
-    clip-path: ellipse(55% 100% at 50% 100%);
-  }
-  .header-eyebrow {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
-    animation: fadeDown 0.7s ease both;
-  }
-  .header-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 300;
-    color: var(--white);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    position: relative;
-    z-index: 1;
-    animation: fadeDown 0.7s 0.1s ease both;
-  }
-  .header-title em {
-    font-style: italic;
-    font-weight: 600;
-  }
-  .header-rule {
-    width: 3rem;
-    height: 2px;
-    background: rgba(255,255,255,0.4);
-    margin: 1.5rem auto 0;
-    position: relative;
-    z-index: 1;
-    animation: scaleIn 0.6s 0.3s ease both;
-  }
+  /* Neutrals */
+  --white:        #ffffff;
+  --off-white:    #f8f5ef;
+  --ink:          #0f2460;
+  --muted:        #6b7ba4;
 
-  /* ── GRID ── */
-  .gallery-section {
-    background: var(--white);
-    padding: 3rem 1.5rem 5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  /* ── CARD ── */
-  .award-card {
-    background: var(--white);
-    border: 1.5px solid var(--royal-pale);
-    border-radius: 1.25rem;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    animation: cardReveal 0.6s both;
-    box-shadow: 0 4px 24px var(--shadow-blue);
-  }
-  .award-card:hover {
-    transform: translateY(-8px) scale(1.015);
-    box-shadow: 0 16px 48px rgba(26,58,143,0.22);
-    border-color: var(--royal-light);
-  }
-
-  /* Blue top strip (50% blue) */
-  .card-img-wrap {
-    background: linear-gradient(160deg, var(--royal) 0%, var(--electric) 100%);
-    position: relative;
-    aspect-ratio: 4/3; /* Keeps all cards the same size */
-    overflow: hidden;
-    /* Removed flex properties to let the image fill the space */
+  --transition:   0.38s cubic-bezier(.4,0,.2,1);
 }
-  .card-img-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      repeating-linear-gradient(
-        135deg,
-        transparent,
-        transparent 22px,
-        rgba(255,255,255,0.04) 22px,
-        rgba(255,255,255,0.04) 24px
-      );
-    pointer-events: none;
-  }
-  /* Update your line 137 */
 
-
-/* Update your line 161 */
-.card-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Forces the photo to fill the 4/3 box */
-    object-position: center; /* Centers the trophy/certificate */
-    display: block;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.55s cubic-bezier(.4, 0, .2, 1), opacity 0.4s;
-    opacity: 1; /* Changed from 0.88 to 1 for better visibility */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
 }
-  .award-card:hover .card-img-wrap img {
-    transform: scale(1.07);
-    opacity: 1;
-  }
 
-  /* Zoom icon */
-  .zoom-icon {
-    position: absolute;
-    bottom: 12px; right: 14px;
-    z-index: 2;
-    width: 34px; height: 34px;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0;
-    transform: scale(0.7);
-    transition: opacity 0.3s, transform 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .zoom-icon svg { width: 16px; height: 16px; stroke: white; fill: none; }
-  .award-card:hover .zoom-icon {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* ══════════════════════════════════════════
+   CUSTOM CURSOR — gold diamond crosshair
+══════════════════════════════════════════ */
+#cursor {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width .25s, height .25s, opacity .25s;
+}
+#cursor::before,
+#cursor::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  transition: all .25s;
+}
+#cursor::before {
+  width: 100%; height: 1px;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+}
+#cursor::after {
+  width: 1px; height: 100%;
+  left: 50%; top: 0;
+  transform: translateX(-50%);
+}
+#cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: translate(-50%, -50%) rotate(45deg);
+  pointer-events: none;
+  z-index: 10001;
+  transition: width .2s, height .2s, background .2s;
+}
+body.cursor-hover #cursor { width: 52px; height: 52px; opacity: 0.7; }
+body.cursor-hover #cursor-dot { width: 6px; height: 6px; background: var(--gold-light); }
 
-  /* White bottom (50% white) */
-  .card-body {
-    background: var(--white);
-    padding: 1.1rem 1.25rem 1.25rem;
-    border-top: 2px solid var(--electric);
-  }
-  .award-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--royal);
-    color: var(--white);
-    font-size: 0.38rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 99px;
-    margin-bottom: 0.55rem;
-    object-fit: contain ;
-  }
-  .award-badge::before {
-    content: '';
-    width: 5px; height: 5px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .award-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--royal-dark);
-    line-height: 1.3;
-    margin-bottom: 0.35rem;
-  }
-  .award-year {
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--electric);
-    letter-spacing: 0.08em;
-  }
+/* ══════════════════════════════════════════
+   HERO HEADER
+══════════════════════════════════════════ */
+.gallery-header {
+  background: var(--royal-dark);
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      45deg, transparent, transparent 48px,
+      rgba(255,255,255,0.025) 48px,
+      rgba(255,255,255,0.025) 50px
+    );
+  pointer-events: none;
+}
+.gallery-header::after {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(201,168,76,0.2);
+  pointer-events: none;
+}
+.header-wave {
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 56px;
+  background: var(--off-white);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.header-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+  animation: fadeDown 0.7s ease both;
+}
+.header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  position: relative; z-index: 1;
+  animation: fadeDown 0.7s 0.05s ease both;
+}
+.header-ornament .orn-line {
+  height: 1px; width: 60px;
+  background: linear-gradient(to right, transparent, var(--gold));
+}
+.header-ornament .orn-line-r {
+  background: linear-gradient(to left, transparent, var(--gold));
+}
+.header-ornament .orn-gem { color: var(--gold); font-style: normal; font-size: 1.1rem; }
+.header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  position: relative; z-index: 1;
+  animation: fadeDown 0.7s 0.1s ease both;
+}
+.header-title em { font-style: italic; font-weight: 600; color: var(--gold-light); }
+.header-subtitle {
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  position: relative; z-index: 1;
+  animation: fadeDown 0.7s 0.18s ease both;
+}
 
-  /* Card stagger animation delays */
-  .award-card:nth-child(1)  { animation-delay: 0.05s; }
-  .award-card:nth-child(2)  { animation-delay: 0.10s; }
-  .award-card:nth-child(3)  { animation-delay: 0.15s; }
-  .award-card:nth-child(4)  { animation-delay: 0.20s; }
-  .award-card:nth-child(5)  { animation-delay: 0.25s; }
-  .award-card:nth-child(6)  { animation-delay: 0.30s; }
-  .award-card:nth-child(7)  { animation-delay: 0.35s; }
-  .award-card:nth-child(8)  { animation-delay: 0.40s; }
-  .award-card:nth-child(9)  { animation-delay: 0.45s; }
-  .award-card:nth-child(10) { animation-delay: 0.50s; }
-  .award-card:nth-child(11) { animation-delay: 0.55s; }
-  .award-card:nth-child(12) { animation-delay: 0.60s; }
-  .award-card:nth-child(13) { animation-delay: 0.65s; }
+/* ══════════════════════════════════════════
+   PAGE WRAPPER
+══════════════════════════════════════════ */
+.gallery-page { background: var(--off-white); padding: 0 0 5rem; }
 
-  /* ── LIGHTBOX ── */
-  .lightbox-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(10,20,60,0.92);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
-    backdrop-filter: blur(6px);
-  }
-  .lightbox-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  .lightbox-inner {
-    position: relative;
-    max-width: 900px;
-    width: 100%;
-    background: var(--white);
-    border-radius: 1.5rem;
-    overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0,0,20,0.6);
-    transform: scale(0.88) translateY(24px);
-    transition: transform 0.38s cubic-bezier(.4,0,.2,1);
-    display: flex;
-    flex-direction: column;
-  }
-  .lightbox-overlay.active .lightbox-inner {
-    transform: scale(1) translateY(0);
-  }
-  .lightbox-img-wrap {
-    background: linear-gradient(150deg, var(--royal) 0%, var(--electric) 100%);
-    position: relative;
-    width: 100%;
-    max-height: 65vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .lightbox-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    max-height: 65vh;
-  }
-  .lightbox-footer {
-    background: var(--white);
-    border-top: 3px solid var(--electric);
-    padding: 1.25rem 1.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  /* .lightbox-title-block {
+/* ══════════════════════════════════════════
+   SECTION LABEL
+══════════════════════════════════════════ */
+.section-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 3.5rem 2rem 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.section-label-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.icon-gold  { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); }
+.icon-blue  { background: linear-gradient(135deg, var(--royal-dark), var(--electric)); }
+.icon-slate { background: linear-gradient(135deg, #1a2a4a, #2a3f6a); }
 
-  } */
-  .lightbox-label {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--electric);
-    margin-bottom: 0.25rem;
-  }
-  .lightbox-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--royal-dark);
-    line-height: 1.2;
-  }
-  .lightbox-year {
-    font-size: 0.75rem;
-    color: #888;
-    margin-top: 0.2rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-  }
-  .lightbox-close {
-    flex-shrink: 0;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--royal);
-    border: none;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-    position: absolute;
-    top: 14px; right: 14px;
-    z-index: 10;
-  }
-  .lightbox-close:hover { background: var(--royal-dark); transform: scale(1.1) rotate(90deg); }
-  .lightbox-close svg { width: 18px; height: 18px; stroke: white; stroke-width: 2.5; fill: none; }
+.acceptance-section-label-text h2{
 
-  /* Nav arrows */
-  .lb-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.13);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 50%;
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s;
-    z-index: 5;
-    backdrop-filter: blur(4px);
-  }
-  .lb-nav:hover { background: rgba(255,255,255,0.25); }
-  .lb-nav svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; }
-  .lb-prev { left: 12px; }
-  .lb-next { right: 12px; }
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.15;
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scaleX(0); }
-    to   { opacity: 1; transform: scaleX(1); }
-  }
-  @keyframes cardReveal {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+}
+.acceptance-section-label-text p{
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--off-white);
+  margin-top: 2px;
+}
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.4rem; }
-  }
-  @media (max-width: 560px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .gallery-section { padding: 2rem 1rem 3.5rem; }
-    .gallery-header { padding: 3.5rem 1.25rem 3rem; }
-    .lightbox-footer { flex-direction: column; align-items: flex-start; }
-    .lightbox-name { font-size: 1.2rem; }
-    .lb-nav { display: none; }
-  }
-  @media (max-width: 360px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-  }
+.section-label-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--royal-dark);
+  line-height: 1.15;
+}
+.section-label-text p {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--electric);
+  margin-top: 2px;
+}
+.section-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(26,58,143,0.15), transparent);
+}
 
-  /* ── CUSTOM CURSOR — must sit above lightbox (z-index: 9999) ── */
-  #cursor,
-  #cursor-dot {
-    position: fixed;
-    pointer-events: none;   /* never blocks clicks on anything beneath */
-    z-index: 10000;         /* above the lightbox overlay at 9999 */
-    transform: translate(-50%, -50%);
-  }
+/* ══════════════════════════════════════════
+   CAROUSEL
+══════════════════════════════════════════ */
+.carousel-outer {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem 1.5rem;
+}
+.carousel-track {
+  display: flex;
+  gap: 1.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.5rem;
+}
+/* .carousel-track::-webkit-scrollbar { display: none; }
+.carousel-outer::before,
+.carousel-outer::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 2rem;
+  pointer-events: none;
+  z-index: 2;
+} */
+/* .carousel-outer::before { left: 2rem; background: linear-gradient(to right, var(--off-white), transparent); }
+.carousel-outer::after  { right: 2rem; background: linear-gradient(to left, var(--off-white), transparent); } */
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.75rem;
+}
+.carousel-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(26,58,143,0.15);
+  display: inline-block;
+}
+.carousel-dots span:first-child {
+  background: var(--gold);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ══════════════════════════════════════════
+   ① AWARD CARDS — dark navy + gold frame
+══════════════════════════════════════════ */
+
+
+.award-card {
+  scroll-snap-align: start;
+  flex: 0 0 295px;
+  background: var(--gold);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: cardReveal 0.6s both;
+  overflow: visible;
+}
+.award-card:hover {
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--gold);
+}
+/* Ornate gold border frame */
+.award-frame {
+  position: absolute;
+  inset: 6px;
+  border: 1.5px solid var(--gold);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 5;
+  transition: box-shadow var(--transition);
+}
+.award-card:hover .award-frame {
+  box-shadow: inset 0 0 24px rgba(201,168,76,0.08), 0 0 14px var(--gold-glow);
+}
+/* Corner ornament cuts on frame */
+.award-frame::before,
+/* .award-frame::after {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  border-color: var(--);
+  border-style: solid;
+} */
+.award-frame::before { top: -4px; left: -4px; border-width: 2px 0 0 2px; }
+.award-frame::after  { bottom: -4px; right: -4px; border-width: 0 2px 2px 0; }
+
+.award-img-wrap {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+  background: #060f2a;
+  border-radius: 4px 4px 0 0;
+}
+.award-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(6,15,42,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.award-card:hover .award-img-wrap::after { opacity: 0.5; }
+.award-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter var(--transition);
+  filter: sepia(0.12) brightness(0.88);
+}
+.award-card:hover .award-img-wrap img {
+  transform: scale(1.07);
+  filter: sepia(0) brightness(1);
+}
+
+/* Zoom icon shared */
+.zoom-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  z-index: 4;
+  width: 44px; height: 44px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  backdrop-filter: blur(4px);
+}
+.zoom-icon svg { width: 18px; height: 18px; stroke: var(--gold-light); fill: none; }
+.award-card:hover .zoom-icon,
+.photo-card:hover .zoom-icon,
+.exhibit-card:hover .zoom-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.award-card-body {
+  padding: 0.9rem 1rem 1.1rem;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(201,168,76,0.25);
+}
+.award-card-body::before {
+  content: '';
+  display: block;
+  width: 2rem; height: 1px;
+  background: var(--gold);
+  margin-bottom: 0.55rem;
+}
+.award-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--royal-dark);
+  margin-bottom: 0.35rem;
+}
+.award-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+  
+}
+.award-year { font-size: 0.62rem; color:var(--royal-dark); letter-spacing: 0.1em; }
+
+/* ══════════════════════════════════════════
+   ② ACCEPTANCE PHOTO CARDS — warm editorial
+══════════════════════════════════════════ */
+.acceptance-section { background: var(--royal-dark); }
+.acceptance-section .carousel-outer::before { background: linear-gradient(to right, var(--white), transparent); }
+.acceptance-section .carousel-outer::after  { background: linear-gradient(to left, var(--white), transparent); }
+
+.photo-card {
+  scroll-snap-align: start;
+  flex: 0 0 340px;
+  background: var(--white);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.09), 0 1px 0 rgba(0,0,0,0.05);
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: cardReveal 0.6s both;
+}
+.photo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 52px rgba(0,0,0,0.18);
+}
+.photo-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+.photo-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter var(--transition);
+  filter: sepia(0.2) contrast(1.04);
+}
+.photo-card:hover .photo-img-wrap img { transform: scale(1.05); filter: sepia(0) contrast(1); }
+.photo-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(139,105,20,0.14) 100%);
+  pointer-events: none;
+}
+.photo-img-wrap .zoom-icon { border-color: var(--gold); }
+.photo-img-wrap .zoom-icon svg { stroke: var(--gold); }
+
+.photo-card-body {
+  padding: 0.9rem 1rem 1rem;
+  border-top: 3px solid var(--gold);
+}
+.photo-label {
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-dark); margin-bottom: 0.3rem;
+}
+.photo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 800;
+  color: var(--royal-dark); line-height: 1.3;
+}
+.photo-year { font-size: 0.62rem; color: var(--muted); margin-top: 0.2rem; letter-spacing: 0.08em; }
+
+/* ══════════════════════════════════════════
+   ③ EXHIBITION CARDS — blueprint dark
+══════════════════════════════════════════ */
+.exhibition-section {
+  background: var(--off-white);
+  padding-bottom: 1rem;
+}
+.exhibition-section .section-label-wrap { padding-top: 3rem; }
+.exhibition-section .section-label-text h2 { color: var(--royal-dark); }
+.exhibition-section .section-label-text p  { color:var(--electric); }
+.exhibition-section .section-divider { background: linear-gradient(to right, rgba(255,255,255,0.1), transparent); }
+.exhibition-section .carousel-outer::before { background: linear-gradient(to right, var(--royal-dark), transparent); }
+.exhibition-section .carousel-outer::after  { background: linear-gradient(to left, var(--royal-dark), transparent); }
+.exhibition-section .carousel-dots span     { background: rgba(255,255,255,0.12); }
+.exhibition-section .carousel-dots span:first-child { background: var(--royal-light); }
+
+.exhibit-card {
+  scroll-snap-align: start;
+  flex: 0 0 360px;
+  background:var(--royal-dark);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  animation: cardReveal 0.6s both;
+}
+.exhibit-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--royal-light);
+  box-shadow: 0 14px 48px rgba(0,0,0,0.5), 0 0 0 1px var(--electric);
+}
+.exhibit-img-wrap {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+}
+.exhibit-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter var(--transition);
+  filter: brightness(0.72) hue-rotate(10deg) saturate(0.8);
+}
+.exhibit-card:hover .exhibit-img-wrap img {
+  transform: scale(1.07);
+  filter: brightness(0.9) hue-rotate(0deg) saturate(1);
+}
+/* Blueprint grid overlay */
+.exhibit-img-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(rgba(58,109,232,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,109,232,0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.exhibit-card:hover .exhibit-img-wrap::before { opacity: 0.35; }
+.exhibit-img-wrap .zoom-icon { border-color: var(--royal-light); }
+.exhibit-img-wrap .zoom-icon svg { stroke: var(--white); }
+
+.exhibit-card-body {
+  padding: 0.85rem 1rem;
+  border-top: 1px solid rgba(58,109,232,0.35);
+  background: rgba(255,255,255,0.02);
+}
+.exhibit-badge {
+  font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--off-white); font-weight: 600; margin-bottom: 0.3rem;
+}
+.exhibit-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  color: var(--white); line-height: 1.3;
+}
+.exhibit-year { font-size: 0.6rem; color: rgba(255,255,255,0.28); margin-top: 0.2rem; letter-spacing: 0.08em; }
+
+/* ══════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════ */
+.lightbox-overlay {
+  position: fixed; inset: 0;
+  background: rgba(5,10,30,0.96);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  backdrop-filter: blur(8px);
+}
+.lightbox-overlay.active { opacity: 1; visibility: visible; }
+.lightbox-inner {
+  position: relative;
+  max-width: 860px; width: 100%;
+  background: var(--royal-dark);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 6px rgba(201,168,76,0.07);
+  transform: scale(0.88) translateY(24px);
+  transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+}
+.lightbox-overlay.active .lightbox-inner { transform: scale(1) translateY(0); }
+.lightbox-inner::before {
+  content: '';
+  position: absolute; inset: 8px;
+  border: 1px solid rgba(201,168,76,0.22);
+  pointer-events: none; z-index: 10;
+}
+.lightbox-img-wrap {
+  position: relative; width: 100%; max-height: 62vh;
+  background: #000;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.lightbox-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain; display: block; max-height: 62vh;
+}
+.lightbox-footer {
+  background: var(--royal-dark);
+  border-top: 2px solid var(--gold);
+  padding: 1.1rem 1.5rem 1.2rem;
+}
+.lightbox-label {
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.22rem;
+}
+.lightbox-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600;
+  color: var(--white); line-height: 1.2;
+}
+.lightbox-year {
+  font-size: 0.66rem; color: rgba(255,255,255,0.32);
+  margin-top: 0.2rem; letter-spacing: 0.08em;
+}
+.lightbox-close {
+  position: absolute; top: 12px; right: 12px; z-index: 20;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--gold); border: none; cursor: none;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.lightbox-close:hover { background: var(--gold-light); transform: scale(1.1) rotate(90deg); }
+.lightbox-close svg { width: 16px; height: 16px; stroke: var(--royal-dark); stroke-width: 2.5; fill: none; }
+
+.lb-nav {
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none;
+  transition: background 0.2s;
+  z-index: 15; backdrop-filter: blur(4px);
+}
+.lb-nav:hover { background: rgba(201,168,76,0.22); }
+.lb-nav svg { width: 20px; height: 20px; stroke: var(--gold-light); fill: none; stroke-width: 2; }
+.lb-prev { left: 12px; }
+.lb-next { right: 12px; }
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.award-card:nth-child(1),  .photo-card:nth-child(1), .exhibit-card:nth-child(1) { animation-delay:.05s; }
+.award-card:nth-child(2),  .photo-card:nth-child(2), .exhibit-card:nth-child(2) { animation-delay:.12s; }
+.award-card:nth-child(3),  .photo-card:nth-child(3), .exhibit-card:nth-child(3) { animation-delay:.18s; }
+.award-card:nth-child(4),  .photo-card:nth-child(4), .exhibit-card:nth-child(4) { animation-delay:.24s; }
+.award-card:nth-child(5),  .photo-card:nth-child(5)  { animation-delay:.30s; }
+.award-card:nth-child(6)   { animation-delay:.36s; }
+.award-card:nth-child(7)   { animation-delay:.42s; }
+.award-card:nth-child(8)   { animation-delay:.48s; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .award-card   { flex: 0 0 240px; }
+  .photo-card   { flex: 0 0 270px; }
+  .exhibit-card { flex: 0 0 280px; }
+  .section-label-wrap { padding: 2.5rem 1.25rem 1rem; }
+  .carousel-outer { padding: 0.5rem 1.25rem 1.25rem; }
+  .lb-nav { display: none; }
+  .lightbox-name { font-size: 1.15rem; }
+}
+@media (max-width: 480px) {
+  .award-card   { flex: 0 0 200px; }
+  .photo-card   { flex: 0 0 220px; }
+  .exhibit-card { flex: 0 0 240px; }
+  .header-title { font-size: 2.8rem; }
+}
 </style>
 </head>
 <body>
 
-  <!-- ─ Custom cursor ─ -->
-  <div id="cursor"></div>
-  <div id="cursor-dot"></div>
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-dot"></div>
 
-  <!-- ═══════════════════════════════════════
-       SMART NAVBAR
-  ═══════════════════════════════════════ -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-
-    <div class="nav-logo">
-     <a href="index.html"><div class="nav-logo-icon">
-        <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
-      </div></a> 
-      <a href="index.html"><div class="nav-logo-text">
-        Gayatri<br><span>Industrial Engineers</span>
-      </div></a>
-    </div>
-    
-        <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="product-section.html">Products</a></li>
-
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="blog.html">Blogs</a></li>
-    </ul>
-
-
-    <div class="nav-cta-wrap">
-      <a href="#footer" class="nav-cta">Get In Touch</a>
-    </div>
-
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu" role="navigation">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="product-section.html">Products</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="blog.html">Blogs</a>
-    <a href="#footer" class="mobile-cta">Get In Touch</a>
+<!-- ═══════════════════════════════════════
+     NAVBAR (unchanged from your code)
+═══════════════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo">
+    <a href="index.html"><div class="nav-logo-icon">
+      <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
+    </div></a>
+    <a href="index.html"><div class="nav-logo-text">
+      Gayatri<br><span>Industrial Engineers</span>
+    </div></a>
   </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="product-section.html">Products</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html">Blogs</a></li>
+  </ul>
+  <div class="nav-cta-wrap">
+    <a href="#footer" class="nav-cta">Get In Touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <!-- ═══════════════════════════════════════
-       Gallery Section
-  ═══════════════════════════════════════ -->
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="product-section.html">Products</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="blog.html">Blogs</a>
+  <a href="#footer" class="mobile-cta">Get In Touch</a>
+</div>
 
-<!-- HEADER -->
+<!-- ═══════════════════════════════════════
+     HERO HEADER
+═══════════════════════════════════════ -->
 <header class="gallery-header">
-  <p class="header-eyebrow">Recognition &amp; Excellence</p>
-  <h1 class="gallery-title header-title">Our <em>Awards</em><br>&amp; Accolades</h1>
-  <div class="header-rule"></div>
+  <p class="header-eyebrow">Excellence · Heritage · Precision</p>
+  <div class="header-ornament">
+    <span class="orn-line"></span>
+    <span class="orn-gem">✦</span>
+    <span class="orn-line orn-line-r"></span>
+  </div>
+  <h1 class="header-title">Awards &amp;<br><em>Recognition</em></h1>
+  <p class="header-subtitle">Four decades of manufacturing excellence</p>
+  <div class="header-wave"></div>
 </header>
 
-<!-- GALLERY -->
-<section class="gallery-section">
-  <div class="gallery-grid" id="galleryGrid"></div>
-</section>
+<!-- ═══════════════════════════════════════
+     GALLERY
+═══════════════════════════════════════ -->
+<div class="gallery-page">
 
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Award detail">
+  <!-- ① AWARDS -->
+  <div class="awards-section">
+    <div class="section-label-wrap">
+      <div class="section-label-icon icon-gold">🏆</div>
+      <div class="section-label-text">
+        <h2>Awards &amp; Trophies</h2>
+        <p>Certificates of achievement</p>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="carousel-outer">
+      <div class="carousel-track" id="awardsTrack"></div>
+      
+    </div>
+  </div>
+
+  <!-- ② ACCEPTANCE PHOTOS -->
+  <div class="acceptance-section">
+    <div class="section-label-wrap">
+      <div class="section-label-icon icon-gold">📸</div>
+      <div class="acceptance-section-label-text">
+        <h2>Award Ceremonies</h2>
+        <p>Moments of recognition</p>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="carousel-outer">
+      <div class="carousel-track" id="photosTrack"></div>
+      
+    </div>
+  </div>
+
+  <!-- ③ EXHIBITIONS -->
+  <div class="exhibition-section">
+    <div class="section-label-wrap">
+      <div class="section-label-icon icon-slate">🏭</div>
+      <div class="section-label-text">
+        <h2>Exhibitions</h2>
+        <p>Industry showcases &amp; product displays</p>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="carousel-outer">
+      <div class="carousel-track" id="exhibitionsTrack"></div>
+      
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════
+     LIGHTBOX
+═══════════════════════════════════════ -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery detail">
   <div class="lightbox-inner">
     <div class="lightbox-img-wrap">
       <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">
@@ -497,225 +818,224 @@
       <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="lightbox-footer">
-      <div class="lightbox-title-block">
-        <p class="lightbox-label">Award of Excellence</p>
-        <p class="lightbox-name" id="lbName">—</p>
-        <p class="lightbox-year" id="lbYear">—</p>
-      </div>
+      <p class="lightbox-label" id="lbLabel">Award of Excellence</p>
+      <p class="lightbox-name"  id="lbName">—</p>
+      <p class="lightbox-year"  id="lbYear">—</p>
     </div>
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
 <script>
-
-/* ──────────────────────────────────────
-   CUSTOM CURSOR (Renamed to avoid conflicts)
-────────────────────────────────────── */
-const mainCursor = document.getElementById("cursor");
-const mainCursorDot = document.getElementById("cursor-dot");
-
-if (mainCursor && mainCursorDot) {
-    window.addEventListener("mousemove", (e) => {
-        mainCursor.style.left = e.clientX + "px";
-        mainCursor.style.top = e.clientY + "px";
-        mainCursorDot.style.left = e.clientX + "px";
-        mainCursorDot.style.top = e.clientY + "px";
-    });
-
-    document.querySelectorAll("a, button, .dot, .award-card, .product-card").forEach((el) => {
-        el.addEventListener("mouseenter", () => mainCursor.classList.add("hover"));
-        el.addEventListener("mouseleave", () => mainCursor.classList.remove("hover"));
-    });
-}
-
-/* ──────────────────────────────────────
-   NAVBAR SCROLL
-────────────────────────────────────── */
-const stickyNav = document.getElementById("navbar");
-let lastScrollPosition = 0;
-let isNavTicking = false;
-
-window.addEventListener("scroll", () => {
-    if (!isNavTicking) {
-        requestAnimationFrame(() => {
-            const currentY = window.scrollY;
-            if (currentY > lastScrollPosition && currentY > 120) {
-                stickyNav.classList.add("nav-hidden");
-            } else {
-                stickyNav.classList.remove("nav-hidden");
-            }
-            stickyNav.classList.toggle("nav-scrolled", currentY > 60);
-            lastScrollPosition = currentY;
-            isNavTicking = false;
-        });
-        isNavTicking = true;
-    }
-});
-
-/* ──────────────────────────────────────
-   GALLERY & LIGHTBOX LOGIC
-────────────────────────────────────── */
-const awardsData = [
-    { name: "9th India International Textile Machinery Exhibition.", year: "2012", category: "Certificate of Participation", img: "Gallary/DSC_0023.JPG" },
-    { name: "Life Time Achievement Award presented by the National & International Compendium.", year: " August 1st, 2002", category: "Certificate Of Achievement", 
-    img: "Gallary/DSC_0027.JPG.jpeg" },
-    { name: "Mother Indra Udyog Pratibha Award-2005", year: "2005", category: "Award",
-     img: "Gallary/DSC_0030.JPG.jpeg" },
-    { name: " National Industrial Excellence Award", year: "", category: "Award", 
-    img: "Gallary/DSC_0032.JPG.jpeg" },
-    { name: "Life Time Achievement Gold Medal Award ", year: "July 10, 2003", category: "Certificate Of Achievement", 
-    img: "Gallary/DSC_0033.JPG.jpeg" },
-    { name: "New Delhi National Industrial Excellence Award  ", year: "May 5, 1997", category: "Certificate Of Achievement", img: "Gallary/DSC_0035.JPG.jpeg" },
-    { name: " Mother India Udyog Pratibha Award-2005 ", year: "2005", category: "Certificate Of Achievement", img: "Gallary/DSC_0036.JPG.jpeg" },
-    { name: "BHARTIYA UDYOG RATAN AWARD", year: "2022", category: "Community", img: "Gallary/DSC_0037.JPG.jpeg" },
-    { name: "Singeing Machine", year: "", category: "Product", img: "Gallary/DSC_0038.JPG.jpeg" },
-    { name: "Award Ceremony", year: "", category: "Award", img: "Gallary/DSC_0039.JPG.jpeg" },
-    { name: "Award Ceremony", year: "", category: "Award", img: "Gallary/DSC_0040.JPG.jpeg" },
-    { name: "Bhartiya Udyog Ratan Award", year: "", category: "Award", img: "Gallary/DSC_0041.JPG.jpeg  " },
-    
+/* ─── DATA: sorted into three categories ─── */
+const awards = [
+  { name: "Life Time Achievement Award",               year: "August 1, 2002", category: "Certificate of Achievement", img: "Gallary/DSC_0027.JPG.jpeg" },
+  { name: "Mother Indra Udyog Pratibha Award",          year: "2005",           category: "Award",                      img: "Gallary/DSC_0030.JPG.jpeg" },
+  { name: "National Industrial Excellence Award",       year: "",               category: "Award",                      img: "Gallary/DSC_0032.JPG.jpeg" },
+  { name: "Life Time Achievement Gold Medal Award",     year: "July 10, 2003",  category: "Certificate of Achievement", img: "Gallary/DSC_0033.JPG.jpeg" },
+  { name: "New Delhi National Industrial Excellence Award", year: "May 5, 1997","category": "Certificate of Achievement", img: "Gallary/DSC_0035.JPG.jpeg" },
+  { name: "Mother India Udyog Pratibha Award",          year: "2005",           category: "Certificate of Achievement", img: "Gallary/DSC_0036.JPG.jpeg" },
+  { name: "Bhartiya Udyog Ratan Award",                year: "2022",           category: "Award",                      img: "Gallary/DSC_0037.JPG.jpeg" },
+  { name: "Bhartiya Udyog Ratan Award",                year: "",               category: "Award",                      img: "Gallary/DSC_0041.JPG.jpeg" },
 ];
 
-const galleryGrid = document.getElementById('galleryGrid');
-const awardLightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
+const photos = [
+  { name: "Award Ceremony", year: "", category: "Ceremony", img: "Gallary/DSC_0039.JPG.jpeg" },
+  { name: "Award Ceremony", year: "", category: "Ceremony", img: "Gallary/DSC_0040.JPG.jpeg" },
+];
+
+const exhibitions = [
+  { name: "9th India International Textile Machinery Exhibition", year: "2012", category: "Exhibition",       img: "Gallary/DSC_0023.JPG" },
+  { name: "Singeing Machine Display",                             year: "",     category: "Product Showcase", img: "Gallary/DSC_0038.JPG.jpeg" },
+];
+
+/* ─── BUILD CARDS ─── */
+const zoomSVG = `<div class="zoom-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></div>`;
+
+function buildAward(d) {
+  return `<div class="award-frame"></div>
+          <div class="award-img-wrap"><img src="${d.img}" alt="${d.name}" loading="lazy">${zoomSVG}</div>
+          <div class="award-card-body">
+            <span class="award-badge">${d.category}</span>
+            <p class="award-name">${d.name}</p>
+            <p class="award-year">${d.year}</p>
+          </div>`;
+}
+function buildPhoto(d) {
+  return `<div class="photo-img-wrap"><img src="${d.img}" alt="${d.name}" loading="lazy">${zoomSVG}</div>
+          <div class="photo-card-body">
+            <p class="photo-label">${d.category}</p>
+            <p class="photo-name">${d.name}</p>
+            <p class="photo-year">${d.year}</p>
+          </div>`;
+}
+function buildExhibit(d) {
+  return `<div class="exhibit-img-wrap"><img src="${d.img}" alt="${d.name}" loading="lazy">${zoomSVG}</div>
+          <div class="exhibit-card-body">
+            <p class="exhibit-badge">${d.category}</p>
+            <p class="exhibit-name">${d.name}</p>
+            <p class="exhibit-year">${d.year}</p>
+          </div>`;
+}
+
+function populateTrack(id, data, cls, builder) {
+  const track = document.getElementById(id);
+  if (!track) return;
+  data.forEach((d, i) => {
+    const el = document.createElement('article');
+    el.className = cls;
+    el.innerHTML = builder(d);
+    el.addEventListener('click', () => openLightbox(data, i));
+    track.appendChild(el);
+  });
+}
+
+populateTrack('awardsTrack',      awards,      'award-card',   buildAward);
+populateTrack('photosTrack',      photos,      'photo-card',   buildPhoto);
+populateTrack('exhibitionsTrack', exhibitions, 'exhibit-card', buildExhibit);
+
+/* ─── LIGHTBOX ─── */
+let lbData = [], lbIdx = 0;
+const lb     = document.getElementById('lightbox');
+const lbImg  = document.getElementById('lbImg');
 const lbName = document.getElementById('lbName');
 const lbYear = document.getElementById('lbYear');
-let currentAwardIdx = 0;
+const lbLabel= document.getElementById('lbLabel');
 
-// Create Cards
-if (galleryGrid) {
-    awardsData.forEach((a, i) => {
-        const card = document.createElement('article');
-        card.className = 'award-card';
-        card.innerHTML = `
-            <div class="card-img-wrap">
-                <img src="${a.img}" alt="${a.name}" loading="lazy">
-                <div class="zoom-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="2" fill="none"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
-                </div>
-            </div>
-            <div class="card-body">
-                <span class="award-badge">${a.category}</span>
-                <p class="award-name">${a.name}</p>
-                <p class="award-year">${a.year}</p>
-            </div>`;
-        card.addEventListener('click', () => handleOpenLightbox(i));
-        galleryGrid.appendChild(card);
+function openLightbox(data, idx) {
+  lbData = data; lbIdx = idx;
+  const d = lbData[lbIdx];
+  lbImg.src          = d.img;
+  lbName.textContent = d.name;
+  lbYear.textContent = d.year || d.category;
+  lbLabel.textContent= d.category;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lb.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); openLightbox(lbData, (lbIdx+1)%lbData.length); });
+document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); openLightbox(lbData, (lbIdx-1+lbData.length)%lbData.length); });
+lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') openLightbox(lbData, (lbIdx+1)%lbData.length);
+  if (e.key === 'ArrowLeft')  openLightbox(lbData, (lbIdx-1+lbData.length)%lbData.length);
+});
+
+/* ─── CUSTOM CURSOR ─── */
+const cur = document.getElementById('cursor');
+const dot = document.getElementById('cursor-dot');
+if (cur && dot) {
+  window.addEventListener('mousemove', e => {
+    cur.style.left = dot.style.left = e.clientX + 'px';
+    cur.style.top  = dot.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .award-card, .photo-card, .exhibit-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+}
+
+/* ─── NAVBAR SCROLL ─── */
+const nav = document.getElementById('navbar');
+let lastY = 0, ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y > lastY && y > 120) nav.classList.add('nav-hidden');
+      else nav.classList.remove('nav-hidden');
+      nav.classList.toggle('nav-scrolled', y > 60);
+      lastY = y; ticking = false;
     });
-}
-
-function handleOpenLightbox(idx) {
-    currentAwardIdx = idx;
-    const data = awardsData[currentAwardIdx];
-    lbImg.src = data.img;
-    lbName.textContent = data.name;
-    lbYear.textContent = `${data.category} · ${data.year}`;
-    
-    awardLightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function handleCloseLightbox() {
-    awardLightbox.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// Event Listeners for Lightbox
-document.getElementById('lbClose').addEventListener('click', handleCloseLightbox);
-
-document.getElementById('lbNext').addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentAwardIdx = (currentAwardIdx + 1) % awardsData.length;
-    handleOpenLightbox(currentAwardIdx);
+    ticking = true;
+  }
 });
 
-document.getElementById('lbPrev').addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentAwardIdx = (currentAwardIdx - 1 + awardsData.length) % awardsData.length;
-    handleOpenLightbox(currentAwardIdx);
-});
-
-awardLightbox.addEventListener('click', (e) => {
-    if (e.target === awardLightbox) handleCloseLightbox();
-});
+/* ─── HAMBURGER ─── */
+const hamburger   = document.getElementById('hamburger');
+const mobileMenu  = document.getElementById('mobileMenu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', open);
+  });
+}
 </script>
 
-  <!-- ═══════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
-          <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
-        </div>
-        <p>Manufacturing precision textile processing machinery for decades. Trusted by 500+ mills across India.</p>
-        <div class="footer-social">
-          <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-          <a href="mailto:info@gayatriengineers.com" class="social-btn" title="Email" aria-label="Email">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </a>
-        </div>
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
+        <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
       </div>
-      <div class="footer-links-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="decatising-machine.html">Decatising Machine</a></li>
-          <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
-          <li><a href="#products-strip">Automatic Dyeing Jigger Machine</a></li>
-          <li><a href="#products-strip">Calander Machine</a></li>
-          <li><a href="#products-strip">Hyrdaulic Jigger</a></li>
-          
-        </ul>
-      </div>
-      <div class="footer-links-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="blog.html">Blogs</a></li>
-          <li><a href="#footer">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-links-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
-</a></li>
-          <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
-          <li><a href="mailto:info@gayatriengineers.com">✉️ gayatri0022@rediffmail.com</a></li>
-        </ul>
+      <p>Manufacturing precision textile processing machinery for decades. Trusted by 500+ mills across India.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="mailto:gayatri0022@rediffmail.com" class="social-btn" title="Email" aria-label="Email">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
-    <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
+    <div class="footer-links-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="decatising-machine.html">Decatising Machine</a></li>
+        <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
+        <li><a href="#products-strip">Automatic Dyeing Jigger Machine</a></li>
+        <li><a href="#products-strip">Calander Machine</a></li>
+        <li><a href="#products-strip">Hydraulic Jigger</a></li>
+      </ul>
     </div>
-  </footer>
+    <div class="footer-links-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="#footer">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195</a></li>
+        <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
+        <li><a href="mailto:gayatri0022@rediffmail.com">✉️ gayatri0022@rediffmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
+    <div class="footer-badge">Designed &amp; Developed by <span>DemuRup Media</span></div>
+  </div>
+</footer>
 
-  <!-- ═══════════════════════════════════════
-       WHATSAPP FLOATING BUTTON
-  ═══════════════════════════════════════ -->
-  <a href="https://wa.me/918511343477"
-     id="whatsapp-btn"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Chat on WhatsApp">
-    <!-- Official WhatsApp path -->
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/918511343477" id="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
-  <!-- ═══════════════════════════════════════
-       JAVASCRIPT
-  ═══════════════════════════════════════ -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
