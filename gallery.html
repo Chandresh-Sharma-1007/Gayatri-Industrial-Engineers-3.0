@@ -366,7 +366,7 @@ font-size: 0.68rem;
 .award-card:hover .award-img-wrap::after { opacity: 0.5; }
 .award-img-wrap img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   display: block;
   transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter var(--transition);
@@ -463,7 +463,7 @@ font-size: 0.68rem;
 }
 .photo-img-wrap img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter var(--transition);
   filter: sepia(0.2) contrast(1.04);
@@ -534,7 +534,7 @@ font-size: 0.68rem;
 }
 .exhibit-img-wrap img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter var(--transition);
   filter: brightness(0.72) hue-rotate(10deg) saturate(0.8);
@@ -647,21 +647,28 @@ font-size: 0.68rem;
 .lightbox-close svg { width: 16px; height: 16px; stroke: var(--royal-dark); stroke-width: 2.5; fill: none; }
 
 .lb-nav {
-  position: absolute; top: 50%;
-  transform: translateY(-50%);
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.35);
-  border-radius: 50%;
-  width: 44px; height: 44px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: none;
-  transition: background 0.2s;
-  z-index: 15; backdrop-filter: blur(4px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    z-index: 100; /* Ensure it's above the image */
+    background: rgba(201, 168, 76, 0.2); /* Your theme gold color with transparency */
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
 }
-.lb-nav:hover { background: rgba(201,168,76,0.22); }
-.lb-nav svg { width: 20px; height: 20px; stroke: var(--gold-light); fill: none; stroke-width: 2; }
-.lb-prev { left: 12px; }
-.lb-next { right: 12px; }
+.lb-nav:hover {
+    background: rgba(201, 168, 76, 0.5);
+}
+.lb-nav svg { width: 20px; height: 20px; stroke: var(--off-white); fill: none; stroke-width: 2; }
+.lb-prev { left: 8px; }
+.lb-next { right: 8px; }
 
 /* ══════════════════════════════════════════
    ANIMATIONS
@@ -683,6 +690,7 @@ font-size: 0.68rem;
 .award-card:nth-child(7)   { animation-delay:.42s; }
 .award-card:nth-child(8)   { animation-delay:.48s; }
 
+
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
@@ -692,7 +700,7 @@ font-size: 0.68rem;
   .exhibit-card { flex: 0 0 280px; }
   .section-label-wrap { padding: 2.5rem 1.25rem 1rem; }
   .carousel-outer { padding: 0.5rem 1.25rem 1.25rem; }
-  .lb-nav { display: none; }
+  /* .lb-nav { display: none; } */
   .lightbox-name { font-size: 1.15rem; }
 }
 @media (max-width: 480px) {
@@ -1039,6 +1047,12 @@ if (hamburger && mobileMenu) {
     hamburger.setAttribute('aria-expanded', open);
   });
 }
+
+// auto scroll 
+
+
+
+
 </script>
 
 <!-- ═══════════════════════════════════════
