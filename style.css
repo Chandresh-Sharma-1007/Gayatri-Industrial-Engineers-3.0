@@ -677,6 +677,15 @@
       color: var(--body-text); text-align: center; line-height: 1.4;
     }
 
+    .client-card.duplicate {
+      display: none;
+    }
+
+    @keyframes clientMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     /* ═══════════════════════════════════════
        FOOTER  — Royal Blue
     ═══════════════════════════════════════ */
@@ -775,8 +784,18 @@
       .catalog-btn-wrap { width: 100%; align-items: flex-start; }
       #products-strip { padding: 68px 20px; }
       .products-row { grid-template-columns: 1fr; }
-      #clients { padding: 68px 20px; }
-      .clients-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+      #clients { padding: 68px 0; overflow: hidden; }
+      .clients-header { padding: 0 20px; }
+      .clients-grid { 
+        display: flex; 
+        width: max-content; 
+        gap: 14px; 
+        padding-right: 14px; 
+        animation: clientMarquee 30s linear infinite; 
+      }
+      .clients-grid:hover { animation-play-state: paused; }
+      .client-card { flex: 0 0 160px; margin: 0; }
+      .client-card.duplicate { display: flex; }
       #footer { padding: 44px 20px 24px; }
       .footer-top { flex-direction: column; }
       .footer-bottom { flex-direction: column; text-align: center; }
@@ -789,7 +808,6 @@
     @media (max-width: 500px) {
       .hero-title { font-size: 30px; }
       .metrics-grid { grid-template-columns: 1fr 1fr; }
-      .clients-grid { grid-template-columns: repeat(2,1fr); }
     }
 
   
