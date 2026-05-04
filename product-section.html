@@ -204,6 +204,7 @@
     height: 240px;
     overflow: hidden;
     flex-shrink: 0;
+    object-fit: contain;
   }
 
   .gp-card--featured .gp-card-image { height: 320px; }
@@ -211,7 +212,7 @@
   .gp-card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.7s cubic-bezier(.22,1,.36,1), filter 0.4s ease;
     filter: saturate(0.8);
   }
@@ -443,7 +444,7 @@
 
 
     <div class="nav-cta-wrap">
-      <a href="#footer" class="nav-cta">Get In Touch</a>
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
     </div>
 
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -457,8 +458,8 @@
     <a href="about.html">About Us</a>
     <a href="product-section.html">Products</a>
     <a href="gallery.html">Gallery</a>
-    <a href="#">Blogs</a>
-    <a href="#footer" class="mobile-cta">Get In Touch</a>
+    <a href="blog.html">Blogs</a>
+    <a href="contact.html" class="mobile-cta">Get In Touch</a>
   </div>
 
   <!-- ═══════════════════════════════════════
@@ -519,7 +520,7 @@
         <div class="gp-card-body">
           
           <h3 class="gp-card-name">Decatising Machine</h3>
-          <p class="gp-card-desc">Our high-performance Decatising Machines deliver superior fabric finishing through precise steam and pressure application. Engineered for consistency, they enhance fabric lustre, dimensional stability, and handle—setting the benchmark for premium textile processing across woven and knitted fabrics.</p>
+          <p class="gp-card-desc">The Decatising Machine is designed to improve fabric stability, smoothness, and finish quality through an efficient steaming and cooling process. It features adjustable cycles and ensures the shortest decatising time for higher productivity. Built with durable 316L stainless steel cylinders, it prevents condensation and maintains consistent performance. The machine offers precise tension and pressure control using pneumatic and hydraulic systems, ensuring crease-free finishing. A vacuum pump enhances fabric cooling and final finish quality. Overall, it provides energy-efficient operation with uniform and reliable results.</p>
           <a href="decatising-machine.html" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
         </div>
       </div>
@@ -532,9 +533,9 @@
           <span class="gp-card-index">02</span>
         </div>
         <div class="gp-card-body">
-          <span class="gp-card-category">Textile Machinery</span>
+          
           <h3 class="gp-card-name">Gas Singeing Machine</h3>
-          <p class="gp-card-desc">Precision gas singeing eliminates surface fibres with controlled flame technology, delivering uniform treatment and smooth, print-ready cloth at high throughput speeds.</p>
+          <p class="gp-card-desc">The Gas Singeing Machine is designed for high-quality fabric finishing by removing surface fibers using a high-intensity blue flame. It features a patented Double-Jet burner that ensures uniform and controlled combustion for precise singeing. A dust-free cloth entry system with brushing and beating units provides a clean and smooth fabric surface. Automatic flame width and intensity adjustment helps in energy saving and consistent performance. With high-speed operation up to 150 m/min and advanced safety features, it delivers efficient and reliable results for all fabric types.</p>
           <a href="gas-singeing-machine.html" class="gp-btn"><span class="gp-btn-text">More Details</span><span class="gp-btn-arrow">→</span></a>
         </div>
       </div>
@@ -549,10 +550,10 @@
           <span class="gp-card-index">03</span>
         </div>
         <div class="gp-card-body">
-          <span class="gp-card-category">Dyeing Machinery</span>
+          
           <h3 class="gp-card-name">Automatic Dyeing Jigger Machine</h3>
-          <p class="gp-card-desc">Fully automated dyeing with microprocessor-controlled parameters. Ensures reproducible colour fastness, reduced water consumption, and consistent depth of shade across all fabric types.</p>
-          <a href="#" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
+          <p class="gp-card-desc"> The Automatic Dyeing Jigger Machine is used for efficient dyeing of fabrics like cotton, silk, rayon, and synthetics with uniform color results. It has a sturdy, compact design with stainless steel rollers to ensure smooth, crease-free fabric movement. The machine uses synchronized motor drives and inverter technology for precise speed and tension control. A temperature-controlled tank and liquor circulation system ensure consistent dyeing and low chemical consumption. PLC automation enables easy operation with features like auto cycles, speed control, and process completion control. </p>
+          <a href="dyeing-jigger-machine.html" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
         </div>
       </div>
 
@@ -564,9 +565,10 @@
           <span class="gp-card-index">04</span>
         </div>
         <div class="gp-card-body">
-          <span class="gp-card-category">Finishing Machinery</span>
+          <!-- <span class="gp-card-category">Finishing Machinery</span> -->
           <h3 class="gp-card-name">Calander Machine</h3>
-          <p class="gp-card-desc">Heavy-duty calendering with variable roll pressure and temperature control. Achieves exceptional fabric smoothness, sheen, and compactness—ideal for high-end textile finishing lines.</p>
+          <p class="gp-card-desc"> The Calender Machine is a textile finishing machine used to enhance fabric smoothness, gloss, and appearance by applying controlled heat and pressure. It is built with a strong, vibration-free frame to handle heavy loads and ensure stable operation. The machine features a 5-bowl calender system with cotton and hard-chromed rollers for uniform finishing. It includes hydraulic controls for precise pressure adjustment and multiple heating options like oil, steam, or electric. A digital speed indicator, AC motor drive, and efficient fabric delivery system ensure smooth, controlled, and tension-free output.
+ </p>
           <a href="#" class="gp-btn"><span class="gp-btn-text">More Details</span><span class="gp-btn-arrow">→</span></a>
         </div>
       </div>
@@ -579,10 +581,11 @@
           <span class="gp-card-index">05</span>
         </div>
         <div class="gp-card-body">
-          <span class="gp-card-category">Dyeing Machinery</span>
+          
           <h3 class="gp-card-name">Hydraulic Jigger</h3>
-          <p class="gp-card-desc">Robust hydraulic drive for smooth, tension-controlled fabric passage. Built for heavy woven fabrics—delivers even dyeing and treatment with low liquor ratio for every production run.</p>
-          <a href="#" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
+          <p class="gp-card-desc">The Hydraulic Maxi Jigger is an advanced dyeing machine designed for uniform processing of various fabrics. It features PLC control with a touch screen for easy and automated operation. The machine ensures low-tension, crease-free fabric movement with precise speed and temperature control. A strong liquor circulation and dosing system provides consistent dyeing with efficient water usage. Additional features like auto reversing, continuous washing, and energy-saving systems improve overall performance.
+</p>
+          <a href="hydraulic-jigger-machine.html" class="gp-btn"><span class="gp-btn-text">View Product</span><span class="gp-btn-arrow">→</span></a>
         </div>
       </div>
 
@@ -603,7 +606,7 @@
           <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
           <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
         </div>
-        <p>Manufacturing precision textile processing machinery for decades. Trusted by 500+ mills across India.</p>
+        <p class="footer-motto">Innovate, Engineer, Excel</p>
         <div class="footer-social">
           <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
@@ -621,9 +624,9 @@
         <ul>
           <li><a href="decatising-machine.html">Decatising Machine</a></li>
           <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
-          <li><a href="#products-strip">Automatic Dyeing Jigger Machine</a></li>
+          <li><a href="dyeing-jigger-machine.html">Automatic Dyeing Jigger Machine</a></li>
           <li><a href="#products-strip">Calander Machine</a></li>
-          <li><a href="#products-strip">Hyrdaulic Jigger</a></li>
+          <li><a href="hydraulic-jigger-machine.html">Hydraulic Jigger</a></li>
           
         </ul>
       </div>
@@ -633,8 +636,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="#">Blogs</a></li>
-          <li><a href="#footer">Contact Us</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-links-col">
