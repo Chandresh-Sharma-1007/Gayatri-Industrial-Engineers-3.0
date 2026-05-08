@@ -2,630 +2,400 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gayatri Industrial Engineers</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --royal-blue: #002366;
       --royal-blue-dark: #001540;
       --royal-blue-mid: #003399;
-      --blue-glow: rgba(0,35,102,0.08);
       --white: #ffffff;
       --off-white: #f7f8fc;
       --light-gray: #e8eaf0;
       --text-dark: #0a0e1a;
       --text-muted: #6b7280;
-      --accent-gold: #c9a84c;
+      --gold-accent: #c9a84c;
+      --gold-light: #e8c97a;
+      --shadow-deep: 0 32px 80px rgba(0, 35, 102, 0.18);
+      --shadow-card: 0 8px 32px rgba(0, 35, 102, 0.10);
+      --radius: 4px;
+      --radius-lg: 8px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--off-white);
       color: var(--text-dark);
-      background: var(--white);
-      overflow-x: hidden;
     }
 
-    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
-
-    /* ── HERO ── */
-    .hero {
-      display: grid;
-      grid-template-columns: 60fr 40fr;
-      min-height: 88vh;
-    }
-
-    .hero-gallery {
-      background: var(--white);
+    /* ── HERO BAND ─────────────────────────────────────────────── */
+    .contact-hero {
+      background: linear-gradient(135deg, var(--royal-blue-dark) 0%, var(--royal-blue) 55%, var(--royal-blue-mid) 100%);
       position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 3rem 3rem 2rem;
       overflow: hidden;
+      padding: 80px 24px 120px;
+      text-align: center;
     }
 
-    .gallery-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--royal-blue);
-      font-weight: 600;
-      margin-bottom: 1.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .gallery-label::before {
+    .contact-hero::before {
       content: '';
-      display: inline-block;
-      width: 28px; height: 2px;
-      background: var(--royal-blue);
-    }
-
-    .gallery-main {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      background: var(--off-white);
-      min-height: 400px;
-    }
-
-    .gallery-slide {
       position: absolute;
       inset: 0;
-      opacity: 0;
-      transition: opacity 0.75s cubic-bezier(0.4,0,0.2,1), transform 0.75s cubic-bezier(0.4,0,0.2,1);
-      transform: scale(1.03);
-    }
-    .gallery-slide.active { opacity: 1; transform: scale(1); }
-    .gallery-slide img { width: 100%;height: 100%;  object-fit: contain; display: block; }
-
-    .slide-counter {
-      position: absolute;
-      bottom: 1.2rem; right: 1.2rem;
-      background: rgba(0,35,102,0.85);
-      color: white;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      padding: 0.35rem 0.75rem;
-      border-radius: 2px;
-      z-index: 10;
-      font-family: 'DM Sans', sans-serif;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(255,255,255,0.04) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    .gallery-thumbs {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1.2rem;
-    }
-    .gallery-thumb {
-      width: 72px; height: 56px;
-      border-radius: 3px;
-      overflow: hidden;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border-color 0.25s, transform 0.2s;
-      flex-shrink: 0;
-    }
-    .gallery-thumb:hover { transform: translateY(-2px); }
-    .gallery-thumb.active { border-color: var(--royal-blue); }
-    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-    .gallery-nav {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      background: rgba(255,255,255,0.9);
-      border: 1px solid var(--light-gray);
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      z-index: 20;
-      transition: background 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 12px rgba(0,35,102,0.12);
-    }
-    .gallery-nav:hover { background: var(--royal-blue); }
-    .gallery-nav:hover svg { stroke: white; }
-    .gallery-nav svg { stroke: var(--royal-blue); width:18px; height:18px; transition: stroke 0.2s; }
-    .gallery-nav.prev { left: 0.8rem; }
-    .gallery-nav.next { right: 0.8rem; }
-
-    /* ── Hero Info ── */
-    .hero-info {
-      background: var(--royal-blue);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3rem 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-info::before {
+    /* decorative geometric lines */
+    .contact-hero::after {
       content: '';
       position: absolute;
-      bottom: -80px; right: -80px;
-      width: 320px; height: 320px;
-      border-radius: 50%;
-      border: 60px solid rgba(255,255,255,0.04);
-    }
-    .hero-info::after {
-      content: '';
-      position: absolute;
-      top: -60px; left: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border: 40px solid rgba(255,255,255,0.04);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
     }
 
     .hero-eyebrow {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      font-weight: 500;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 20px; height: 1px;
-      background: rgba(255,255,255,0.4);
-    }
-
-    .hero-info h1 {
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      font-weight: 300;
-      color:var(--white);
-      line-height: 1.1;
-      margin-bottom: 1.6rem;
-    }
-    .hero-title strong { font-weight: 600; display: block; }
-
-    .hero-divider { width: 48px; height: 1px; background: rgba(255,255,255,0.3); margin-bottom: 1.6rem; }
-
-    .hero-intro {
-      font-size: 0.93rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.78);
-      font-weight: 300;
-      margin-bottom: 2.4rem;
-      max-width: 340px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2.4rem;
-    }
-    .hero-tag {
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 0.28rem 0.7rem;
-      border-radius: 2px;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .btn-quote {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      background: var(--white);
-      color: var(--royal-blue);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
+      gap: 10px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      padding: 1rem 2rem;
-      border-radius: 3px;
-      text-decoration: none;
-      transition: color 0.35s, transform 0.25s, box-shadow 0.3s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
-      align-self: flex-start;
+      color: var(--gold-accent);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow span {
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold-accent);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto 18px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── MAIN CONTENT WRAPPER ───────────────────────────────────── */
+    .contact-section {
+      max-width: 800px;
+      margin: 60px auto 80px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ── FORM CARD ──────────────────────────────────────────────── */
+    .form-panel {
+      background: var(--white);
+      padding: 56px 52px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-deep);
+    }
+
+    .form-header {
+      margin-bottom: 36px;
+    }
+
+    .form-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--royal-blue-mid);
+      margin-bottom: 10px;
+    }
+
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    /* The actual form tag – swap action URL here */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+    }
+
+    .form-label .required {
+      color: var(--royal-blue-mid);
+      margin-left: 3px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--off-white);
+      border: 1.5px solid var(--light-gray);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-control::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .form-control:hover {
+      border-color: rgba(0, 35, 102, 0.25);
+    }
+
+    .form-control:focus {
+      background: var(--white);
+      border-color: var(--royal-blue-mid);
+      box-shadow: 0 0 0 4px rgba(0, 51, 153, 0.09);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.7;
+    }
+
+    /* custom select arrow */
+    .select-wrapper {
+      position: relative;
+    }
+    .select-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--royal-blue);
+      pointer-events: none;
+    }
+    .select-wrapper select.form-control {
+      cursor: pointer;
+      padding-right: 44px;
+    }
+    .select-wrapper select.form-control option {
+      background: var(--white);
+      color: var(--text-dark);
+    }
+
+    /* submit button */
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 17px 44px;
+      background: var(--royal-blue);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid var(--royal-blue);
+      border-radius: var(--radius);
+      cursor: pointer;
       position: relative;
       overflow: hidden;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      align-self: flex-start;
     }
-    .btn-quote::before {
+
+    .btn-submit::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--accent-gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-      z-index: 0;
+      background: linear-gradient(135deg, var(--royal-blue-mid), var(--royal-blue-dark));
+      opacity: 0;
+      transition: opacity var(--transition);
     }
-    .btn-quote:hover::before { transform: scaleX(1); }
-    .btn-quote span, .btn-quote svg { position: relative; z-index: 1; }
-    .btn-quote:hover { color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
-    .btn-quote svg { width: 16px; height: 16px; transition: transform 0.3s; }
-    .btn-quote:hover svg { transform: translateX(4px); }
 
-    /* ── Section Wrapper ── */
-    .section { padding: 5.5rem 0; }
-    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .section-header { margin-bottom: 3.5rem; }
-    .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--royal-blue);
-      font-weight: 600;
+    .btn-submit:hover {
+      background: var(--royal-blue-mid);
+      border-color: var(--royal-blue-mid);
+      box-shadow: 0 12px 32px rgba(0, 51, 153, 0.35);
+      transform: translateY(-2px);
+    }
+    .btn-submit:hover::before { opacity: 1; }
+
+    .btn-submit:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn-submit span, .btn-submit svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-submit svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--transition);
+    }
+    .btn-submit:hover svg { transform: translateX(4px); }
+
+    .form-note {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-top: -6px;
+    }
+
+    /* ── SUCCESS STATE (hidden by default) ─────────────────────── */
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+      gap: 16px;
+    }
+    .form-success.active { display: flex; }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(0, 35, 102, 0.07);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.9rem;
+      justify-content: center;
     }
-    .section-label::before {
-      content: '';
-      display: inline-block;
-      width: 24px; height: 2px;
-      background: var(--royal-blue);
+    .success-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--royal-blue);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
-    .section-title {
-      font-size: clamp(1.9rem, 3vw, 2.8rem);
-      font-weight: 300;
-      color: var(--text-dark);
-      line-height: 1.2;
-    }
-    .section-title em { font-style: italic; font-weight: 600; }
-
-    /* ── Features ── */
-    .features-section { background: var(--off-white); }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5px;
-      background: var(--light-gray);
-      border: 1.5px solid var(--light-gray);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .feature-card {
-      background: var(--white);
-      padding: 2.8rem 2rem;
-      transition: background 0.3s;
-    }
-    .feature-card:hover { background: var(--royal-blue); }
-    .feature-card:hover .feature-icon { background: rgba(255,255,255,0.12); color: white; }
-    .feature-card:hover .feature-title { color: white; }
-    .feature-card:hover .feature-desc { color: rgba(255,255,255,0.7); }
-    .feature-card:hover .feature-num { color: rgba(255,255,255,0.18); }
-
-    .feature-num {
+    .success-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: var(--light-gray);
-      line-height: 1;
-      margin-bottom: 1rem;
-      transition: color 0.3s;
-    }
-    .feature-icon {
-      width: 52px; height: 52px;
-      border-radius: 6px;
-      background: var(--blue-glow);
-      color: var(--royal-blue);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.4rem;
-      transition: background 0.3s, color 0.3s;
-    }
-    .feature-icon svg { width: 24px; height: 24px; }
-    .feature-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
+      font-size: 1.8rem;
       font-weight: 600;
       color: var(--text-dark);
-      margin-bottom: 0.7rem;
-      line-height: 1.3;
-      transition: color 0.3s;
     }
-    .feature-desc {
-      font-size: 0.85rem;
-      line-height: 1.7;
+    .success-text {
+      font-size: 13.5px;
       color: var(--text-muted);
-      transition: color 0.3s;
-    }
-
-    /* ── Specifications ── */
-    .specs-section { background: var(--white); }
-    .specs-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .specs-list { list-style: none; }
-    .specs-list li {
-      display: flex;
-      gap: 1.2rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--light-gray);
-      align-items: flex-start;
-    }
-    .specs-list li:first-child { border-top: 1px solid var(--light-gray); }
-    .spec-bullet {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--royal-blue);
-      flex-shrink: 0;
-      margin-top: 0.55rem;
-    }
-    .spec-text { font-size: 0.88rem; line-height: 1.75; color: var(--text-dark); }
-    .spec-text strong { font-weight: 600; color: var(--royal-blue); }
-
-    .specs-highlight {
-      background: var(--royal-blue);
-      border-radius: 6px;
-      padding: 2.8rem;
-      color: white;
-      position: sticky;
-      top: 2rem;
-    }
-    .specs-highlight-title {
-      font-size: 1.6rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-    .specs-highlight-title strong { font-weight: 700; display: block; }
-    .specs-highlight-sub {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 2rem;
-    }
-    .specs-stat { padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .specs-stat:last-of-type { border-bottom: none; }
-    .specs-stat-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 0.3rem;
-    }
-    .specs-stat-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: white;
-    }
-
-    /* ── Diagrams ── */
-    .diagram-section { background: var(--off-white); }
-    .diagram-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    .diagram-grid .diagram-card:first-child {
-      grid-column: 1 / 2;
-      grid-row: 1 / 3;
-    }
-    .diagram-card {
-      background: var(--white);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-      border: 1px solid var(--light-gray);
-      transition: box-shadow 0.3s, transform 0.3s;
-      cursor: pointer;
-    }
-    .diagram-card:hover { box-shadow: 0 16px 48px rgba(0,35,102,0.14); transform: translateY(-3px); }
-    .diagram-card img {
-      width: 100%; height: 100%;
-      min-height: 200px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s;
-    }
-    .diagram-card:hover img { transform: scale(1.04); }
-    .diagram-card-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0,35,102,0.85) 0%, transparent 100%);
-      padding: 2rem 1.2rem 1rem;
-      color: white;
-    }
-    .diagram-caption-title { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; }
-    .diagram-caption-sub { font-size: 0.7rem; color: rgba(255,255,255,0.65); margin-top: 0.2rem; }
-
-    /* ── Video ── */
-    .video-section {
-      background: var(--royal-blue);
-      padding: 5.5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .video-section::before {
-      content: 'DECATISING';
-      position: absolute;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18vw;
-      font-weight: 700;
-      color: rgba(255,255,255,0.03);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .video-card {
-      position: relative;
-      background: rgba(255,255,255,0.06);
-      border-radius: 4px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: border-color 0.3s;
-    }
-    .video-card:hover { border-color: rgba(255,255,255,0.35); }
-    .video-card iframe { width: 100%; height: 100%; border: none; display: block; }
-
-    /* ── Advantages ── */
-    .advantages-section { background: var(--white); }
-    .advantages-layout {
-      display: grid;
-      grid-template-columns: 38% 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-    .advantages-intro-panel { position: sticky; top: 2rem; }
-    .advantages-intro-text {
-      font-size: 0.9rem;
       line-height: 1.8;
-      color: var(--text-muted);
-      margin-top: 1.2rem;
-      margin-bottom: 2.5rem;
-    }
-    .advantages-deco {
-      background: var(--royal-blue);
-      border-radius: 4px;
-      padding: 2rem;
-      color: white;
-    }
-    .advantages-deco-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-    .advantages-deco-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-    }
-    .advantages-list { list-style: none; counter-reset: adv-counter; }
-    .advantages-list li {
-      counter-increment: adv-counter;
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 1.4rem;
-      align-items: flex-start;
-      padding: 1.6rem 0;
-      border-bottom: 1px solid var(--light-gray);
-      transition: padding-left 0.3s;
-    }
-    .advantages-list li:first-child { border-top: 1px solid var(--light-gray); }
-    .advantages-list li:hover { padding-left: 6px; }
-    .adv-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--royal-blue);
-      opacity: 0.4;
-      padding-top: 0.15rem;
-      text-align: right;
-    }
-    .adv-text { font-size: 0.88rem; line-height: 1.75; color: var(--text-dark); }
-    .adv-text strong {
-      font-weight: 600;
-      display: block;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-      color: var(--royal-blue);
+      max-width: 360px;
     }
 
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--royal-blue);
-      padding: 5rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    /* ── RESPONSIVENESS ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .contact-hero {
+        padding: 60px 20px 100px;
+      }
+      .contact-section {
+        padding: 0 16px;
+        margin-bottom: 56px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .form-panel {
+        padding: 36px 24px;
+      }
+      .btn-submit {
+        width: 100%;
+        justify-content: center;
+      }
     }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -40%; left: -10%;
-      width: 60%; height: 200%;
-      background: rgba(255,255,255,0.025);
-      border-radius: 50%;
-      transform: rotate(-15deg);
-    }
-    .cta-section .section-inner { position: relative; z-index: 1; }
-    .cta-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 1rem;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .cta-title {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      color: white;
-      margin-bottom: 2.2rem;
-      line-height: 1.2;
-    }
-    .cta-title em { font-style: italic; color: rgba(255,255,255,0.7); }
-    .cta-btn-wrap { display: flex; justify-content: center; }
 
-    /* ── Scroll Reveal ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+    @media (max-width: 400px) {
+      .form-panel { padding: 28px 18px; }
     }
-    .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── Responsive ── */
-    @media (max-width: 1024px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-gallery { padding: 2.5rem 2rem 1.5rem; min-height: 58vw; }
-      .hero-info { padding: 3rem 2rem; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .specs-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .specs-highlight { position: static; }
-      .diagram-grid { grid-template-columns: 1fr 1fr; }
-      .diagram-grid .diagram-card:first-child { grid-column: 1; grid-row: 1; }
-      .advantages-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .advantages-intro-panel { position: static; }
-      .video-grid { grid-template-columns: 1fr; gap: 1rem; }
+    /* ── SUBTLE ENTRANCE ANIMATIONS ────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 680px) {
-      .section { padding: 4rem 0; }
-      .features-grid { grid-template-columns: 1fr; }
-      .diagram-grid { grid-template-columns: 1fr; }
-      .diagram-grid .diagram-card:first-child { grid-column: 1; grid-row: 1; }
-      .hero-gallery { padding: 2rem 1.25rem 1.25rem; }
-      .hero-info { padding: 2.5rem 1.5rem; }
-      .gallery-thumb { width: 56px; height: 44px; }
-    }
+
+    .contact-hero .hero-eyebrow  { animation: fadeUp 0.6s ease both; }
+    .contact-hero .hero-title    { animation: fadeUp 0.7s 0.1s ease both; }
+    .contact-hero .hero-subtitle { animation: fadeUp 0.7s 0.2s ease both; }
+    .contact-grid                { animation: fadeUp 0.8s 0.25s ease both; }
   </style>
-  
-
-
 </head>
 <body>
 
-  <!-- ─ Custom cursor ─ -->
+ <!-- ─ Custom cursor ─ -->
   <div id="cursor"></div>
   <div id="cursor-dot"></div>
 
@@ -642,8 +412,7 @@
         Gayatri<br><span>Industrial Engineers</span>
       </div></a>
     </div>
-    
-        <ul class="nav-links">
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="gayatri-about-gallery.html">About Us</a></li>
       <li><a href="product-section.html">Products</a></li>
@@ -651,7 +420,6 @@
       <!-- <li><a href="gallery.html">Gallery</a></li> -->
       <li><a href="blog.html">Blogs</a></li>
     </ul>
-
 
     <div class="nav-cta-wrap">
       <a href="contact.html" class="nav-cta">Get In Touch</a>
@@ -672,348 +440,153 @@
     <a href="contact.html" class="mobile-cta">Get In Touch</a>
   </div>
 
-<!-- Product Detail  -->
-<main>
-
-  <!-- ══ HERO ══ -->
-  <section class="hero">
-
-    <!-- Gallery (60%) -->
-    <div class="hero-gallery">
-      <div class="gallery-label">Product Gallery</div>
-
-      <div class="gallery-main">
-        <div class="gallery-slide active" data-index="0">
-          <img src="Decatising Machine/deca_machine.png" alt="Front View" />
-        </div>
-        <div class="gallery-slide" data-index="1">
-          <img src="Decatising Machine/DSC_0201.png" alt="Side View" />
-        </div>
-        <div class="gallery-slide" data-index="2">
-          <img src="Decatising Machine/DSC_0202-.png" alt="Detail View" />
-        </div>
-        <div class="gallery-slide" data-index="3">
-          <img src="Decatising Machine/DSC_0204-.png" alt="In Operation" />
+  <!-- ══ MAIN CONTACT SECTION ═══════════════════════════════════ -->
+  <section class="contact-section" aria-label="Contact form">
+      <!-- FORM CARD -->
+      <div class="form-panel">
+        <div class="form-header">
+          <p class="form-eyebrow">Send a Message</p>
+          <h2 class="form-title">Request a Quote or<br>Product Information</h2>
         </div>
 
-        <div class="slide-counter" id="slideCounter">01 / 04</div>
+        <!--
+          ╔══════════════════════════════════════════════════════════╗
+          ║  HOW TO CONNECT TO GOOGLE FORMS                         ║
+          ║  1. Set action="" to your Google Form action URL         ║
+          ║     (right-click "Submit" → Copy link, or use            ║
+          ║      Forms → Get pre-filled link to find it)             ║
+          ║  2. Replace each name="entry.XXXXXXXXX" with the         ║
+          ║     actual entry IDs from the pre-filled URL             ║
+          ╚══════════════════════════════════════════════════════════╝
+        -->
+        <form
+          class="contact-form"
+          method="POST"
+          action="YOUR_GOOGLE_FORM_ACTION_URL_HERE"
+          target="hidden_iframe"
+          onsubmit="handleSubmit(event)"
+          novalidate
+        >
+          <!-- Name + Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="contact-name">
+                Full Name<span class="required" aria-hidden="true">*</span>
+              </label>
+              <!-- ✏️ Replace entry.XXXXXXXXX with your Google Form entry ID -->
+              <input
+                type="text"
+                id="contact-name"
+                name="entry.XXXXXXXXX"
+                class="form-control"
+                placeholder=" Enter Your Name"
+                required
+                autocomplete="name"
+              />
+            </div>
 
-        <button class="gallery-nav prev" id="prevBtn" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="gallery-nav next" id="nextBtn" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
-
-      <div class="gallery-thumbs" id="galleryThumbs">
-        <div class="gallery-thumb active" data-thumb="0"><img src="https://placehold.co/144x112/e8eaf0/002366?text=01" alt="01" /></div>
-        <div class="gallery-thumb" data-thumb="1"><img src="https://placehold.co/144x112/dde0ec/002366?text=02" alt="02" /></div>
-        <div class="gallery-thumb" data-thumb="2"><img src="https://placehold.co/144x112/ced3e8/002366?text=03" alt="03" /></div>
-        <div class="gallery-thumb" data-thumb="3"><img src="https://placehold.co/144x112/c0c8e4/002366?text=04" alt="04" /></div>
-      </div>
-    </div>
-
-    <!-- Info Panel (40%) -->
-    <div class="hero-info"><br><br>
-      <p class="hero-eyebrow">Premium Industrial Equipment</p>
-      <br><br><br>
-      <h1 >
-        
-        <strong>Decatising<br>Machine</strong>
-      </h1>
-      <div class="hero-divider"></div>
-      <p class="hero-intro">
-        Engineered to the highest standards of textile finishing, our Decatising Machine delivers unrivalled surface stability, superior fabric smoothness, and consistently repeatable cycles—combining hydraulic precision with 316L stainless‑steel craftsmanship.
-      </p>
-      
-      <a href="contact.html" class="btn-quote">
-        <span>Get Quotation</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-  </section>
-
-
-  <!-- ══ FEATURES ══ -->
-  <section class="section features-section">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-label">Key Features</div>
-        <h2 class="section-title">Built for <em>Excellence</em></h2>
-      </div>
-      <div class="features-grid reveal">
-
-        <div class="feature-card">
-          <div class="feature-num">01</div>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
-            </svg>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">
+                Email Address<span class="required" aria-hidden="true">*</span>
+              </label>
+              <!-- ✏️ Replace entry.XXXXXXXXX -->
+              <input
+                type="email"
+                id="contact-email"
+                name="entry.XXXXXXXXX"
+                class="form-control"
+                placeholder="XYZ@mail.com"
+                required
+                autocomplete="email"
+              />
+            </div>
           </div>
-          <div class="feature-title">Cooling is made possible while drawing off.</div>
-          <div class="feature-desc"></div>
-        </div>
 
-        <div class="feature-card">
-          <div class="feature-num">02</div>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <div class="feature-title">Pre-determined adjustable cycles.</div>
-          <div class="feature-desc"></div>
-        </div>
+          <!-- Phone + Product -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="contact-phone">Phone Number</label>
+              <!-- ✏️ Replace entry.XXXXXXXXX -->
+              <input
+                type="tel"
+                id="contact-phone"
+                name="entry.XXXXXXXXX"
+                class="form-control"
+                placeholder="+91 XXXXX XXXXX"
+                autocomplete="tel"
+              />
+            </div>
 
-        <div class="feature-card">
-          <div class="feature-num">03</div>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-            </svg>
-          </div>
-          <div class="feature-title">Shortest Decatising time.</div>
-          <div class="feature-desc"></div>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-num">04</div>
-          <div class="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <div class="feature-title">Increased stability and high smoothness.</div>
-          <div class="feature-desc"></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══ SPECIFICATIONS ══ -->
-  <section class="section specs-section">
-    <div class="section-inner">
-      <div class="specs-layout">
-
-        <div>
-          <div class="section-header reveal">
-            <div class="section-label">Salient Features</div>
-            <h2 class="section-title">Technical <em>Specifications</em></h2>
-          </div>
-          <ul class="specs-list reveal">
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Main Perforated Cylinders:</strong> 
-                Two main stainless steel perforated cylinders of 600 mm. / 800 mm dia. fabricated out of <strong>316L stainless steel</strong> perforated plates mounted on ball bearings fitted with nozzles to avoid condensation
-                </div>
-            </li>
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Wrapper Drying Cylinder:</strong>
-                An extra stainless steel cylinder of <strong>300 mm dia.</strong> for drying the wrapper. This cylinder has a temperature Controller to control steam and to avoid damage to the wrapper.
-                </div>
-            </li>
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Hard-Chrome Plated Rolls:</strong> 
-                Two M.S. hard-chrome plated rolls with both the cylinders, to keep the marks fully pressed without creasing, while feeding it to the main cylinders. <strong>Pneumatic cylinders</strong> are provided to adjust the pressure and tension of the fabric.
-                </div>
-            </li>
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Wrapper Centering Roll:</strong> 
-                One suitable roll with <strong>feeler switch</strong>  to maintain properly the center of the wrapper.
-
-
-                </div>
-            </li>
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Plating Down Arrangement:</strong> Gear motor-driven system with picking arrangement for handling fabric <strong>without tension</strong>, ensuring zero damage during processing.</div>
-            </li>
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Main Drive Motor:</strong> A <strong>5 H.P. A.C. Electric Motor</strong> (for main cylinders) with pneumatic torque clutch and brake, for easy control of wrapper tension and uniform surface speed.
+            <div class="form-group">
+              <label class="form-label" for="contact-product">
+                Product of Interest<span class="required" aria-hidden="true">*</span>
+              </label>
+              <!-- ✏️ Replace entry.XXXXXXXXX -->
+              <div class="select-wrapper">
+                <select
+                  id="contact-product"
+                  name="entry.XXXXXXXXX"
+                  class="form-control"
+                  required
+                >
+                  <option value="" disabled selected>Select a product…</option>
+                  <option value="Decatising Machine">Decatising Machine</option>
+                  <option value="Gas Singeing Machine">Gas Singeing Machine</option>
+                  <option value="Automatic Dyeing Jigger Machine">Automatic Dyeing Jigger Machine</option>
+                  <option value="Calander Machine">Calander Machine</option>
+                  <option value="Hydraulic Jigger">Hydraulic Jigger</option>
+                </select>
               </div>
-            </li>
-            <li>
-              <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Hydraulic Main Drive System:</strong> Advanced hydraulic drive option with <strong>hydraulic motors and power pack</strong>, replacing conventional clutch and gear systems for smoother, more reliable operation.</div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Stats Card -->
-        <div class="reveal">
-          <div class="specs-highlight">
-            <div class="specs-highlight-title">Precision<br><strong>Engineering</strong></div>
-            <div class="specs-highlight-sub">Key Technical Data</div>
-            <div class="specs-stat">
-              <div class="specs-stat-label">Main Cylinder Diameter</div>
-              <div class="specs-stat-val">600 mm / 800 mm</div>
-            </div>
-            <div class="specs-stat">
-              <div class="specs-stat-label">Wrapper Drying Cylinder</div>
-              <div class="specs-stat-val">300 mm dia.</div>
-            </div>
-            <div class="specs-stat">
-              <div class="specs-stat-label">Material Grade</div>
-              <div class="specs-stat-val">316L Stainless</div>
-            </div>
-            <div class="specs-stat">
-              <div class="specs-stat-label">Main Drive Power</div>
-              <div class="specs-stat-val">5 H.P. A.C. Motor</div>
-            </div>
-            <div class="specs-stat">
-              <div class="specs-stat-label">Vacuum Pump</div>
-              <div class="specs-stat-val">5 H.P. Output</div>
-            </div>
-            <div class="specs-stat">
-              <div class="specs-stat-label">Drive System</div>
-              <div class="specs-stat-val">Hydraulic / Clutch</div>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══ DIAGRAM GALLERY ══ -->
-  <section class="section diagram-section">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <div class="section-label">Technical Diagrams</div>
-        <h2 class="section-title">Internal <em>Mechanisms</em></h2>
-      </div>
-      <div class="diagram-grid reveal">
-
-
-        <div class="diagram-card">
-          <img src="Decatising Machine/deca_machine_dig..avif" alt="Hydraulic Drive System" />
-          <div class="diagram-card-caption">
-            
+          <!-- Inquiry -->
+          <div class="form-group">
+            <label class="form-label" for="contact-inquiry">
+              Your Inquiry<span class="required" aria-hidden="true">*</span>
+            </label>
+            <!-- ✏️ Replace entry.XXXXXXXXX -->
+            <textarea
+              id="contact-inquiry"
+              name="entry.XXXXXXXXX"
+              class="form-control"
+              placeholder="Please describe your requirements, quantity, or any technical specifications…"
+              required
+            ></textarea>
           </div>
-        </div>
 
-        <div class="diagram-card">
-          <img src="Decatising Machine/deca_machine_details.avif" alt="Wrapper Tension Control" />
-          <div class="diagram-card-caption">
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══ VIDEO SECTION ══ -->
-  <section class="video-section">
-    <div class="section-inner">
-      <div class="section-header reveal" style="margin-bottom:2.5rem;">
-        <div class="section-label" style="color:rgba(255,255,255,0.45);">
-          In Operation
-        </div>
-        <h2 class="section-title" style="color:white;">Machine <em style="color:rgba(255,255,255,0.65);">in Action</em></h2>
-      </div>
-      <div class="video-grid reveal">
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/Ko6BMFKjo4I" title="Decatising Machine — Video 1" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/Ko6BMFKjo4I?start=46" title="Decatising Machine — Video 2" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-card">
-          <iframe src="https://www.youtube.com/embed/11R8M7mBjZ0" title="Decatising Machine — Video 3" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══ ADVANTAGES ══ -->
-  <section class="section advantages-section">
-    <div class="section-inner">
-      <div class="advantages-layout">
-
-        <div class="advantages-intro-panel reveal">
-          <div class="section-label">Outstanding Advantages</div>
-          <h2 class="section-title">Why Choose<br><em>Our Machine?</em></h2>
-          <p class="advantages-intro-text">
-            Decades of textile engineering expertise embedded in every component. From infinite tension control to energy-efficient hydraulic drives, every advantage is designed to elevate your production quality.
+          <p class="form-note">
+            Fields marked with <strong style="color:var(--royal-blue-mid)">*</strong> are required.
+             <!-- We typically respond within 1–2 business days. -->
           </p>
-          <div class="advantages-deco">
-            <div class="advantages-deco-num">08</div>
-            <div class="advantages-deco-label">Engineering Advantages</div>
+
+          <button type="submit" class="btn-submit">
+            <span>Send Inquiry</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Success message (shown after submit) -->
+        <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
+          <h3 class="success-title">Inquiry Received</h3>
+          <p class="success-text">Thank you for reaching out. Our team will review your request and get back to you within 1–2 business days.</p>
         </div>
-
-        <ul class="advantages-list reveal">
-          <li>
-            <div class="adv-num">01</div>
-            <div class="adv-text"><strong>Infinite wrapper tension control permits any desired even tension</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">02</div>
-            <div class="adv-text"><strong>The pole-changer drives both cylinders simultaneously at all times.</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">03</div>
-            <div class="adv-text"><strong>Smooth and steady wrapper “take-up” obviates unequal strain and distortion.</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">04</div>
-            <div class="adv-text"><strong>An automatic timer eliminates the possibility of human error and guarantees similar operational cycles.</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">05</div>
-            <div class="adv-text"><strong>A 5 H.P. Vacuum pump ensures increasing output and improves the ‘finish’, as it cools the fabric after steaming.</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">06</div>
-            <div class="adv-text"><strong>Pneumatic pressing devices avoids crease on the fabric.</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">07</div>
-            <div class="adv-text"><strong>Time saving due to simultaneous loading and unloading of fabric.</strong></div>
-          </li>
-          <li>
-            <div class="adv-num">08</div>
-            <div class="adv-text"><strong>Lower heat and energy consumptions.</strong></div>
-          </li>
-        </ul>
-
       </div>
-    </div>
+
+    </div><!-- .contact-grid -->
   </section>
 
-
-  <!-- ══ CTA STRIP ══ -->
-  <section class="cta-section">
-    <div class="section-inner">
-      <p class="cta-eyebrow">Ready to elevate your textile finishing?</p>
-      <h2 class="cta-title">Request a <em>Personalised Quotation</em></h2>
-      <div class="cta-btn-wrap">
-        <a href="contact.html" class="btn-quote">
-          <span>Get Quotation Now</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-</main>
+  <!-- Hidden iframe target for Google Form submission (prevents page redirect) -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onIframeLoad()"></iframe>
 
 
-
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
        FOOTER
   ═══════════════════════════════════════ -->
   <footer id="footer">
@@ -1026,17 +599,24 @@
         <p class="footer-motto">Innovate, Engineer, Excel</p>
         <div class="footer-social">
           <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
           </a>
           <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
           </a>
-          <a href="mailto:info@gayatriengineers.com" class="social-btn" title="Email" aria-label="Email">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:gayatri0022@rediffmail.com" class="social-btn" title="Email" aria-label="Email">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
           </a>
         </div>
       </div>
-      
       <div class="footer-links-col">
         <h4>Products</h4>
         <ul>
@@ -1049,10 +629,20 @@
         </ul>
       </div>
       <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gayatri-about-gallery.html">About Us</a></li>
+          <!-- <li><a href="gallery.html">Gallery</a></li> -->
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
-</a></li>
+            </a></li>
           <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
           <li><a href="mailto:info@gayatriengineers.com">✉️ gayatri0022@rediffmail.com</a></li>
         </ul>
@@ -1060,58 +650,45 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
-    <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
+      <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
     </div>
   </footer>
 
   <!-- ═══════════════════════════════════════
        WHATSAPP FLOATING BUTTON
   ═══════════════════════════════════════ -->
-  <a href="https://wa.me/918511343477"
-     id="whatsapp-btn"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/918511343477" id="whatsapp-btn" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp">
     <!-- Official WhatsApp path -->
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
   </a>
 
-  <!-- ═══════════════════════════════════════
-       JAVASCRIPT
-  ═══════════════════════════════════════ -->
-  <script src="script.js"></script>
-  
-<script>
-  // ── Gallery Slideshow ──
-  const slides  = document.querySelectorAll('.gallery-slide');
-  const thumbs  = document.querySelectorAll('.gallery-thumb');
-  const counter = document.getElementById('slideCounter');
-  let current = 0, autoTimer;
+<script src="script.js"></script>
+  <script>
+    let formSubmitted = false;
 
-  function goTo(idx) {
-    slides[current].classList.remove('active');
-    thumbs[current].classList.remove('active');
-    current = (idx + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    thumbs[current].classList.add('active');
-    counter.textContent = String(current + 1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
-  }
-  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4200); }
-  function resetAuto()  { clearInterval(autoTimer); startAuto(); }
+    function handleSubmit(e) {
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        e.preventDefault();
+        return;
+      }
+      formSubmitted = true;
+    }
 
-  document.getElementById('prevBtn').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-  document.getElementById('nextBtn').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
-  thumbs.forEach(t => t.addEventListener('click', () => { goTo(parseInt(t.dataset.thumb)); resetAuto(); }));
-  startAuto();
+    function onIframeLoad() {
+      if (formSubmitted) {
+        document.querySelector('.contact-form').style.display = 'none';
+        document.querySelector('.form-header').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('active');
+        formSubmitted = false;
+      }
+    }
+  </script>
 
-  // ── Scroll Reveal ──
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer  = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
-</script>
-  
 </body>
 </html>
