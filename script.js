@@ -195,52 +195,54 @@ const clientData = [
 
 const grid = document.getElementById("clientsGrid");
 
-function createCard(c, isDuplicate) {
-  const card = document.createElement("div");
-  card.className = "client-card" + (isDuplicate ? " duplicate" : "");
-  card.innerHTML = `
-    <div class="client-inner">
-        <div class="client-logo-wrapper">
-            <img src="${c.logo}" alt="${c.name}" class="client-logo-img">
-        </div>
-        <div class="client-name">${c.name}</div>
-    </div>
-`;
-  grid.appendChild(card);
+if (grid) {
+  function createCard(c, isDuplicate) {
+    const card = document.createElement("div");
+    card.className = "client-card" + (isDuplicate ? " duplicate" : "");
+    card.innerHTML = `
+      <div class="client-inner">
+          <div class="client-logo-wrapper">
+              <img src="${c.logo}" alt="${c.name}" class="client-logo-img">
+          </div>
+          <div class="client-name">${c.name}</div>
+      </div>
+  `;
+    grid.appendChild(card);
+  }
+
+  // Original set for desktop grid and first half of mobile marquee
+  clientData.forEach((c) => createCard(c, false));
+  // Duplicate set for seamless looping mobile marquee
+  clientData.forEach((c) => createCard(c, true));
+
+  new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target
+          .querySelectorAll(".client-card")
+          .forEach((card, i) =>
+            setTimeout(() => card.classList.add("revealed"), i * 45),
+          );
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.08 },
+  ).observe(grid);
 }
-
-// Original set for desktop grid and first half of mobile marquee
-clientData.forEach((c) => createCard(c, false));
-// Duplicate set for seamless looping mobile marquee
-clientData.forEach((c) => createCard(c, true));
-
-new IntersectionObserver(
-  (entries, obs) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target
-        .querySelectorAll(".client-card")
-        .forEach((card, i) =>
-          setTimeout(() => card.classList.add("revealed"), i * 45),
-        );
-      obs.unobserve(entry.target);
-    });
-  },
-  { threshold: 0.08 },
-).observe(grid);
 
 
 // animation for parallax window
 
-const heroVideo = document.getElementById('hero-video');
+// const heroVideo = document.getElementById('hero-video');
 
-window.addEventListener('scroll', () => {
-    // If the user scrolls more than 50px down, mute the video
-    if (window.scrollY > 100) {
-        heroVideo.muted = true;
-    } 
-    // Optional: Unmute when they scroll back to the very top
-    else {
-       heroVideo.muted = false;
-    }
-});
+// window.addEventListener('scroll', () => {
+//     // If the user scrolls more than 50px down, mute the video
+//     if (window.scrollY > 100) {
+//         heroVideo.muted = true;
+//     } 
+//     // Optional: Unmute when they scroll back to the very top
+//     else {
+//        heroVideo.muted = false;
+//     }
+// });
