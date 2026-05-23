@@ -246,3 +246,15 @@ if (grid) {
 //        heroVideo.muted = false;
 //     }
 // });
+
+/* ──────────────────────────────────────
+     DYNAMIC TAB TITLE (Come Back effect)
+   ────────────────────────────────────── */
+let originalTitle = document.title;
+window.addEventListener("blur", () => {
+  originalTitle = document.title;
+  document.title = "Come Back! | Gayatri Industrial Engineers";
+});
+window.addEventListener("focus", () => {
+  document.title = originalTitle;
+});
