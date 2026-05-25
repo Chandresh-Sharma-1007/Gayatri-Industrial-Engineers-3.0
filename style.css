@@ -462,26 +462,59 @@ a {
 /* ═══════════════════════════════════════
        HERO — FULL-SCREEN VIDEO, 100% CLEAR
     ═══════════════════════════════════════ */
+/* ===================================================
+   STABLE HERO SLIDER SECTION (DESKTOP)
+   =================================================== */
 #hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 580px;
+  height: 520px; /* Restores your perfect desktop presentation height */
   overflow: hidden;
-  background: #000;
+  background-color: #ffffff;
+  
+  /* FIX: Shifts the entire hero section cleanly right below the fixed desktop navbar layout */
+  margin-top: 80px; /* Adjust this to 70px or 75px if you see a tiny white space line, to match your header perfectly */
 }
 
-/* Clean full-brightness video — no Ken Burns, no overlays */
-#hero-video {
+.hero-slider {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-  /* 100% brightness / opacity as required */
+  z-index: 1;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain; /* Keeps the entire banner 100% visible with zero cropping */
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slider .slide.active {
   opacity: 1;
-  filter: none;
+}
+
+/* ===================================================
+   RESPONSIVE OVERLAP FIX (MOBILE ONLY)
+   =================================================== */
+@media (max-width: 768px) {
+  #hero {
+    height: 260px; /* Snaps the slider box down to a compact size fit for mobile phone screens */
+    margin-top: 70px; /* Pushes the entire section down cleanly below the fixed mobile navbar */
+  }
+
+  .hero-slider .slide {
+    background-size: contain; /* Guarantees no text is ever cropped on phones */
+    background-position: center center;
+  }
 }
 
 /* Minimal bottom gradient so the section transition reads cleanly */
@@ -1800,4 +1833,22 @@ a {
   .metrics-grid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/* ===================================================
+   GLOBAL IMAGE PROTECTION (KILLS COPY & DRAG)
+   =================================================== */
+img {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  pointer-events: none !important; /* Completely blocks right-click 'Copy Image' options */
+}
+
+/* Ensure our hover zoom still works perfectly since pointer-events are disabled on the img itself */
+.product-card:hover img {
+  transform: scale(1.05);
 }
