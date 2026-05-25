@@ -258,3 +258,36 @@ window.addEventListener("blur", () => {
 window.addEventListener("focus", () => {
   document.title = originalTitle;
 });
+
+/* ──────────────────────────────────────
+     GLOBAL COPYRIGHT PROTECTION FOR IMAGES
+   ────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Prevent standard keyboard copying (Ctrl+C / Cmd+C) specifically on image elements
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey && e.key === 'c') || (e.metaKey && e.key === 'c')) {
+      // If they are targeting an image element, wipe clipboard data
+      if (document.activeElement.tagName === 'IMG') {
+        navigator.clipboard.writeText('');
+      }
+    }
+  });
+
+  // 2. Clear clipboard if they attempt the native PrintScreen key string combo
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText('');
+    }
+  });
+
+  // 3. Hero Image Slideshow
+  const slides = document.querySelectorAll('.hero-slider .slide');
+  if (slides.length > 0) {
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4000); // Changes image every 4 seconds
+  }
+});
