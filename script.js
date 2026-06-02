@@ -290,4 +290,62 @@ document.addEventListener('DOMContentLoaded', () => {
       slides[currentSlide].classList.add('active');
     }, 4000); // Changes image every 4 seconds
   }
+
+  // 4. Products Carousel Smooth Scroll
+  const productsRow = document.querySelector('.products-row');
+  const prevBtn = document.querySelector('.carousel-nav-btn.prev-btn');
+  const nextBtn = document.querySelector('.carousel-nav-btn.next-btn');
+
+  if (productsRow && prevBtn && nextBtn) {
+    const getScrollAmount = () => {
+      const card = productsRow.querySelector('.product-card');
+      if (card) {
+        const cardWidth = card.getBoundingClientRect().width;
+        const gap = parseInt(window.getComputedStyle(productsRow).gap) || 24;
+        return cardWidth + gap;
+      }
+      return 300;
+    };
+
+    prevBtn.addEventListener('click', () => {
+      productsRow.scrollBy({
+        left: -getScrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      productsRow.scrollBy({
+        left: getScrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    const updateButtons = () => {
+      const scrollLeft = Math.round(productsRow.scrollLeft);
+      const maxScroll = productsRow.scrollWidth - productsRow.clientWidth;
+      
+      if (scrollLeft <= 5) {
+        prevBtn.classList.add('disabled');
+        prevBtn.setAttribute('disabled', 'true');
+      } else {
+        prevBtn.classList.remove('disabled');
+        prevBtn.removeAttribute('disabled');
+      }
+      
+      if (scrollLeft >= maxScroll - 5) {
+        nextBtn.classList.add('disabled');
+        nextBtn.setAttribute('disabled', 'true');
+      } else {
+        nextBtn.classList.remove('disabled');
+        nextBtn.removeAttribute('disabled');
+      }
+    };
+
+    productsRow.addEventListener('scroll', updateButtons);
+    // Initial check
+    updateButtons();
+    // Re-check on window resize
+    window.addEventListener('resize', updateButtons);
+  }
 });
