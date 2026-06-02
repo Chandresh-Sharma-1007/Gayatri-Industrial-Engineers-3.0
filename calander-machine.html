@@ -642,12 +642,12 @@
       white-space: nowrap;
     }
 
-.video-grid {
-    display: flex;          /* Change from grid to flex */
-    justify-content: center; /* This centers the items horizontally */
-    gap: 1.5rem;
-    flex-wrap: wrap;        /* Keeps it responsive */
-}
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
     .video-card {
       position: relative;
       background: rgba(255, 255, 255, 0.06);
@@ -656,8 +656,7 @@
       aspect-ratio: 16/9;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: border-color 0.3s;
-      width: 500px;
-      
+      width: 100%;
     }
 
     .video-card:hover {
@@ -879,14 +878,30 @@
       }
 
       .video-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .video-grid .video-card:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: 500px;
+        width: 100%;
       }
     }
 
     @media (max-width: 680px) {
       .section {
         padding: 4rem 0;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .video-grid .video-card:last-child {
+        grid-column: auto;
+        justify-self: stretch;
+        max-width: none;
       }
 
       .features-grid {
@@ -1042,7 +1057,7 @@
       <div class="hero-divider"></div>
       <p class="hero-intro">
         Gayatri's Hydraulic Calander Machine delivers a superior fabric finish with its robust 5-bowl calandering
-          unit, precision hard-chromed heating rollers, and inverter-driven A.C. motor — engineered for vibration-free,
+          unit, precision hard mirror chromed heating rollers, and inverter-driven A.C. motor — engineered for vibration-free,
           heavy-duty textile processing with complete temperature control.
       </p>
 
@@ -1078,7 +1093,7 @@
             </div>
             <div class="feature-title">5 Bowl Calandering Unit</div>
             <div class="feature-desc">Three 24″ dia. cotton rolls on taper roller bearings with heavy-duty C.I.
-              housings, hydraulically raised or lowered, combined with two 12″ hard-chromed heated rollers for precision
+              housings, hydraulically raised or lowered, combined with two 12″ hard mirror chromed heated rollers for precision
               surface finishing.</div>
           </div>
 
@@ -1093,7 +1108,7 @@
             </div>
             <div class="feature-title">Multi-Mode Heating System</div>
             <div class="feature-desc">Oil, steam or electric heating device — selectable to suit the fabric type and
-              process requirement. Internal heating inside each 12″ hard-chromed roller ensures uniform, controlled heat
+              process requirement. Internal heating inside each 12″ hard mirror chromed roller ensures uniform, controlled heat
               transfer across the full fabric width.</div>
           </div>
 
@@ -1120,10 +1135,8 @@
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
               </svg>
             </div>
-            <div class="feature-title">Inverter Drive &amp; Digital Speed</div>
-            <div class="feature-desc">A.C. electric motor with worm reduction gearbox, chain drive, temperature
-              controller and inverter drive — all on a single control panel. Digital speed indicator provides real-time
-              speed monitoring at all times.</div>
+            <div class="feature-title">PLC Controlled Inverter Drive  &amp; Digital Speed System.</div>
+            <div class="feature-desc">PLC-controlled A.C. motor with inverter drive, worm reduction gearbox, chain drive, and temperature control system integrated into a single smart control panel. Equipped with a digital speed indicator for accurate real-time monitoring and precise process control..</div>
           </div>
 
         </div>
@@ -1163,8 +1176,8 @@
               </li>
               <li>
                 <div class="spec-bullet"></div>
-                <div class="spec-text"><strong>Hard-Chromed Heated Rollers:</strong> Two <strong>12″ hard-chromed
-                    rollers</strong> on taper roller bearings with housings. Roller surface is ground and hard-chromed;
+                <div class="spec-text"><strong>Hard mirror Chromed Heated Rollers:</strong> Two <strong>12″ hard mirror chromed
+                    rollers</strong> on taper roller bearings with housings. Roller surface is ground and hard mirror chromed;
                   internal heating system provided. Position is adjustable up or down manually via screw and handle.
                 </div>
               </li>
@@ -1215,7 +1228,7 @@
                 <div class="specs-stat-val">24″ (× 3 nos.)</div>
               </div>
               <div class="specs-stat">
-                <div class="specs-stat-label">Hard Chrome Roll Dia.</div>
+                <div class="specs-stat-label">Hard mirror Chrome Roll Dia.</div>
                 <div class="specs-stat-val">12″ (× 2 nos.)</div>
               </div>
               <div class="specs-stat">
@@ -1287,9 +1300,17 @@
           <h2 class="section-title" style="color:white;">Machine <em style="color:rgba(255,255,255,0.65);">in
               Action</em></h2>
         </div>
-        <div class="video-grid reveal" style="grid-template-columns: repeat(2,1fr);">
+        <div class="video-grid reveal">
           <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/STlcVUZTidY" title="Calander Machine — In Operation"
+            <iframe src="https://www.youtube.com/embed/Ov9HksoxUoU?si=yLOU587G8GhfCIAT" title="Calander Machine — In Operation"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card">
+            <iframe src=" https://www.youtube.com/embed/SSU_dE4lSg4?si=2OlEDMBZHGM_qpA5 " title="Calander Machine — In Operation"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/gji3eCy-VRg?si=HFGyXv2IjPJGgEeT " title="Calander Machine — In Operation"
               allowfullscreen loading="lazy"></iframe>
           </div>
           
@@ -1308,7 +1329,7 @@
             <h2 class="section-title">Why Choose<br><em>Our Machine?</em></h2>
             <p class="advantages-intro-text">
               Gayatri's Calander Machine is engineered for heavy-duty reliability and finishing precision — combining a
-              vibration-free 50 mm plate frame, versatile multi-mode heating, and inverter-controlled drive for
+              vibration-free 50 mm plate frame, versatile multi-mode heating, and PLC-controlled system with inverter-controlled drive for
               consistently superior fabric surface quality.
             </p>
             <div class="advantages-deco">
@@ -1320,51 +1341,35 @@
           <ul class="advantages-list reveal">
             <li>
               <div class="adv-num">01</div>
-              <div class="adv-text"><strong>Vibration-Free Heavy Mounting Base</strong>The 50 mm thick plate frame with
-                rigidly welded channels and flats provides a completely vibration-free base — capable of withstanding
-                heavy hydraulic loads and ensuring accurate, consistent calandering results.</div>
+              <div class="adv-text"><strong>Heavy-duty vibration-free construction</strong></div>
             </li>
             <li>
               <div class="adv-num">02</div>
-              <div class="adv-text"><strong>Precise Fabric Centering at Entry</strong>Tension bars, a swivel tension
-                device and chrome-plated guide rolls guide the fabric centrally into the calandering unit, preventing
-                edge creasing and ensuring perfectly even pressure across the full width.</div>
+              <div class="adv-text"><strong>•	PLC-controlled system</strong></div>
             </li>
             <li>
               <div class="adv-num">03</div>
-              <div class="adv-text"><strong>Hydraulically Adjustable C.I. Housings</strong>The heavy-duty cast-iron
-                housings of the cotton rolls can be lowered or lifted with precision by hydraulic cylinders — enabling
-                rapid, accurate bowl-gap adjustment for different fabric weights and finishes.</div>
+              <div class="adv-text"><strong>•	PLC-controlled system</strong></div>
             </li>
             <li>
               <div class="adv-num">04</div>
-              <div class="adv-text"><strong>Ground &amp; Hard-Chromed Heated Rollers</strong>The 12″ rollers are ground
-                to a precise surface finish and hard-chromed for durability, with internal heating ensuring uniform
-                temperature transfer across the full fabric contact area for a superior gloss finish.</div>
+              <div class="adv-text"><strong>•	Uniform hydraulic pressure control</strong></div>
             </li>
             <li>
               <div class="adv-num">05</div>
-              <div class="adv-text"><strong>Manual Fine Position Adjustment</strong>The position of each 12″ chrome
-                roller can be shifted up or down manually via screw and handle — providing fine positional control that
-                complements the hydraulic system for process flexibility.</div>
+              <div class="adv-text"><strong>•	Mirror Finished heated rollers.</strong></div>
             </li>
             <li>
               <div class="adv-num">06</div>
-              <div class="adv-text"><strong>Flexible Multi-Mode Heating</strong>Oil, steam or electric heating —
-                selectable to match the process and fabric requirement. This versatility means the same machine can
-                handle a wide range of textile finishing applications without modification.</div>
+              <div class="adv-text"><strong>•	Multiple heating options available.</strong></div>
             </li>
             <li>
               <div class="adv-num">07</div>
-              <div class="adv-text"><strong>Inverter Drive — Variable Speed Control</strong>The A.C. motor with worm
-                reduction gearbox and inverter drive provides smooth, infinitely variable speed control with a
-                temperature controller — all managed from a single integrated control panel.</div>
+              <div class="adv-text"><strong>•	Energy-efficient & low maintenance.</strong></div>
             </li>
             <li>
               <div class="adv-num">08</div>
-              <div class="adv-text"><strong>Roller-Type Plaiter Delivery</strong>A positively driven draw roll with
-                rubber pressure roll and two guide rolls at the delivery end ensures smooth, controlled fabric take-up
-                and accurate plaiting — protecting the finished fabric quality right to the stack.</div>
+              <div class="adv-text"><strong>•	Smooth and tension-free fabric handling.</strong></div>
             </li>
           </ul>
 
@@ -1407,18 +1412,18 @@
         </div>
         <p class="footer-motto">Innovate, Engineer, Excel</p>
         <div class="footer-social">
-          <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/dhruv-sharma-309b3b1a4/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
               <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
-          <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61574865483459" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Facebook">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
             </svg>
           </a>
-          <a href="mailto:info@gayatriengineers.com" class="social-btn" title="Email" aria-label="Email">
+          <a href="mailto:gayatri0022@rediffmail.com" class="social-btn" title="Email" aria-label="Email">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
@@ -1455,7 +1460,7 @@
           <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
             </a></li>
           <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
-          <li><a href="mailto:info@gayatriengineers.com">✉️ gayatri0022@rediffmail.com</a></li>
+          <li><a href="mailto:gayatri0022@rediffmail.com">✉️ gayatri0022@rediffmail.com</a></li>
         </ul>
       </div>
     </div>
