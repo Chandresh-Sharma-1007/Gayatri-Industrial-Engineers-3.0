@@ -22,7 +22,7 @@
       --off-white: #f7f8fc;
       --light-gray: #e8eaf0;
       --text-dark: #0a0e1a;
-      --text-muted: #6b7280;
+      --text-muted: #062055;
       --accent-gold: #c9a84c;
     }
 
@@ -472,6 +472,31 @@
       pointer-events: none;
       white-space: nowrap;
     }
+    .video-section .section-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-section .section-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .video-section .section-label {
+      justify-content: center;
+    }
+    .video-section .video-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .video-section .video-card {
+      width: 100%;
+      max-width: 720px;
+    }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -789,8 +814,8 @@
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
           </div>
-          <div class="feature-title">1:1 Liquor-to-Fabric Ratio</div>
-          <div class="feature-desc">Unique tank design achieves an outstanding fabric weight to liquor consumption ratio of nearly 1:1. A circulation pump maintains uniform liquor concentration for level, consistent dyeing across every batch.</div>
+          <div class="feature-title">Optimized Liquor Ratio Design</div>
+          <div class="feature-desc">Specially designed tank geometry achieves low liquor ratios of up to 1:2 for synthetic fabrics and 1:3.5 for cellulosic fabrics, reducing water, steam, and chemical consumption. A Circulation pump maintains uniform liquour concentration for level, consistent dyeing across every batch.</div>
         </div>
 
       </div>
@@ -823,7 +848,7 @@
             </li>
             <li>
               <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>Stainless Steel Liquor Tank:</strong> Trough fabricated from <strong>304/316 grade 16 SWG S.S.</strong> with two S.S. guide rolls on nylon bearings at the bottom. Drain and overflow provisions included. Perforated pipe for direct heating; coil for indirect heating available on request.</div>
+              <div class="spec-text"><strong>Stainless Steel Liquor Tank:</strong> Trough fabricated from <strong>304/316 grade  S.S.</strong> with two S.S. guide rolls on nylon bearings at the bottom. Drain and overflow provisions included. Perforated pipe for direct heating; coil for indirect heating available on request.</div>
             </li>
             <li>
               <div class="spec-bullet"></div>
@@ -839,7 +864,7 @@
             </li>
             <li>
               <div class="spec-bullet"></div>
-              <div class="spec-text"><strong>PLC Controlled Functions:</strong> Auto cycle forward/reversal · Automatic cycle stoppage after process completion · <strong>Automatic speed/tension control</strong> throughout the cycle · Hunting operation during cycle stoppage.</div>
+              <div class="spec-text"><strong>PLC Controlled Functions:</strong> Auto cycle forward/reversal · Automatic cycle stoppage after process completion · <strong>Automatic speed/tension control</strong> throughout the cycle.</div>
             </li>
             <li>
               <div class="spec-bullet"></div>
@@ -867,7 +892,7 @@
             </div>
             <div class="specs-stat">
               <div class="specs-stat-label">Cloth Capacity / Feed</div>
-              <div class="specs-stat-val">100 – 1250 Kg</div>
+              <div class="specs-stat-val">100 – 1500 Kg</div>
             </div>
             <div class="specs-stat">
               <div class="specs-stat-label">Main Drive Motor</div>
@@ -875,7 +900,7 @@
             </div>
             <div class="specs-stat">
               <div class="specs-stat-label">Tank Material</div>
-              <div class="specs-stat-val">SS 304 / 316, 16 SWG</div>
+              <div class="specs-stat-val">SS 304 / 316</div>
             </div>
           </div>
         </div>
@@ -912,28 +937,26 @@
 
 
   <!-- ══ VIDEO SECTION ══ -->
-  <!-- <section class="video-section">
-    <div class="section-inner">
-      <div class="section-header reveal" style="margin-bottom:2.5rem;">
-        <div class="section-label" style="color:rgba(255,255,255,0.45);">
-          In Operation
+<section class="video-section">
+      <div class="section-inner">
+        <div class="section-header reveal" style="margin-bottom:2.5rem;">
+          <div class="section-label" style="color:rgba(255,255,255,0.45);">
+            In Operation
+          </div>
+          <h2 class="section-title" style="color:white;">Machine <em style="color:rgba(255,255,255,0.65);">in
+              Action</em></h2>
         </div>
-        <h2 class="section-title" style="color:white;">Machine <em style="color:rgba(255,255,255,0.65);">in Action</em></h2>
-      </div>
-      <div class="video-grid reveal" style="grid-template-columns: repeat(2,1fr);">
-        <div class="video-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;min-height:200px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.3)" stroke="none"/></svg>
-          <span style="color:rgba(255,255,255,0.35);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Video Coming Soon</span>
-        </div>
-        <div class="video-card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;min-height:200px;">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.3)" stroke="none"/></svg>
-          <span style="color:rgba(255,255,255,0.35);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Video Coming Soon</span>
-        </div>
-      </div>
-    </div>
-  </section> -->
+        <div class="video-grid reveal">
 
-
+          <div class="video-card">
+            <iframe src=" https://www.youtube.com/embed/a6_b2ZUJwjM?si=za7GYNOsQrX76kKR " title="Automatic Dyeing Jigger Machine — In Operation"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        
+          
+        </div>
+      </div>
+    </section>
   <!-- ══ ADVANTAGES ══ -->
   <section class="section advantages-section">
     <div class="section-inner">
@@ -986,7 +1009,7 @@
           </li>
           <li>
             <div class="adv-num">09</div>
-            <div class="adv-text"><strong>Outstanding 1:1 Liquor Ratio</strong>Unique tank design achieves a fabric weight to liquor consumption ratio of nearly 1:1, drastically reducing dye, chemical and water consumption per batch.</div>
+            <div class="adv-text"><strong>Optimized Liquor Ratio Design</strong>Low liquor ratio design reduces water, steam, and chemical consumption, while the circulation pump ensures uniform liquor concentration for consistent and level dyeing.</div>
           </li>
           <li>
             <div class="adv-num">10</div>
