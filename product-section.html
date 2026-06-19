@@ -1,0 +1,1004 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Gayatri Industrial Engineers</title>
+  <meta name="theme-color" content="#1a4f8a">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --blue-600: #1a4f8a;
+      --blue-500: #1e6abf;
+      --blue-400: #2d8cff;
+      --blue-300: #64abff;
+      --blue-200: #a8d1ff;
+      --blue-100: #dbeeff;
+      --blue-50: #f0f7ff;
+      --white: #ffffff;
+      --text-main: #1a2b3c;
+      --text-muted: #5a7fa8;
+      --border-soft: rgba(45, 140, 255, 0.1);
+      --card-shadow: 0 10px 40px -10px rgba(26, 79, 138, 0.05);
+      --card-shadow-hover: 0 25px 60px -15px rgba(26, 79, 138, 0.1);
+      --transition-fast: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      --glass-bg: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── High-Budget Split-Tone Background System ── */
+    #gayatri-products {
+      position: relative;
+      background: #ffffff;
+      padding: 0; /* Tightened natural spacing */
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Dramatic Diagonal Split Layer */
+    .gp-bg-split {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          #0f3d73 0%,
+          var(--blue-600) 52%, /* Increased blue zone for 2-column safety */
+          #f5f9ff 52%,
+          #ffffff 100%);
+      z-index: 1;
+      pointer-events: none !important;
+    }
+
+    /* Dual-Tone Engineering Grid */
+    .gp-bg-grid-light,
+    .gp-bg-grid-dark {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .gp-bg-grid-light {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.10) 1px, transparent 1px);
+      background-size: 48px 48px;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .gp-bg-grid-dark {
+      background-image:
+        linear-gradient(rgba(45, 140, 255, 0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 140, 255, 0.14) 1px, transparent 1px);
+      background-size: 48px 48px;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    /* Cinematic Ambient Lighting */
+    .gp-glow-orb {
+      position: absolute;
+      background: radial-gradient(circle, rgba(45, 140, 255, 0.2) 0%, transparent 70%);
+      filter: blur(100px);
+      z-index: 1;
+      pointer-events: none;
+      border-radius: 50%;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .gp-orb--1 {
+      width: 1200px;
+      height: 1200px;
+      top: -400px;
+      left: -200px;
+      opacity: 0.6;
+    }
+
+    .gp-orb--2 {
+      width: 800px;
+      height: 800px;
+      bottom: -200px;
+      right: -100px;
+      opacity: 0.4;
+    }
+
+    .gp-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    /* ── Optimized Reveal Animation ── */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+      will-change: transform, opacity;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .reveal-element.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Hero Layout & Alignment ── */
+    .gp-hero-layout {
+      display: flex;
+      align-items: center; /* VITAL: Keeps right card centered with heading */
+      justify-content: space-between;
+      gap: 70px;
+      padding-top: 72px; /* Tighter premium spacing */
+      padding-bottom: 72px;
+      margin-bottom: 40px;
+      max-width: 1200px;
+    }
+
+    .gp-left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 650px;
+      margin-top: 0; /* Prevents drooping */
+    }
+
+    .gp-hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .gp-eyebrow {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      /* Premium letter spacing */
+      text-transform: uppercase;
+      color: #cbd5e1;
+      /* Brighter premium silver tone */
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+    }
+
+    .gp-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(48px, 8vw, 84px);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--white);
+      /* Bold white on blue zone */
+      letter-spacing: -0.04em;
+      margin: 0;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .gp-title span {
+      background: linear-gradient(135deg, #ffffff 0%, var(--blue-100) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.9;
+    }
+
+    .gp-description-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px; /* Sharper industrial corner */
+      padding: 32px 36px;
+      max-width: 420px;
+      position: relative;
+      z-index: 2;
+      isolation: isolate;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .gp-description-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .gp-description {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--white);
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    /* Premium Hero CTA */
+    .gp-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue-400), var(--blue-600));
+      padding: 14px 32px;
+      border-radius: 6px; /* Precision tech corner */
+      text-decoration: none;
+      margin-top: 24px;
+      /* Cinematic spacing above button */
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background 0.3s ease;
+      box-shadow: 0 10px 25px rgba(45, 140, 255, 0.25);
+    }
+
+    .gp-hero-cta:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(45, 140, 255, 0.4);
+      background: linear-gradient(135deg, var(--blue-300), var(--blue-500));
+    }
+
+    /* ── Cursor & Interaction Fix ── */
+    .gp-bg-mesh,
+    .gp-bg-grid,
+    .gp-glow-orb,
+    .gp-card::before,
+    .gp-card::after,
+    .gp-grid::before,
+    .gp-grid::after,
+    .gp-background,
+    .gp-glow,
+    .gp-orb,
+    .gp-gradient,
+    .gp-mesh,
+    .gp-overlay,
+    .custom-cursor,
+    .cursor-dot,
+    .cursor-ring {
+      pointer-events: none !important;
+    }
+
+    /* ── Stats ── */
+    .gp-stats {
+      display: flex;
+      gap: 50px;
+      margin-top: 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gp-stat-num {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--white);
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .gp-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #cbd5e1;
+      /* Premium readability */
+      font-weight: 700;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* ── Grid ── */
+    .gp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    /* ── Dramatic Luxury Card ── */
+    .gp-card {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(45, 140, 255, 0.12);
+      border-radius: 14px; /* Sharper modern industrial corner */
+      padding: 24px 24px 20px !important; /* Tight bottom spacing */
+      display: flex;
+      flex-direction: column;
+      height: auto; /* Natural content-driven height */
+      box-sizing: border-box;
+      box-shadow:
+        0 10px 30px rgba(15, 61, 115, 0.08),
+        0 2px 8px rgba(45, 140, 255, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      will-change: transform, opacity;
+      transform: translateY(0) translateZ(0);
+      backface-visibility: hidden;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Cinematic Spotlight Hover */
+    .gp-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(45, 140, 255, 0.08) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none !important;
+      z-index: -1;
+    }
+
+    .gp-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Blue Rim Lighting */
+    .gp-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--blue-400), transparent, var(--blue-600));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none !important;
+      z-index: 3;
+    }
+
+    .gp-card:hover::after {
+      opacity: 1;
+    }
+
+    .gp-card:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        0 18px 40px rgba(15, 61, 115, 0.12),
+        0 8px 18px rgba(45, 140, 255, 0.10);
+      border-color: rgba(45, 140, 255, 0.3);
+    }
+
+    .gp-image-wrapper {
+      width: 100%;
+      height: 190px;
+      /* Balanced image area */
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border-radius: 10px; /* Refined nesting geometry */
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(240, 247, 255, 0.95));
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(45, 140, 255, 0.05);
+    }
+
+    .gp-image-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: 15%;
+      background: radial-gradient(circle, rgba(45, 140, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none !important;
+      z-index: 1;
+    }
+
+
+    .gp-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* CRITICAL: NO CROPPING */
+      transform: scale(1) translateZ(0);
+      transition: transform 0.3s ease;
+      will-change: transform;
+      position: relative;
+      z-index: 2;
+      backface-visibility: hidden;
+      image-rendering: auto;
+    }
+
+    .gp-card:hover .gp-image-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .gp-info-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gp-card-category {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-400);
+      margin-bottom: 12px;
+    }
+
+    .gp-card-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .gp-card-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: auto;     
+       min-height: 180px;
+      /* Standardized height */
+    }
+
+    .gp-btn-wrapper {
+      margin-top: 18px;
+    }
+
+    .gp-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--blue-600);
+      padding: 14px 28px;
+      border-radius: 6px; /* Modern corporate sharp corner */
+      text-decoration: none;
+      align-self: flex-start;
+      margin-bottom: 0;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .gp-card-btn:hover {
+      background: var(--blue-500);
+      transform: translateX(4px);
+    }
+
+    /* Staggered Delay */
+    .gp-card:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .gp-card:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .gp-card:nth-child(3) {
+      transition-delay: 0.15s;
+    }
+
+    .gp-card:nth-child(4) {
+      transition-delay: 0.05s;
+    }
+
+    .gp-card:nth-child(5) {
+      transition-delay: 0.1s;
+    }
+
+    .gp-card:nth-child(6) {
+      transition-delay: 0.15s;
+    }
+
+    .gp-card:nth-child(7) {
+      transition-delay: 0.1s;
+    }
+
+    /* ── Mobile Optimization ── */
+    @media (max-width: 1024px) {
+      .gp-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .gp-hero-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .gp-card {
+        height: 500px;
+      }
+
+      .gp-image-wrapper {
+        height: 180px;
+      }
+
+      #gayatri-products {
+        padding: 100px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gp-stats {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .gp-card {
+        padding: 24px 24px 20px !important;
+        border-radius: 14px;
+        height: auto;
+      }
+
+      .gp-image-wrapper {
+        height: 170px;
+      }
+
+      .gp-bg-grid {
+        background-size: 32px 32px;
+      }
+
+      .gp-glow-orb {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gp-container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box;
+      }
+
+      .gp-hero-layout,
+      .gp-left-column,
+      .gp-hero-section,
+      #gayatri-products {
+        height: auto !important;
+        min-height: unset !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        justify-content: flex-start !important;
+        gap: 24px !important;
+      }
+
+      .gp-eyebrow {
+        margin-bottom: 12px !important;
+      }
+
+      .gp-title {
+        font-size: 34px !important;
+        line-height: 1.2 !important;
+        text-align: center;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      .gp-stats {
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        gap: 15px !important;
+        width: 100%;
+        margin-top: 20px !important;
+      }
+
+      .gp-stat-num {
+        font-size: 28px !important;
+      }
+
+      .gp-stat-label {
+        font-size: 11px !important;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       SMART NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+
+    <div class="nav-logo">
+      <a href="index.html">
+        <div class="nav-logo-icon">
+          <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
+        </div>
+      </a>
+      <a href="index.html">
+        <div class="nav-logo-text">
+          Gayatri<br><span>Industrial Engineers</span>
+        </div>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gayatri-about-gallery.html">About Us</a></li>
+      <li><a href="product-section.html">Products</a></li>
+
+      <!-- <li><a href="gallery.html">Gallery</a></li> -->
+      <li><a href="blog.html">Blogs</a></li>
+    </ul>
+
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="gayatri-about-gallery.html">About Us</a>
+    <a href="product-section.html">Products</a>
+    <!-- <a href="gallery.html">Gallery</a> -->
+    <a href="blog.html">Blogs</a>
+    <a href="contact.html" class="mobile-cta">Get In Touch</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       Products section
+  ═══════════════════════════════════════ -->
+
+
+  <section id="gayatri-products">
+    <div class="gp-bg-split"></div>
+    <div class="gp-bg-grid-light"></div>
+    <div class="gp-bg-grid-dark"></div>
+    <div class="gp-glow-orb gp-orb--1"></div>
+    <div class="gp-glow-orb gp-orb--2"></div>
+
+    <div class="gp-container">
+
+      <!-- Hero Layout -->
+      <div class="gp-hero-layout reveal-element">
+        <div class="gp-left-column">
+          <div class="gp-hero-text">
+            <!-- <div class="gp-eyebrow">Advanced Industrial Solutions</div> -->
+            <h1 class="gp-title">Our Products <span>Advanced Solutions</span></h1>
+          </div>
+
+          <!-- Heritage Stats Grouped with Heading -->
+          <div class="gp-stats">
+            <div class="gp-stat">
+              <span class="gp-stat-num">1989</span>
+              <span class="gp-stat-label">Established</span>
+            </div>
+            <div class="gp-stat">
+              <span class="gp-stat-num">35+</span>
+              <span class="gp-stat-label">Years of Excellence
+</span>
+            </div>
+            <div class="gp-stat">
+              <span class="gp-stat-num">7</span>
+              <span class="gp-stat-label">Flagship Machines</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-description-card">
+          <p class="gp-description">
+            Smart solutions are at the core of all that we do at Gayatri Industrial Engineers. Our main goal is finding smart ways of using technology that will help build a better tomorrow for everyone, everywhere. Gayatri Industrial Engineers is a name synonymous with quality since 1989. For last three decades, we have been catering to the needs of various industries such as textiles, chemicals, Block making making machinery units, by providing cost effective solutions. We are widely recognized as an innovator.
+          </p>
+        </div>
+      </div>
+
+      <!-- Product Showcase Grid -->
+      <div class="gp-grid">
+
+        <!-- Decatising Machine -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="Decatising Machine/deca_machine.jpeg" alt="Decatising Machine" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+             
+              <h3 class="gp-card-title">Decatising Machine</h3>
+              <p class="gp-card-desc">The Decatising Machine delivers unique finish effects with controlled steaming, vacuuming, and wrapper cloth pressure. Suitable for Polyester, Woollen, Polyester/Cotton, and Viscose blends from lightweight sarees to heavy corduroy suitings.
+
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="decatising-machine.html" class="gp-card-btn">Explore Product <i class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gas Singeing Machine -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="Home-page-product-img/Gas Singeing Machine.png" alt="Gas Singeing Machine" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+             
+              <h3 class="gp-card-title">Gas Singeing Machine</h3>
+              <p class="gp-card-desc">The Gas Singeing Machine features controlled combustion with Double-Jet burners for high intensity blue flame and lower gas consumption. It supports singeing on both sides of the fabric with automatic flame adjustment and advanced safety systems.
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="gas-singeing-machine.html" class="gp-card-btn">Explore Product <i class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automatic Dyeing Jigger -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="Automatic Dyeing Jigger Machine/06.jpg" alt="Automatic Dyeing Jigger Machine" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+             
+              <h3 class="gp-card-title">Automatic Dyeing Jigger</h3>
+              <p class="gp-card-desc"> The Automatic Dyeing Jigger Machine offers smooth and efficient performance with synchronized motor drives, PLC controlled functions, and touch screen operation. It ensures tensionless fabric passage, low maintenance, and economical processing of light and heavy fabrics.
+
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="dyeing-jigger-machine.html" class="gp-card-btn">Explore Product <i class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calander Machine -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="Home-page-product-img/Calander Machine.png" alt="Calander Machine" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+              
+              <h3 class="gp-card-title">Calander Machine</h3>
+              <p class="gp-card-desc">The Calander Machine features a strong vibration-free frame and a 5 bowl calandering unit with cotton and hard chromed rollers for smooth fabric finishing. It is equipped with hydraulic systems, digital controls, inverter drive, and oil, steam, or electric heating options for efficient operation.
+
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="calander-machine.html" class="gp-card-btn">Explore Product <i class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hydraulic Jigger -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="Hyrdaulic Jigger/Hyd-Final.jpg" alt="Hydraulic Jigger" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+            
+              <h3 class="gp-card-title">Hydraulic Jigger</h3>
+              <p class="gp-card-desc">The Hydraulic Maxi Jigger offers automatic temperature control, PLC touch screen operation, and low tension fabric processing for different fabric types. It features liquor circulation, auto batch reversing, efficient spray washing, and advanced diagnostics for smooth dyeing performance.
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="hydraulic-jigger-machine.html" class="gp-card-btn">Explore Product <i
+                  class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baby Felt Calander -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="Baby Felt calander/1.png" alt="Baby Felt Calander Machine" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+              
+              <h3 class="gp-card-title">Baby Felt Calander</h3>
+              <p class="gp-card-desc">The Baby Felt Calender Machine is designed for superior fabric finishing of cotton, blended, and wool fabrics with smooth, soft, and enhanced surface finish. It offers vibration-free performance, high production efficiency, low maintenance, and energy-efficient operation for modern textile processing industries.
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="baby-felt-calander.html" class="gp-card-btn">Explore Product <i class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTHP Jigger Machine -->
+        <div class="gp-card reveal-element">
+          <div class="gp-image-wrapper">
+            <img src="HTHP Jigger/4.png" alt="HTHP Jigger Machine" loading="lazy">
+          </div>
+          <div class="gp-card-content">
+            <div class="gp-info-wrapper">
+              
+              <h3 class="gp-card-title">HTHP Jigger Machine</h3>
+              <p class="gp-card-desc">The HTHP Jigger is designed for dyeing open width nylon, spandex, silk, cotton, polyester, flax, and blended fabrics. It supports high temperature processing up to 143°C with adjustable fabric tension, indirect heating system, and efficient operation for small batch textile processing.
+</p>
+            </div>
+            <div class="gp-btn-wrapper">
+              <a href="hthp-jigger-machine.html" class="gp-card-btn">Explore Product <i class="gp-btn-arrow">→</i></a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /grid -->
+
+    </div>
+  </section>
+
+  <script>
+    // Unique Observer for Gayatri Products
+    const gpRevealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          window.requestAnimationFrame(() => {
+            entry.target.classList.add('reveal-visible');
+          });
+          gpRevealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal-element').forEach(el => gpRevealObserver.observe(el));
+
+    // High-Performance Parallax
+    let ticking = false;
+    const isMobile = window.innerWidth < 768;
+
+    const updateParallax = () => {
+      if (isMobile) {
+        ticking = false;
+        return;
+      }
+      
+      const scrolled = window.pageYOffset;
+      const gridLight = document.querySelector('.gp-bg-grid-light');
+      const gridDark = document.querySelector('.gp-bg-grid-dark');
+      const orb1 = document.querySelector('.gp-orb--1');
+      const orb2 = document.querySelector('.gp-orb--2');
+
+      // Optimized Parallax Intensity
+      if (gridLight) gridLight.style.transform = `translate3d(0, ${scrolled * 0.04}px, 0)`;
+      if (gridDark) gridDark.style.transform = `translate3d(0, ${scrolled * 0.04}px, 0)`;
+      if (orb1) orb1.style.transform = `translate3d(0, ${scrolled * 0.06}px, 0)`;
+      if (orb2) orb2.style.transform = `translate3d(0, ${scrolled * -0.04}px, 0)`;
+
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
+          <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
+        </div>
+        <p class="footer-motto">Innovate, Engineer, Excel</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/dhruv-sharma-309b3b1a4/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61574865483459" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
+          </a>
+          <a href="mailto:gayatri0022@rediffmail.com" class="social-btn" title="Email" aria-label="Email">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="decatising-machine.html">Decatising Machine</a></li>
+          <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
+          <li><a href="dyeing-jigger-machine.html">Automatic Dyeing Jigger Machine</a></li>
+          <li><a href="calander-machine.html">Calander Machine</a></li>
+          <li><a href="hydraulic-jigger-machine.html">Hydraulic Jigger</a></li>
+          <li><a href="baby-felt-calander.html">Baby Felt Calander Machine</a></li>
+          <li><a href="hthp-jigger-machine.html">HTPH Jigger Machine</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gayatri-about-gallery.html">About Us</a></li>
+          <!-- <li><a href="gallery.html">Gallery</a></li> -->
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
+            </a></li>
+          <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
+          <li><a href="mailto:gayatri0022@rediffmail.com">✉️ gayatri0022@rediffmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
+      <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ═══════════════════════════════════════ -->
+  <a href="https://wa.me/918511343477" id="whatsapp-btn" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp">
+    <!-- Official WhatsApp path -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <!-- ─ Custom cursor ─ -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

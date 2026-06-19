@@ -1,0 +1,2314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Gayatri Industrial Engineers</title>
+  <meta name="theme-color" content="#1a4f8a">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ============================================================
+   GAYATRI INDUSTRIAL ENGINEERS – MAIN SECTION
+   Brand: #0d5eff (Royal Blue) · #0b1f5e (Navy) · #ffffff (White)
+   ============================================================ */
+
+    :root {
+      --gie-blue: #0d5eff;
+      --gie-navy: #0b1f5e;
+      --gie-navy-dark: #060f33;
+      --gie-white: #ffffff;
+      --gie-off-white: #f0f4ff;
+      --gie-blue-light: #4a7fff;
+      --gie-blue-mid: #1a3fa0;
+      --gie-gold: #c9a84c;
+      --gie-glow: rgba(13, 94, 255, 0.25);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Barlow', sans-serif;
+      --font-condensed: 'Barlow Condensed', sans-serif;
+    }
+
+    /* ── Reset & Base ─────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .gie-main {
+      font-family: var(--font-body);
+      color: var(--gie-navy);
+      background: var(--gie-white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── Scroll Animations ────────────────────────────────────── */
+    .gie-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .gie-reveal.gie-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gie-reveal-zoom {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .gie-reveal-zoom.gie-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .gie-reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .gie-reveal-left.gie-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .gie-reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .gie-reveal-right.gie-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── Utility ──────────────────────────────────────────────── */
+    .gie-section-label {
+      font-family: var(--font-condensed);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gie-blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .gie-section-label::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 2px;
+      background: var(--gie-blue);
+    }
+
+    /* ============================================================
+   SECTION 1 — ABOUT / LEGACY INTRO
+   ============================================================ */
+    .gie-about {
+      position: relative;
+      background: var(--gie-white);
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+
+    /* Blueprint grid background */
+    .gie-about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 94, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 94, 255, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Glowing diagonal accent */
+    .gie-about::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 94, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .gie-about-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .gie-about-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .gie-about-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--gie-navy);
+      margin-bottom: 28px;
+    }
+
+    .gie-about-text h2 span {
+      color: var(--gie-blue);
+    }
+
+    .gie-about-text p {
+      font-size: 1.1rem;
+      color: #3a4d7a;
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── Hero Image Card ──────────────────────────────────────── */
+    .gie-hero-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: visible;
+    }
+
+    .gie-hero-img-wrap {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 40px 80px rgba(11, 31, 94, 0.22);
+    }
+
+    .gie-hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Blue overlay line accent */
+    .gie-hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13, 94, 255, 0.18) 0%, transparent 60%);
+    }
+
+    /* Floating badges */
+    .gie-float-badges {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .gie-badge {
+      position: absolute;
+      background: var(--gie-white);
+      border-left: 3px solid var(--gie-blue);
+      border-radius: 3px;
+      padding: 10px 16px;
+      box-shadow: 0 8px 32px rgba(11, 31, 94, 0.18);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-condensed);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gie-navy);
+      animation: gieFloatBadge 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .gie-badge .gie-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gie-blue);
+      flex-shrink: 0;
+    }
+
+    .gie-badge:nth-child(1) {
+      top: -20px;
+      left: -28px;
+      animation-delay: 0s;
+    }
+
+    .gie-badge:nth-child(2) {
+      top: 42%;
+      right: -32px;
+      animation-delay: 1s;
+    }
+
+    .gie-badge:nth-child(3) {
+      bottom: -22px;
+      left: 30px;
+      animation-delay: 2s;
+    }
+
+    @keyframes gieFloatBadge {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* ── Stat Cards ───────────────────────────────────────────── */
+    .gie-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gie-stat-card {
+      background: linear-gradient(135deg, var(--gie-navy) 0%, var(--gie-blue-mid) 100%);
+      border-radius: 4px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gie-stat-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(13, 94, 255, 0.25);
+      transition: transform 0.4s ease;
+    }
+
+    .gie-stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(13, 94, 255, 0.3);
+    }
+
+    .gie-stat-card:hover::before {
+      transform: scale(1.6);
+    }
+
+    .gie-stat-number {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--gie-white);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .gie-stat-label {
+      font-family: var(--font-condensed);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .gie-stat-line {
+      width: 32px;
+      height: 2px;
+      background: var(--gie-blue);
+      margin: 14px 0;
+    }
+
+    /* ============================================================
+   SECTION 2 — TIMELINE  (alternating left-right)
+   ============================================================ */
+    .gie-timeline {
+      background: var(--gie-navy-dark);
+      padding: 110px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Blueprint grid */
+    .gie-timeline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 94, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 94, 255, 0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* Ambient blue orbs */
+    .gie-timeline::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: -200px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 94, 255, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .gie-timeline-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Header */
+    .gie-timeline-header {
+      text-align: center;
+      margin-bottom: 90px;
+    }
+
+    .gie-timeline-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      color: var(--gie-white);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .gie-timeline-header p {
+      color: rgba(255, 255, 255, 0.45);
+      max-width: 480px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .gie-timeline-header .gie-section-label {
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .gie-timeline-header .gie-section-label::before {
+      display: none;
+    }
+
+    /* ── Track wrapper ─────────────────────────────────────────── */
+    .gie-tl-track {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ── Centre glow line ──────────────────────────────────────── */
+    .gie-tl-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 2px;
+      background: rgba(255, 255, 255, 0.06);
+      z-index: 0;
+      overflow: visible;
+    }
+
+    .gie-tl-line-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg,
+          var(--gie-blue) 0%,
+          var(--gie-blue-light) 60%,
+          rgba(74, 127, 255, 0.2) 100%);
+      box-shadow:
+        0 0 8px var(--gie-blue),
+        0 0 24px rgba(13, 94, 255, 0.55),
+        0 0 48px rgba(13, 94, 255, 0.2);
+      border-radius: 1px;
+      transition: height 0.08s linear;
+    }
+
+    /* ── Single timeline item ──────────────────────────────────── */
+    .gie-tl-item {
+      display: grid;
+      grid-template-columns: 1fr 80px 1fr;
+      align-items: center;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gie-tl-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* LEFT side card (odd items — default) */
+    .gie-tl-left {
+      grid-column: 1;
+      justify-self: end;
+      padding-right: 0;
+    }
+
+    .gie-tl-mid {
+      grid-column: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .gie-tl-right {
+      grid-column: 3;
+      justify-self: start;
+      padding-left: 0;
+    }
+
+    /* Card sits left for odd, right for even */
+    .gie-tl-item.gie-tl-odd .gie-tl-card-slot {
+      grid-column: 1;
+      justify-self: end;
+    }
+
+    .gie-tl-item.gie-tl-odd .gie-tl-spacer {
+      grid-column: 3;
+    }
+
+    .gie-tl-item.gie-tl-even .gie-tl-card-slot {
+      grid-column: 3;
+      justify-self: start;
+    }
+
+    .gie-tl-item.gie-tl-even .gie-tl-spacer {
+      grid-column: 1;
+    }
+
+    /* ── Dot node ──────────────────────────────────────────────── */
+    .gie-tl-node {
+      grid-column: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+    }
+
+    .gie-tl-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gie-navy-dark);
+      border: 2px solid var(--gie-blue);
+      box-shadow:
+        0 0 0 5px rgba(13, 94, 255, 0.12),
+        0 0 18px rgba(13, 94, 255, 0.5);
+      position: relative;
+      z-index: 3;
+      transition: box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+      cursor: default;
+    }
+
+    .gie-tl-dot::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      background: var(--gie-blue);
+      opacity: 0.9;
+    }
+
+    .gie-tl-item:hover .gie-tl-dot {
+      background: var(--gie-blue);
+      box-shadow:
+        0 0 0 7px rgba(13, 94, 255, 0.18),
+        0 0 32px rgba(13, 94, 255, 0.7),
+        0 0 60px rgba(13, 94, 255, 0.3);
+      transform: scale(1.25);
+    }
+
+    /* ── Connector line (dot → card) ───────────────────────────── */
+    .gie-tl-connector {
+      position: absolute;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gie-blue), rgba(13, 94, 255, 0.1));
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+      z-index: 2;
+    }
+
+    /* Odd: connector goes left  (dot → left card) */
+    .gie-tl-item.gie-tl-odd .gie-tl-connector {
+      right: 0;
+      left: auto;
+      width: 40px;
+      background: linear-gradient(270deg, var(--gie-blue), rgba(13, 94, 255, 0.1));
+      transform-origin: right center;
+    }
+
+    /* Even: connector goes right (dot → right card) */
+    .gie-tl-item.gie-tl-even .gie-tl-connector {
+      left: 0;
+      width: 40px;
+    }
+
+    /* Reveal connector when item is visible */
+    .gie-tl-item.gie-tl-in .gie-tl-connector {
+      transform: scaleX(1);
+    }
+
+    /* ── Card ──────────────────────────────────────────────────── */
+    .gie-tl-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(13, 94, 255, 0.18);
+      border-radius: 6px;
+      padding: 28px 32px;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      transition:
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.35s ease;
+    }
+
+    /* Sheen on hover */
+    .gie-tl-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(13, 94, 255, 0.07), transparent);
+      transform: skewX(-12deg);
+      transition: left 0.55s ease;
+    }
+
+    .gie-tl-card:hover::before {
+      left: 120%;
+    }
+
+    .gie-tl-card:hover {
+      border-color: rgba(13, 94, 255, 0.5);
+      background: rgba(13, 94, 255, 0.07);
+      box-shadow: 0 12px 48px rgba(13, 94, 255, 0.22), 0 0 0 1px rgba(13, 94, 255, 0.25);
+      transform: translateY(-4px);
+    }
+
+    /* Even cards: right-aligned text feel */
+    .gie-tl-item.gie-tl-even .gie-tl-card {
+      border-left: 3px solid var(--gie-blue);
+    }
+
+    .gie-tl-item.gie-tl-odd .gie-tl-card {
+      border-right: 3px solid var(--gie-blue);
+    }
+
+    /* Card accent top stripe */
+    .gie-tl-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(13, 94, 255, 0.4), transparent);
+    }
+
+    .gie-tl-year {
+      font-family: var(--font-condensed);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gie-blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gie-tl-year::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gie-blue);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .gie-tl-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2vw, 1.65rem);
+      color: var(--gie-white);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .gie-tl-desc {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.48);
+      line-height: 1.75;
+    }
+
+    /* ── Slide-in animations ───────────────────────────────────── */
+    /* Odd = card appears on left → slides from left */
+    .gie-tl-item.gie-tl-odd .gie-tl-card-slot {
+      opacity: 0;
+      transform: translateX(-48px);
+      transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Even = card appears on right → slides from right */
+    .gie-tl-item.gie-tl-even .gie-tl-card-slot {
+      opacity: 0;
+      transform: translateX(48px);
+      transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* When in view */
+    .gie-tl-item.gie-tl-in .gie-tl-card-slot {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Dot pulse in */
+    .gie-tl-node {
+      opacity: 0;
+      transform: scale(0.4);
+      transition: opacity 0.5s ease 0.15s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s;
+    }
+
+    .gie-tl-item.gie-tl-in .gie-tl-node {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ── Spacer ────────────────────────────────────────────────── */
+    .gie-tl-spacer {
+      width: 100%;
+    }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .gie-tl-track {
+        max-width: 600px;
+      }
+
+      .gie-tl-item {
+        grid-template-columns: 1fr 56px 1fr;
+        margin-bottom: 56px;
+      }
+
+      .gie-tl-card {
+        padding: 22px 24px;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      /* Collapse to single-column centred */
+      .gie-tl-line {
+        left: 24px;
+        transform: none;
+      }
+
+      .gie-tl-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 60px;
+        margin-bottom: 44px;
+        gap: 0;
+      }
+
+      .gie-tl-node {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%) scale(0.4) !important;
+        opacity: 0;
+      }
+
+      .gie-tl-item.gie-tl-in .gie-tl-node {
+        transform: translateY(-50%) scale(1) !important;
+        opacity: 1;
+      }
+
+      .gie-tl-item {
+        position: relative;
+      }
+
+      .gie-tl-spacer {
+        display: none;
+      }
+
+      .gie-tl-connector {
+        display: none;
+      }
+
+      .gie-tl-card-slot {
+        width: 100%;
+      }
+
+      /* Reset slide directions on mobile — both come up */
+      .gie-tl-item.gie-tl-odd .gie-tl-card-slot,
+      .gie-tl-item.gie-tl-even .gie-tl-card-slot {
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .gie-tl-item.gie-tl-in .gie-tl-card-slot {
+        transform: translateY(0);
+      }
+
+      .gie-tl-item.gie-tl-odd .gie-tl-card {
+        border-right: none;
+        border-left: 3px solid var(--gie-blue);
+      }
+    }
+
+    /* ============================================================
+   SECTION 3 — AWARDS WALL
+   ============================================================ */
+    .gie-awards {
+      background: var(--gie-navy);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gie-awards::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gie-blue), transparent);
+    }
+
+    .gie-awards-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .gie-awards-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .gie-awards-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      color: var(--gie-white);
+      margin-bottom: 14px;
+    }
+
+    .gie-awards-header p {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 1rem;
+    }
+
+    .gie-awards-header .gie-section-label {
+      justify-content: center;
+    }
+
+    .gie-awards-header .gie-section-label::before {
+      display: none;
+    }
+
+    /* Awards grid — asymmetric */
+    .gie-awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .gie-award-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(13, 94, 255, 0.18);
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      aspect-ratio: 3/4;
+      border: 10px ridge var(--gie-gold);
+    }
+
+    .gie-award-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 24px 60px rgba(13, 94, 255, 0.35), 0 0 0 1px rgba(13, 94, 255, 0.4);
+    }
+
+    .gie-award-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gie-award-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .gie-award-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(6, 15, 51, 0.88) 0%, rgba(6, 15, 51, 0.1) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+      transition: background 0.3s ease;
+    }
+
+    .gie-award-card:hover .gie-award-overlay {
+      background: linear-gradient(0deg, rgba(13, 94, 255, 0.7) 0%, rgba(6, 15, 51, 0.3) 70%, transparent 100%);
+    }
+
+    .gie-award-cat {
+      font-family: var(--font-condensed);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gie-gold);
+      margin-bottom: 4px;
+    }
+
+    .gie-award-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--gie-white);
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .gie-award-year {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* Glassmorphism accent on hover */
+    .gie-award-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      transition: box-shadow 0.3s;
+    }
+
+    .gie-award-card:hover::after {
+      box-shadow: inset 0 0 0 1px rgba(13, 94, 255, 0.3);
+    }
+
+    /* ============================================================
+   SECTION 4 — CERTIFICATES WALL
+   ============================================================ */
+    .gie-certs {
+      background: var(--gie-off-white);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gie-certs::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 94, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 94, 255, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .gie-certs-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .gie-certs-header {
+      margin-bottom: 56px;
+    }
+
+    .gie-certs-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--gie-navy);
+      margin-bottom: 12px;
+    }
+
+    .gie-certs-header p {
+      color: #5a6a9a;
+      font-size: 1rem;
+      max-width: 500px;
+    }
+
+    /* Equal cert grid */
+    .gie-certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    /* Equal cert grid */
+    .gie-cert-card {
+      background: var(--gie-white);
+      border: 1px solid rgba(13, 94, 255, 0.12);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(11, 31, 94, 0.07);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .gie-cert-card:hover {
+      transform: translateY(-8px) rotate(0.3deg);
+      box-shadow: 0 20px 50px rgba(13, 94, 255, 0.16);
+      border-color: rgba(13, 94, 255, 0.35);
+    }
+
+    .gie-cert-img-wrap {
+      background: #f8faff;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(13, 94, 255, 0.08);
+      width: 100%;
+      height: 220px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gie-cert-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 94, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 94, 255, 0.04) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .gie-cert-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.4s ease;
+    }
+
+    .gie-cert-card:hover .gie-cert-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .gie-cert-info {
+      padding: 18px 20px;
+      border-top: 3px solid var(--gie-blue);
+    }
+
+    .gie-cert-cat {
+      font-family: var(--font-condensed);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gie-blue);
+      margin-bottom: 4px;
+    }
+
+    .gie-cert-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--gie-navy);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .gie-cert-year {
+      font-size: 0.78rem;
+      color: #8090bb;
+      margin-top: 4px;
+    }
+
+    /* ============================================================
+   SECTION 5 — CEREMONY / HUMAN PROOF
+   ============================================================ */
+    .gie-ceremony {
+      background: var(--gie-white);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gie-ceremony-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .gie-ceremony-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .gie-ceremony-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--gie-navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .gie-ceremony-text h2 em {
+      color: var(--gie-blue);
+      font-style: italic;
+    }
+
+    .gie-ceremony-text p {
+      font-size: 1.05rem;
+      color: #4a5a8a;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .gie-ceremony-text blockquote {
+      border-left: 3px solid var(--gie-blue);
+      padding: 16px 20px;
+      margin: 24px 0 0;
+      background: var(--gie-off-white);
+      border-radius: 0 4px 4px 0;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gie-navy);
+      font-style: italic;
+    }
+
+    /* Scrapbook photos */
+    .gie-scrapbook {
+      position: relative;
+      height: 460px;
+    }
+
+    .gie-scrap-photo {
+      position: absolute;
+      background: var(--gie-white);
+      padding: 12px 12px 40px;
+      box-shadow: 0 12px 40px rgba(11, 31, 94, 0.18);
+      border: 1px solid rgba(11, 31, 94, 0.08);
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, z-index 0s;
+    }
+
+    .gie-scrap-photo:hover {
+      box-shadow: 0 24px 60px rgba(11, 31, 94, 0.28);
+      z-index: 10;
+    }
+
+    .gie-scrap-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gie-scrap-photo:nth-child(1) {
+      width: 60%;
+      height: 65%;
+      top: 0;
+      left: 0;
+      transform: rotate(-2.5deg);
+    }
+
+    .gie-scrap-photo:nth-child(1):hover {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    .gie-scrap-photo:nth-child(2) {
+      width: 52%;
+      height: 58%;
+      bottom: 0;
+      right: 0;
+      transform: rotate(2deg);
+    }
+
+    .gie-scrap-photo:nth-child(2):hover {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    /* Tape strips */
+    .gie-scrap-photo::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 60px;
+      height: 24px;
+      background: rgba(13, 94, 255, 0.15);
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+   SECTION 6 — EXHIBITIONS
+   ============================================================ */
+    .gie-exhibitions {
+      background: var(--gie-navy-dark);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gie-exhibitions::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13, 94, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 94, 255, 0.07) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+    }
+
+    .gie-exhibitions-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .gie-exhibitions-header {
+      margin-bottom: 56px;
+    }
+
+    .gie-exhibitions-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--gie-white);
+      margin-bottom: 12px;
+    }
+
+    .gie-exhibitions-header p {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 1rem;
+    }
+
+    /* Horizontal scroll carousel */
+    .gie-expo-carousel-wrap {
+      position: relative;
+    }
+
+    .gie-expo-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 24px;
+      cursor: grab;
+    }
+
+    .gie-expo-carousel:active {
+      cursor: grabbing;
+    }
+
+    .gie-expo-carousel::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .gie-expo-carousel::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+    }
+
+    .gie-expo-carousel::-webkit-scrollbar-thumb {
+      background: var(--gie-blue);
+      border-radius: 2px;
+    }
+
+    .gie-expo-card {
+      flex: 0 0 auto;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform 0.35s ease;
+    }
+
+    /* Mixed sizes for visual interest */
+    .gie-expo-card:nth-child(odd) {
+      width: 340px;
+      height: 240px;
+    }
+
+    .gie-expo-card:nth-child(even) {
+      width: 280px;
+      height: 240px;
+      align-self: flex-end;
+    }
+
+    .gie-expo-card:nth-child(3n) {
+      width: 400px;
+      height: 280px;
+    }
+
+    .gie-expo-card:hover {
+      transform: scale(1.03);
+    }
+
+    .gie-expo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gie-expo-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .gie-expo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(11, 31, 94, 0.75) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gie-expo-card:hover .gie-expo-overlay {
+      opacity: 1;
+    }
+
+    .gie-expo-overlay span {
+      font-family: var(--font-condensed);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gie-white);
+    }
+
+    /* Scroll buttons */
+    .gie-expo-btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: flex-end;
+    }
+
+    .gie-expo-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(13, 94, 255, 0.4);
+      background: rgba(13, 94, 255, 0.1);
+      color: var(--gie-white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .gie-expo-btn:hover {
+      background: var(--gie-blue);
+      border-color: var(--gie-blue);
+    }
+
+    /* ============================================================
+   LIGHTBOX
+   ============================================================ */
+    .gie-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(6, 15, 51, 0.95);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .gie-lightbox.gie-lb-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .gie-lb-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gie-lb-img {
+      max-width: 85vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+      transition: opacity 0.25s ease;
+      border: 15px ridge var(--gie-gold);
+    }
+
+    .gie-lb-img.gie-lb-fade {
+      opacity: 0;
+    }
+
+    .gie-lb-close {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--gie-white);
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .gie-lb-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .gie-lb-prev,
+    .gie-lb-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(13, 94, 255, 0.2);
+      border: 1px solid rgba(13, 94, 255, 0.4);
+      color: var(--gie-white);
+      cursor: pointer;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .gie-lb-prev:hover,
+    .gie-lb-next:hover {
+      background: var(--gie-blue);
+    }
+
+    .gie-lb-prev {
+      left: 20px;
+    }
+
+    .gie-lb-next {
+      right: 20px;
+    }
+
+    .gie-lb-caption {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-condensed);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+   SECTION DIVIDERS
+   ============================================================ */
+    .gie-divider {
+      width: 100%;
+      height: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gie-divider-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    /* ============================================================
+   RESPONSIVE
+   ============================================================ */
+    @media (max-width: 1024px) {
+      .gie-about-top {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .gie-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gie-awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gie-certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gie-ceremony-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .gie-scrapbook {
+        height: 340px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .gie-about,
+      .gie-timeline,
+      .gie-awards,
+      .gie-certs,
+      .gie-ceremony,
+      .gie-exhibitions {
+        padding: 72px 0;
+      }
+
+      .gie-stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .gie-awards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gie-certs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gie-ceremony-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .gie-scrapbook {
+        height: 300px;
+      }
+
+      .gie-expo-card:nth-child(odd),
+      .gie-expo-card:nth-child(even),
+      .gie-expo-card:nth-child(3n) {
+        width: 260px;
+        height: 200px;
+      }
+
+      .gie-lb-prev {
+        left: 8px;
+      }
+
+      .gie-lb-next {
+        right: 8px;
+      }
+
+      .gie-hero-img-wrap {
+        aspect-ratio: 4/3;
+      }
+
+      .gie-badge:nth-child(2) {
+        right: -10px;
+      }
+
+      .gie-badge:nth-child(3) {
+        bottom: -30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gie-certs-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .gie-cert-img-wrap {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─ Custom cursor ─ -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ═══════════════════════════════════════
+       SMART NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+
+    <div class="nav-logo">
+      <a href="index.html">
+        <div class="nav-logo-icon">
+          <img src="Gayatri logo.png" alt="Gayatri Logo" class="logo-img">
+        </div>
+      </a>
+      <a href="index.html">
+        <div class="nav-logo-text">
+          Gayatri<br><span>Industrial Engineers</span>
+        </div>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gayatri-about-gallery.html">About Us</a></li>
+      <li><a href="product-section.html">Products</a></li>
+
+      <!-- <li><a href="gallery.html">Gallery</a></li> -->
+      <li><a href="blog.html">Blogs</a></li>
+    </ul>
+
+
+    <div class="nav-cta-wrap">
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html">Home</a>
+    <a href="gayatri-about-gallery.html">About Us</a>
+    <a href="product-section.html">Products</a>
+    <!-- <a href="gallery.html">Gallery</a> -->
+    <a href="blog.html">Blogs</a>
+    <a href="contact.html" class="mobile-cta">Get In Touch</a>
+  </div>
+
+
+  <!-- ============================================================
+     GAYATRI INDUSTRIAL ENGINEERS — MAIN SECTION
+     ============================================================ -->
+  <main class="gie-main" id="gie-main">
+
+    <!-- ══════════════════════════════════════════════════════
+       SECTION 1 — ABOUT / LEGACY INTRO
+       ══════════════════════════════════════════════════════ -->
+    <section class="gie-about" aria-label="About Gayatri Industrial Engineers">
+      <div class="gie-about-inner">
+
+        <!-- Top: text + hero card -->
+        <div class="gie-about-top">
+
+          <div class="gie-about-text">
+            <div class="gie-section-label gie-reveal">Engineering Legacy</div>
+            <h2 class="gie-reveal" style="transition-delay:.1s">
+              Engineering<br /><span>Trust Since</span><br />1989
+            </h2>
+            <p class="gie-reveal" style="transition-delay:.2s">
+              Gayatri Industrial Engineers is a premier textile machinery manufacturer with over four
+              decades of hands-on engineering expertise. We design, fabricate, and deliver
+              high-performance machinery trusted by clients across India and internationally.
+            </p>
+            <p class="gie-reveal" style="transition-delay:.3s">
+              Every machine we build carries the weight of our legacy — precision crafted,
+              rigorously tested, and backed by the commitment of a team that has lived
+              and breathed industrial engineering since inception.
+            </p>
+          </div>
+
+          <div class="gie-hero-card gie-reveal-zoom" style="transition-delay:.2s">
+            <div class="gie-hero-img-wrap">
+              <!-- Placeholder — replace with actual factory/product image -->
+              <img src="Gallary/DSC00566.JPG" alt="Gayatri Industrial Engineers – Manufacturing Facility"
+                onerror="this.src='https://images.unsplash.com/photo-1565793979399-6e5d62d86b4d?w=800&q=80'" />
+            </div>
+            <div class="gie-float-badges">
+              <div class="gie-badge"><span class="gie-badge-dot"></span>ISO Certified</div>
+              <div class="gie-badge"><span class="gie-badge-dot"></span>Pan India &amp; International</div>
+              <div class="gie-badge"><span class="gie-badge-dot"></span>Textile Machinery Experts</div>
+            </div>
+          </div>
+
+        </div><!-- /about-top -->
+
+        <!-- Stat Cards -->
+        <div class="gie-stats">
+          <div class="gie-stat-card gie-reveal" style="transition-delay:.1s">
+            <div class="gie-stat-number">36+</div>
+            <div class="gie-stat-line"></div>
+            <div class="gie-stat-label">Years of Excellence</div>
+          </div>
+          <div class="gie-stat-card gie-reveal" style="transition-delay:.22s">
+            <div class="gie-stat-number">100%</div>
+            <div class="gie-stat-line"></div>
+            <div class="gie-stat-label">Client Satisfaction</div>
+          </div>
+          <div class="gie-stat-card gie-reveal" style="transition-delay:.34s">
+            <div class="gie-stat-number">Global</div>
+            <div class="gie-stat-line"></div>
+            <div class="gie-stat-label">Trusted Worldwide</div>
+          </div>
+        </div>
+
+      </div><!-- /about-inner -->
+    </section><!-- /about -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+       SECTION 2 — TIMELINE
+       ══════════════════════════════════════════════════════ -->
+    <section class="gie-timeline" aria-label="Company Journey Timeline">
+      <div class="gie-timeline-inner">
+
+        <div class="gie-timeline-header">
+          <div class="gie-section-label gie-reveal" style="justify-content:center;">Our Journey</div>
+          <h2 class="gie-reveal" style="transition-delay:.1s">Milestones That Define Us</h2>
+          <p class="gie-reveal" style="transition-delay:.2s">
+            From a small workshop to a nationally recognised industrial powerhouse — our story is
+            built on grit, precision, and an unrelenting pursuit of excellence.
+          </p>
+        </div>
+
+        <div class="gie-tl-track" id="gieTlTrack">
+
+          <!-- Centre glow line -->
+          <div class="gie-tl-line" id="gieTlLine">
+            <div class="gie-tl-line-fill" id="gieTlLineFill"></div>
+          </div>
+
+          <!-- ── ITEM 1 · ODD → card LEFT ───────────────────── -->
+          <div class="gie-tl-item gie-tl-odd">
+            <!-- Card slot on left -->
+            <div class="gie-tl-card-slot">
+              <div class="gie-tl-card">
+                <div class="gie-tl-year">Est. 1989</div>
+                <div class="gie-tl-title">Factory &amp; Manufacturing</div>
+                <div class="gie-tl-desc">Founded with a single lathe and a vision, our
+                  manufacturing facility has grown into a full-scale precision engineering
+                  plant crafting world-class textile machinery across India.</div>
+              </div>
+            </div>
+            <!-- Centre dot + connector -->
+            <div class="gie-tl-node">
+              <div class="gie-tl-connector"></div>
+              <div class="gie-tl-dot"></div>
+            </div>
+            <!-- Empty right side -->
+            <div class="gie-tl-spacer"></div>
+          </div>
+
+          <!-- ── ITEM 2 · EVEN → card RIGHT ─────────────────── -->
+          <div class="gie-tl-item gie-tl-even">
+            <div class="gie-tl-spacer"></div>
+            <div class="gie-tl-node">
+              <div class="gie-tl-connector"></div>
+              <div class="gie-tl-dot"></div>
+            </div>
+            <div class="gie-tl-card-slot">
+              <div class="gie-tl-card">
+                <!-- <div class="gie-tl-year">1998 – 2006</div> -->
+                <div class="gie-tl-title">Awards &amp; Recognition</div>
+                <div class="gie-tl-desc">Multiple national honours — from Bhartiya Udyog Ratan
+                  to the Mother Indra Udyog Pratibha Award — cemented our standing as an
+                  industry leader of integrity and excellence.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── ITEM 3 · ODD → card LEFT ───────────────────── -->
+          <div class="gie-tl-item gie-tl-odd">
+            <div class="gie-tl-card-slot">
+              <div class="gie-tl-card">
+                <!-- <div class="gie-tl-year">2000 – 2010</div> -->
+                <div class="gie-tl-title">Certificates &amp; Credentials</div>
+                <div class="gie-tl-desc">Formal recognition through ISO compliance, life-time
+                  achievement certificates, and industry body recognitions that validate our
+                  engineering standards decade after decade.</div>
+              </div>
+            </div>
+            <div class="gie-tl-node">
+              <div class="gie-tl-connector"></div>
+              <div class="gie-tl-dot"></div>
+            </div>
+            <div class="gie-tl-spacer"></div>
+          </div>
+
+          <!-- ── ITEM 4 · EVEN → card RIGHT ─────────────────── -->
+          <div class="gie-tl-item gie-tl-even">
+            <div class="gie-tl-spacer"></div>
+            <div class="gie-tl-node">
+              <div class="gie-tl-connector"></div>
+              <div class="gie-tl-dot"></div>
+            </div>
+            <div class="gie-tl-card-slot">
+              <div class="gie-tl-card">
+                <!-- <div class="gie-tl-year">Real Moments</div> -->
+                <div class="gie-tl-title">Award Ceremonies</div>
+                <div class="gie-tl-desc">Every trophy represents a room full of handshakes,
+                  trust, and the faces of people whose faith in Gayatri Industrial Engineers
+                  drove us to exceed expectations every single time.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── ITEM 5 · ODD → card LEFT ───────────────────── -->
+          <div class="gie-tl-item gie-tl-odd">
+            <div class="gie-tl-card-slot">
+              <div class="gie-tl-card">
+                <!-- <div class="gie-tl-year">2012 – Present</div> -->
+                <div class="gie-tl-title">Exhibitions &amp; Industry Presence</div>
+                <div class="gie-tl-desc">Active participants in India's premier textile machinery
+                  exhibitions — showcasing innovation, connecting with global partners,
+                  and reaffirming our place at the industry frontier.</div>
+              </div>
+            </div>
+            <div class="gie-tl-node">
+              <div class="gie-tl-connector"></div>
+              <div class="gie-tl-dot"></div>
+            </div>
+            <div class="gie-tl-spacer"></div>
+          </div>
+
+        </div><!-- /tl-track -->
+      </div><!-- /timeline-inner -->
+    </section><!-- /timeline -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+       SECTION 3 — AWARDS WALL
+       ══════════════════════════════════════════════════════ -->
+    <section class="gie-awards" aria-label="Awards">
+      <div class="gie-awards-inner">
+
+        <div class="gie-awards-header">
+          <div class="gie-section-label gie-reveal" style="justify-content:center;color:#fff;">
+            <span style="background:#fff;display:block;width:36px;height:2px;"></span>
+            Recognised Nationally
+          </div>
+          <h2 class="gie-reveal" style="transition-delay:.1s">Awards of Excellence</h2>
+          <p class="gie-reveal" style="transition-delay:.2s">
+            Earned through decades of uncompromising quality and engineering passion.
+          </p>
+        </div>
+
+        <div class="gie-awards-grid" id="gieAwardsGrid">
+          <!-- Populated by JS -->
+        </div>
+
+      </div>
+    </section><!-- /awards -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+       SECTION 4 — CERTIFICATES WALL
+       ══════════════════════════════════════════════════════ -->
+    <section class="gie-certs" aria-label="Certificates">
+      <div class="gie-certs-inner">
+
+        <div class="gie-certs-header">
+          <div class="gie-section-label gie-reveal">Verified Credentials</div>
+          <h2 class="gie-reveal" style="transition-delay:.1s">Certificates &amp; Credentials</h2>
+          <p class="gie-reveal" style="transition-delay:.2s">
+            Official recognition from industry bodies across India — proof of our consistent
+            standards and professional integrity.
+          </p>
+        </div>
+
+        <div class="gie-certs-grid" id="gieCertsGrid">
+          <!-- Populated by JS -->
+        </div>
+
+      </div>
+    </section><!-- /certs -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+       SECTION 5 — CEREMONY / HUMAN PROOF
+       ══════════════════════════════════════════════════════ -->
+    <section class="gie-ceremony" aria-label="Award Ceremonies">
+      <div class="gie-ceremony-inner">
+        <div class="gie-ceremony-layout">
+
+          <div class="gie-ceremony-text">
+            <div class="gie-section-label gie-reveal">The Human Side</div>
+            <h2 class="gie-reveal" style="transition-delay:.1s">
+              Behind Every Trophy<br />is a <em>Story</em>
+            </h2>
+            <p class="gie-reveal" style="transition-delay:.2s">
+              Awards are not just metal and glass. They are the culmination of years of late nights
+              on the shop floor, the trust of clients who believed in us, and the pride of a team
+              that refused to settle for anything less than the best.
+            </p>
+            <p class="gie-reveal" style="transition-delay:.28s">
+              These photographs capture those real moments — the handshakes, the smiles, and the
+              recognition that made every effort worth it.
+            </p>
+            <blockquote class="gie-reveal" style="transition-delay:.36s">
+              "Built on relationships, trust, and engineering passion."
+            </blockquote>
+          </div>
+
+          <!-- Scrapbook photos -->
+          <div class="gie-scrapbook gie-reveal-zoom" style="transition-delay:.2s;" id="gieScrapbook">
+            <!-- Populated by JS -->
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /ceremony -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+       SECTION 6 — EXHIBITIONS
+       ══════════════════════════════════════════════════════ -->
+    <section class="gie-exhibitions" aria-label="Exhibitions">
+      <div class="gie-exhibitions-inner">
+
+        <div class="gie-exhibitions-header">
+          <div class="gie-section-label gie-reveal" style="color:#fff;">
+            <span style="background:#fff;display:block;width:36px;height:2px;"></span>
+            Industry Presence
+          </div>
+          <h2 class="gie-reveal" style="transition-delay:.1s">Exhibitions &amp; Events</h2>
+          <p class="gie-reveal" style="transition-delay:.2s">
+            Representing Gayatri Industrial Engineers at the nation's premier textile and
+            engineering exhibitions.
+          </p>
+        </div>
+
+        <div class="gie-expo-carousel-wrap gie-reveal" style="transition-delay:.2s">
+          <div class="gie-expo-carousel" id="gieExpoCarousel">
+            <!-- Populated by JS -->
+          </div>
+          <div class="gie-expo-btns">
+            <button class="gie-expo-btn" id="gieExpoPrev" aria-label="Previous">&#8592;</button>
+            <button class="gie-expo-btn" id="gieExpoNext" aria-label="Next">&#8594;</button>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- /exhibitions -->
+
+  </main><!-- /gie-main -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+     LIGHTBOX
+     ══════════════════════════════════════════════════════ -->
+  <div class="gie-lightbox" id="gieLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="gie-lb-inner" id="gieLbInner">
+      <img class="gie-lb-img" id="gieLbImg" src="" alt="" />
+    </div>
+    <button class="gie-lb-close" id="gieLbClose" aria-label="Close">&#10005;</button>
+    <button class="gie-lb-prev" id="gieLbPrev" aria-label="Previous">&#8592;</button>
+    <button class="gie-lb-next" id="gieLbNext" aria-label="Next">&#8594;</button>
+    <div class="gie-lb-caption" id="gieLbCaption"></div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon"><img src="Gayatri logo.png" alt=""></div>
+          <div class="footer-logo-text">Gayatri Industrial<br>Engineers</div>
+        </div>
+        <p class="footer-motto">Innovate, Engineer, Excel</p>
+
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/dhruv-sharma-309b3b1a4/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61574865483459" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Facebook">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg>
+          </a>
+          <a href="mailto:gayatri0022@rediffmail.com" class="social-btn" title="Email" aria-label="Email">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="decatising-machine.html">Decatising Machine</a></li>
+          <li><a href="gas-singeing-machine.html">Gas Singeing Machine</a></li>
+          <li><a href="dyeing-jigger-machine.html">Automatic Dyeing Jigger Machine</a></li>
+          <li><a href="calander-machine.html">Calander Machine</a></li>
+          <li><a href="hydraulic-jigger-machine.html">Hyrdaulic Jigger</a></li>
+          <li><a href="baby-felt-calander.html">Baby Felt Calander Machine</a></li>
+          <li><a href="hthp-jigger-machine.html">HTPH Jigger Machine</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gayatri-about-gallery.html">About Us</a></li>
+          <!-- <li><a href="gallery.html">Gallery</a></li> -->
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="#footer">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195
+            </a></li>
+          <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
+          <li><a href="mailto:gayatri0022@rediffmail.com">✉️ gayatri0022@rediffmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
+      <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ═══════════════════════════════════════ -->
+  <a href="https://wa.me/918511343477" id="whatsapp-btn" target="_blank" rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp">
+    <!-- Official WhatsApp path -->
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+  <script src="script.js"></script>
+  <script>
+    "use strict";
+
+    /* ── Data Arrays ─────────────────────────────────────────── */
+    const awards = [
+      { name: "Mother Indra Udyog Pratibha Award", year: "2005", category: "Award", img: "Gallary/DSC_0030.JPG.jpeg" },
+      { name: "National Industrial Excellence Award", year: "", category: "Award", img: "Gallary/DSC_0032.JPG.jpeg" },
+      { name: "Bhartiya Udyog Ratan Award", year: "2022", category: "Award", img: "Gallary/DSC_0041.JPG.jpeg" }
+    ];
+
+    const certificates = [
+      { name: "Bhartiya Udyog Ratan Award", year: "20th August 1998", category: "Certificate", img: "Gallary/DSC_0037.JPG.jpeg" },
+      { name: "Mother India Udyog Pratibha Award", year: "November 1, 2006", category: "Certificate", img: "Gallary/DSC_0036.JPG.jpeg" },
+      { name: "National Industrial Excellence Award '97", year: "24th April, 1998", category: "Certificate", img: "Gallary/DSC_0035.JPG.jpeg" },
+      { name: "Life Time Achievement Gold Medal Award", year: "10th July 2003", category: "Certificate", img: "Gallary/DSC_0033.JPG.jpeg" },
+      { name: "Life Time Achievement Award", year: "August 1, 2002", category: "Certificate", img: "Gallary/DSC_0027.JPG.jpeg" },
+      { name: "9th India International Textile Machinery Exhibition", year: "December 2012", category: "Certificate", img: "Gallary/DSC_0023.JPG" }
+    ];
+
+    const photos = [
+      { name: "Award Ceremony", year: "", category: "Ceremony", img: "Gallary/DSC_0039.JPG.jpeg" },
+      { name: "Award Ceremony", year: "", category: "Ceremony", img: "Gallary/DSC_0040.JPG.jpeg" }
+    ];
+
+    const exhibitions = [
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00559.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00562.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00566.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00573.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00578.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00589.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00590.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00625.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00627.JPG" },
+      { name: "Exhibition", year: "", category: "", img: "Gallary/DSC00636.JPG" }
+    ];
+
+    /* ── Lightbox State ──────────────────────────────────────── */
+    let lbImages = []; // flat array of {src, caption}
+    let lbCurrent = 0;
+
+    function lbOpen(images, index) {
+      lbImages = images;
+      lbCurrent = index;
+      lbShow(lbCurrent);
+      document.getElementById('gieLightbox').classList.add('gie-lb-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function lbClose() {
+      document.getElementById('gieLightbox').classList.remove('gie-lb-open');
+      document.body.style.overflow = '';
+    }
+    function lbShow(index) {
+      const img = document.getElementById('gieLbImg');
+      const caption = document.getElementById('gieLbCaption');
+      img.classList.add('gie-lb-fade');
+      setTimeout(() => {
+        img.src = lbImages[index].src;
+        img.alt = lbImages[index].caption || '';
+        caption.textContent = lbImages[index].caption || '';
+        img.classList.remove('gie-lb-fade');
+      }, 220);
+    }
+    function lbPrev() {
+      lbCurrent = (lbCurrent - 1 + lbImages.length) % lbImages.length;
+      lbShow(lbCurrent);
+    }
+    function lbNext() {
+      lbCurrent = (lbCurrent + 1) % lbImages.length;
+      lbShow(lbCurrent);
+    }
+
+    document.getElementById('gieLbClose').addEventListener('click', lbClose);
+    document.getElementById('gieLbPrev').addEventListener('click', lbPrev);
+    document.getElementById('gieLbNext').addEventListener('click', lbNext);
+    document.getElementById('gieLightbox').addEventListener('click', e => {
+      if (e.target === document.getElementById('gieLightbox')) lbClose();
+    });
+    document.addEventListener('keydown', e => {
+      const lb = document.getElementById('gieLightbox');
+      if (!lb.classList.contains('gie-lb-open')) return;
+      if (e.key === 'Escape') lbClose();
+      if (e.key === 'ArrowLeft') lbPrev();
+      if (e.key === 'ArrowRight') lbNext();
+    });
+
+
+    /* ── Build Awards Grid ───────────────────────────────────── */
+    (function buildAwards() {
+      const grid = document.getElementById('gieAwardsGrid');
+      const imgs = awards.map(a => ({ src: a.img, caption: a.name + (a.year ? ' · ' + a.year : '') }));
+      awards.forEach((a, i) => {
+        const card = document.createElement('div');
+        card.className = 'gie-award-card gie-reveal';
+        card.style.transitionDelay = (i * 0.12) + 's';
+        card.innerHTML = `
+      <img src="${a.img}" alt="${a.name}" loading="lazy"
+           onerror="this.src='https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=600&q=80'"/>
+      <div class="gie-award-overlay">
+        <div class="gie-award-cat">${a.category}</div>
+        <div class="gie-award-name">${a.name}</div>
+        ${a.year ? `<div class="gie-award-year">${a.year}</div>` : ''}
+      </div>`;
+        card.addEventListener('click', () => lbOpen(imgs, i));
+        grid.appendChild(card);
+      });
+    })();
+
+
+    /* ── Build Certificates Grid ─────────────────────────────── */
+    (function buildCerts() {
+      const grid = document.getElementById('gieCertsGrid');
+      const imgs = certificates.map(c => ({ src: c.img, caption: c.name + (c.year ? ' · ' + c.year : '') }));
+      certificates.forEach((c, i) => {
+        const card = document.createElement('div');
+        card.className = 'gie-cert-card gie-reveal';
+        card.style.transitionDelay = (i * 0.1) + 's';
+        card.innerHTML = `
+      <div class="gie-cert-img-wrap">
+        <img src="${c.img}" alt="${c.name}" loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1586282391129-76a6df230234?w=600&q=80'"/>
+      </div>
+      <div class="gie-cert-info">
+        <div class="gie-cert-cat">${c.category}</div>
+        <div class="gie-cert-name">${c.name}</div>
+        ${c.year ? `<div class="gie-cert-year">${c.year}</div>` : ''}
+      </div>`;
+        card.addEventListener('click', () => lbOpen(imgs, i));
+        grid.appendChild(card);
+      });
+    })();
+
+
+    /* ── Build Scrapbook / Ceremony ──────────────────────────── */
+    (function buildScrapbook() {
+      const wrap = document.getElementById('gieScrapbook');
+      const imgs = photos.map(p => ({ src: p.img, caption: p.name }));
+      photos.forEach((p, i) => {
+        const photo = document.createElement('div');
+        photo.className = 'gie-scrap-photo';
+        photo.innerHTML = `<img src="${p.img}" alt="${p.name}" loading="lazy"
+      onerror="this.src='https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80'"/>`;
+        photo.addEventListener('click', () => lbOpen(imgs, i));
+        wrap.appendChild(photo);
+      });
+    })();
+
+
+    /* ── Build Exhibition Carousel ───────────────────────────── */
+    (function buildExhibitions() {
+      const carousel = document.getElementById('gieExpoCarousel');
+      const imgs = exhibitions.map(e => ({ src: e.img, caption: 'Exhibition' }));
+      exhibitions.forEach((e, i) => {
+        const card = document.createElement('div');
+        card.className = 'gie-expo-card';
+        card.innerHTML = `
+      <img src="${e.img}" alt="Exhibition" loading="lazy"
+           onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80'"/>
+      <div class="gie-expo-overlay"><span>Exhibition</span></div>`;
+        card.addEventListener('click', () => lbOpen(imgs, i));
+        carousel.appendChild(card);
+      });
+
+      /* Prev / Next buttons */
+      const scrollAmt = 320;
+      document.getElementById('gieExpoPrev').addEventListener('click', () => {
+        carousel.scrollBy({ left: -scrollAmt, behavior: 'smooth' });
+      });
+      document.getElementById('gieExpoNext').addEventListener('click', () => {
+        carousel.scrollBy({ left: scrollAmt, behavior: 'smooth' });
+      });
+
+      /* Drag-to-scroll */
+      let isDown = false, startX, scrollLeft;
+      carousel.addEventListener('mousedown', e => {
+        isDown = true;
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        carousel.classList.add('active');
+      });
+      carousel.addEventListener('mouseleave', () => { isDown = false; });
+      carousel.addEventListener('mouseup', () => { isDown = false; });
+      carousel.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.6;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+    })();
+
+
+    /* ── Timeline: glow line + alternating reveal ────────────── */
+    (function initTimeline() {
+      const track = document.getElementById('gieTlTrack');
+      const fill = document.getElementById('gieTlLineFill');
+
+      /* Glow line driven by scroll */
+      function updateGlowLine() {
+        if (!track || !fill) return;
+        const rect = track.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        const entered = viewH - rect.top;            // px scrolled into track
+        const progress = Math.min(1, Math.max(0, entered / (rect.height + viewH * 0.6)));
+        fill.style.height = (progress * 100) + '%';
+      }
+      window.addEventListener('scroll', updateGlowLine, { passive: true });
+      updateGlowLine();
+
+      /* Per-item reveal with IntersectionObserver */
+      const items = document.querySelectorAll('.gie-tl-item');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('gie-tl-in');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      items.forEach(item => obs.observe(item));
+    })();
+
+
+    /* ── Intersection Observer — Scroll Animations ───────────── */
+    (function initReveal() {
+      const elems = document.querySelectorAll(
+        '.gie-reveal, .gie-reveal-zoom, .gie-reveal-left, .gie-reveal-right'
+      );
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('gie-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elems.forEach(el => observer.observe(el));
+    })();
+
+  </script>
+</body>
+
+</html>
